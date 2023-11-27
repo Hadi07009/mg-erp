@@ -1,0 +1,415 @@
+﻿<%--<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="NewVersion.master.cs" Inherits="SINHA.MEDLAR.ERP.UI.NewVersion" %>--%>
+
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="NewVersion.master.cs"
+    Inherits="SINHA.MEDLAR.ERP.UI.NewVersion" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <link rel="shortcut icon" type="image/x-icon" href="Logo/Sinhalogo.ico" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>SINHA-MEDLAR ERP</title>
+    <meta http-equiv="Page-Enter" content="blendTrans(Duration=0.0)" />
+    <meta http-equiv="Page-Exit" content="blendTrans(Duration=0.0)" />
+    <meta http-equiv="Page-Enter" content="Alpha(opacity=100)" />
+    <meta name="description" content="ERP,HR & PAYROLL, STORE, PRODUCTION,FULL MANAGEMENT SOFTWARE, EMPLOYEE PAYMENT SYSTEM">
+    <meta name="keywords" content="ERP,HR & PAYROLL, STORE, PRODUCTION,FULL MANAGEMENT SOFTWARE,EMPLOYEE PAYMENT SYSTEM">
+    <link rel="stylesheet" type="text/css" href="css/erp_style.css" />
+    <link type="text/css" rel="stylesheet" href="css/style.css" />
+    <link type="text/css" rel="stylesheet" href="css/ButtonStyle.css" />
+    <link type="text/css" rel="stylesheet" href="css/TextBoxStyle.css" />
+    <%-- /*-------------bootstrap start-------------------------------------*/--%>
+    
+    
+    <!-- jQuery file -->
+    <script src="js/jtab.js" type="text/javascript"></script>
+    
+
+    <%-- Auto fill or Complete Textbox--%>
+    <%--<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>--%>
+   <%-- Auto fill or Complete Textbox End--%>
+
+    <%--<script src="js/jquery.min.js" type="text/javascript"></script>--%>
+    
+    <script src="js/jquery.tabify.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/tooltip1.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/tooltip2.js" type="text/javascript" charset="utf-8"></script>
+          
+    <%--<script src="http://code.jquery.com/jquery-1.9.1.min.js" type="text/javascript"></script>--%>
+    <style type="text/css">
+        .verticaltext
+        {
+            writing-mode: tb-rl;
+            filter: fliph flipv;
+        }
+    </style>
+
+    <style type="text/css">
+        .hideGridColumn
+        {
+            display:none;
+        }
+    </style>
+
+    <script type="text/javascript">
+        function MouseEvents(objRef, evt) {
+            if (evt.type == "mouseover") {
+                objRef.style.fontSize = "140%";
+
+            } else {
+                objRef.style.fontSize = "100%";
+
+            }
+        }
+    </script>
+    <script type="text/javascript">
+        var $ = jQuery.noConflict();
+        $(function () {
+            $('#tabsmenu').tabify();
+            $(".toggle_container").hide();
+            $(".trigger").click(function () {
+                $(this).toggleClass("active").next().slideToggle("slow");
+                return false;
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            $('[id*=gvMenu] tr').each(function () {
+                var toolTip = $(this).attr("title");
+                $(this).find("td").each(function () {
+                    $(this).simpletip({
+                        content: toolTip
+                    });
+                });
+                $(this).removeAttr("title");
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            $('[id*=gvSetup] tr').each(function () {
+                var toolTip = $(this).attr("title");
+                $(this).find("td").each(function () {
+                    $(this).simpletip({
+                        content: toolTip
+                    });
+                });
+                $(this).removeAttr("title");
+            });
+        });
+    </script>
+    <%-- <style type="text/css">
+        .tooltip
+        {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 3;
+            display: none;
+            background-color: #FB66AA;
+            color: White;
+            padding: 5px;
+            font-size: 20;
+            font-family: Arial;
+        }
+        td
+        {
+            cursor: pointer;
+        }
+    </style>--%>
+    <script language="javascript">
+        $(function () {
+            $(".anyClass").jCarouselLite({
+                btnNext: ".next",
+                btnPrev: ".prev",
+                auto: 1000,
+                speed: 1000,
+                visible: 1
+            });
+        });
+    </script>
+    <script type="text/javascript" language="javascript">
+        //Check if the top location is same as the current location
+        if (top.location.hostname != self.location.hostname) {
+            //If not then set the top to you current
+            top.location.href = self.location.href;
+        }
+    </script>
+    
+    <script src="js/tip1.js" type="text/javascript"></script>
+    <script src="js/tip2.js" type="text/javascript"></script>
+    <script src="js/tip3.js" type="text/javascript"></script>
+    
+    <style type="text/css">
+        .ui-tooltip, .arrow:after
+        {
+            background: #FFFF80;
+            border: 1px solid Black;
+        }
+        .ui-tooltip
+        {
+            padding: 10px 10px;
+            color: black;
+            border-radius: 10px;
+            font: bold 10px "Helvetica Neue" , Sans-Serif;
+            text-transform: uppercase;
+            box-shadow: 0 0 7px black;
+        }
+        .arrow
+        {
+            width: 70px;
+            height: 16px;
+            overflow: hidden;
+            position: absolute;
+            left: 50%;
+            margin-left: -35px;
+            bottom: -16px;
+        }
+        .arrow.top
+        {
+            top: -25px;
+            bottom: auto;
+        }
+        .arrow.left
+        {
+            left: 20%;
+        }
+        .arrow:after
+        {
+            content: "";
+            position: absolute;
+            left: 20px;
+            top: -20px;
+            width: 25px;
+            height: 25px;
+            box-shadow: 6px 5px 9px -9px black;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+        .arrow.top:after
+        {
+            bottom: -20px;
+            top: auto;
+        }
+    </style>
+    <script type="text/javascript">
+
+        $(function () {
+            $(document).tooltip({
+                position: {
+                    my: "center bottom-20",
+                    at: "center top",
+                    using: function (position, feedback) {
+                        $(this).css(position);
+                        $("<div>")
+            .addClass("arrow")
+            .addClass(feedback.vertical)
+            .addClass(feedback.horizontal)
+            .appendTo(this);
+                    }
+                }
+            });
+        });
+    </script>
+   
+    <%--Start: Commented By Asad on 29.10.2018--%>
+    <%--<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>--%>
+    <%--End: Commented By Asad on 29.10.2018--%>
+
+    <%--Start: Added By Asad on 29.10.2018--%>
+
+        <%--JQuery: New Addition--%>
+        <link href="jquery/jquery-ui-1.12.1.min.css" rel="stylesheet" />
+        <script type="text/javascript" src="jquery/jquery-3.3.1.min.js"></script>
+        <script type="text/javascript" src="jquery/jquery-ui-1.12.1.min.js"></script>
+        <%--New Addition--%>
+
+      <%--Bootstrap: New Addition--%>
+        <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+        <script type="text/javascript" src="bootstrap/css/bootstrap.min.js"></script>
+      <%--New Addition--%>
+
+    <%--End: Added By Asad on 29.10.2018--%>
+
+    <style type="text/css">
+        .sinha-table {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        .sinha-table td, .sinha-table th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        .sinha-table tr:nth-child(even){background-color: #f2f2f2;}
+        .sinha-table tr:hover {background-color: #ddd;}
+        .sinha-table th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #12b8ee;
+            color: white;
+        }
+    </style>
+
+    <style type="text/css">
+        .style1
+        {
+            width: 100%;
+        }
+        .style2
+        {
+            font-family: "21 Gun Salute 3D";
+        }
+        .style3
+        {
+            height: 15px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div id="wrap">
+        <div id="" >
+            <div class="logo">
+                <img src="Logo/Sinhalogo.png" height="80" width="100"/> 
+            </div>
+            <div class="header-title" >
+                <h1>
+                    <a href="#">
+                        <asp:Label ID="lblTitle" runat="server" Text="Label" ></asp:Label>
+                    </a>
+
+                </h1>
+            </div>
+            <div class="header_right">
+                <%-- Welcome &nbsp; <a href="ChangePassword.aspx" class="settings">Change Password</a>
+                <a href="Login.aspx" class="logout" id="link">Sign Out</a>--%>
+                <asp:Button ID="btnChangePassword" runat="server" Text="Change Pass" CssClass="button" 
+                   OnClick="btnChangePassword_Click" Width="88px" />
+                <asp:Button ID="btnSignOut" runat="server" Text="Sign Out" CssClass="button" OnClick="btnSignOut_Click"  />
+            </div>
+        </div>
+
+        <div class="menu">
+            <asp:Menu ID="mnuBar"  Orientation="Horizontal" runat="server" CssClass="button" BackColor="#FE7B09" Width="1276px">
+            </asp:Menu>
+        </div>
+
+        <div id="right">
+            <div class="content-header">
+                <h2 style="text-align:left;"><a href="#">Welcome</a></h2>
+            </div>
+            <div class="content-info">
+                <div class="articles">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        <table class="style1">
+                            <tr>
+                                <td style="width: 342px; height: 15px">
+                                    <asp:Label ID="lblHeadOfficeName" runat="server" Text="Office Name" Font-Bold="True"
+                                        Font-Size="Small" Font-Names="Tahoma" Style="color: #0000FF"></asp:Label>
+                                </td>
+                                <td style="height: 15px">
+                                    <asp:Label ID="lblHeadOfficeAddress" runat="server" Text="Head Office  Address" Font-Bold="True"
+                                        Font-Size="Small" Style="color: #0000FF"></asp:Label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width: 342px">
+                                    <asp:Label ID="lblBranchOfficeName" runat="server" Text="Office Name" Font-Bold="True"
+                                        Font-Size="Small" Font-Names="Tahoma" Style="color: #0000FF"></asp:Label>
+                                    &nbsp;
+                                </td>
+                                <td>
+                                    <asp:Label ID="lblBranchOfficeAddress" runat="server" Text="Branch Office Address"
+                                        Font-Bold="True" Font-Size="Small" Style="color: #0000FF"></asp:Label>
+                                    &nbsp;
+                                </td>
+                            </tr>
+                        </table>
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
+            <div class="articles">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            <div class="articles">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder3" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            <div class="articles">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder4" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            <div class="articles">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder5" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            <div class="articles">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder6" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            <div class="articles">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder7" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            <div class="articles">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder8" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            <div class="articles">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder9" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            <div class="articles">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder10" runat="server">
+                    <asp:Label ID="lblYear" runat="server" Text="Office Name" Font-Bold="True" Font-Size="Small"
+                        Font-Names="Tahoma" Style="color: #0000FF" Visible="False"></asp:Label>
+                    <asp:Label ID="lblMonth" runat="server" Text="Office Name" Font-Bold="True" Font-Size="Small"
+                        Font-Names="Tahoma" Style="color: #0000FF" Visible="False"></asp:Label>
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+        <div id="left">
+            <h3>
+                Operation </h3>
+            <ul>
+                <asp:GridView ID="gvMenu" runat="server" DataSourceID="" AutoGenerateColumns="False"
+                        ShowHeader="False" GridLines="None" AllowPaging="false" CssClass="mGrid" PagerStyle-CssClass="pgr"
+                        OnRowDataBound="OnRowDataBound" AlternatingRowStyle-CssClass="alt" OnPageIndexChanging="gvMenu_PageIndexChanging"
+                        OnSelectedIndexChanged="gvMenu_OnSelectedIndexChanged" Width="180">
+                        <Columns>
+                            <asp:BoundField DataField="MENU_ID" HeaderText="ID" />
+                            <asp:BoundField DataField="MENU_NAME" HeaderText="MAIN MENU" />
+                        </Columns>
+                    </asp:GridView>
+            </ul>
+            <h3>
+                Sytstem Setup</h3>
+            <ul>
+                <asp:GridView ID="gvSetup" runat="server" DataSourceID="" AutoGenerateColumns="False"
+                        ShowHeader="False" GridLines="None" AllowPaging="false" CssClass="mGrid" PagerStyle-CssClass="pgr"
+                        OnRowDataBound="gvSetup_OnRowDataBound" AlternatingRowStyle-CssClass="alt" OnPageIndexChanging="gvSetup_PageIndexChanging"
+                        OnSelectedIndexChanged="gvSetup_OnSelectedIndexChanged" Width="180">
+                        <Columns>
+                            <asp:BoundField DataField="MENU_ID" HeaderText="ID" />
+                            <asp:BoundField DataField="MENU_NAME" HeaderText="SETUP MENU" />
+                        </Columns>
+                    </asp:GridView>
+            </ul>
+        </div>
+        <div style="clear: both;">
+        </div>
+        <div id="footer">
+            &copy; SINHA-MEDLAR GROUP. Designed and Developed by <a class="footer-link" href="#">
+                SINHA-MEDLAR(IT DEPARTMENT) || 82 Mohakhali, C/A Dhaka-1212 </a>
+        </div>
+    </div>
+    </form>
+</body>
+</html>

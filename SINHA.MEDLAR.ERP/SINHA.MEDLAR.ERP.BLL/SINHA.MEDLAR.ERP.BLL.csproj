@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4E6D2389-4325-4693-8CE7-6EB6DEF1261F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SINHA.MEDLAR.ERP.BLL</RootNamespace>
+    <AssemblyName>SINHA.MEDLAR.ERP.BLL</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddApprovedByBLL.cs" />
+    <Compile Include="AprovedEmployeeBLL.cs" />
+    <Compile Include="ArrearBLL.cs" />
+    <Compile Include="AttendenceBLL.cs" />
+    <Compile Include="BankBLL.cs" />
+    <Compile Include="ButtonPriceListBLL.cs" />
+    <Compile Include="BuyerBLL.cs" />
+    <Compile Include="BuyerPOBLL.cs" />
+    <Compile Include="CartoonPriceListBLL.cs" />
+    <Compile Include="CaseInfoBLL.cs" />
+    <Compile Include="Class1.cs" />
+    <Compile Include="ColorBLL.cs" />
+    <Compile Include="ContactSheetBLL.cs" />
+    <Compile Include="ContractBLL.cs" />
+    <Compile Include="CostingBLL.cs" />
+    <Compile Include="DailyProductionBLL.cs" />
+    <Compile Include="DashboardBLL.cs" />
+    <Compile Include="DigitalBoardBLL.cs" />
+    <Compile Include="EidBonusBLL.cs" />
+    <Compile Include="EmployeeBLL.cs" />
+    <Compile Include="FabricIssueBLL.cs" />
+    <Compile Include="FabricsDetailsBLL.cs" />
+    <Compile Include="FabricsImportRatioBLL.cs" />
+    <Compile Include="FactoryBLL.cs" />
+    <Compile Include="FOBBLL.cs" />
+    <Compile Include="ForeignFabricLcIssueBLL.cs" />
+    <Compile Include="ForeignFabricReceiveBLL.cs" />
+    <Compile Include="ForgetPassBLL.cs" />
+    <Compile Include="GazetteBLL.cs" />
+    <Compile Include="HangerPriceBLL.cs" />
+    <Compile Include="ImageBLL.cs" />
+    <Compile Include="IncrementBLL.cs" />
+    <Compile Include="IssuedProductBLL.cs" />
+    <Compile Include="LayChartBLL.cs" />
+    <Compile Include="LeaveBLL.cs" />
+    <Compile Include="LineBLL.cs" />
+    <Compile Include="LoginBLL.cs" />
+    <Compile Include="LookUpBLL.cs" />
+    <Compile Include="MaintenanceBLL.cs" />
+    <Compile Include="MonthlyStoreBLL.cs" />
+    <Compile Include="OfficeTimeBLL.cs" />
+    <Compile Include="POAssignBLL.cs" />
+    <Compile Include="POCloseBLL.cs" />
+    <Compile Include="PoDocumentsBLL.cs" />
+    <Compile Include="POEntryBLL.cs" />
+    <Compile Include="PolyBagBLL.cs" />
+    <Compile Include="POOpenBLL.cs" />
+    <Compile Include="PoOrderBLL.cs" />
+    <Compile Include="PoRequisitionBLL.cs" />
+    <Compile Include="PoTrackingBLL.cs" />
+    <Compile Include="POTypeBLL.cs" />
+    <Compile Include="ProcessBLL.cs" />
+    <Compile Include="ProductionBLL.cs" />
+    <Compile Include="ProductReceivedBLL.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PurchaseBLL.cs" />
+    <Compile Include="PurchaseOrderBLL.cs" />
+    <Compile Include="PurchasePartsBLL.cs" />
+    <Compile Include="ReportBLL.cs" />
+    <Compile Include="SalaryBLL.cs" />
+    <Compile Include="SalaryUnitBLL.cs" />
+    <Compile Include="SewingBLL.cs" />
+    <Compile Include="SewingThreadPriceBLL.cs" />
+    <Compile Include="ShareDistributionBLL.cs" />
+    <Compile Include="ShipmentEntryBLL.cs" />
+    <Compile Include="ShipmentInfoBLL.cs" />
+    <Compile Include="SparePartBLL.cs" />
+    <Compile Include="StyleBLL.cs" />
+    <Compile Include="TiffinBLL.cs" />
+    <Compile Include="TransferBLL.cs" />
+    <Compile Include="TrimsDetailsBLL.cs" />
+    <Compile Include="Utility\MessageBLL\EmailBLL\EmailBLL.cs" />
+    <Compile Include="Utility\NetworkBLL\Network.cs" />
+    <Compile Include="Utility\Validation.cs" />
+    <Compile Include="WorkerProcessBLL.cs" />
+    <Compile Include="ZipperReceiveBLL.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SINHA.MEDLAR.ERP.COMMON\SINHA.MEDLAR.ERP.COMMON.csproj">
+      <Project>{bf742d4a-e750-4040-ade0-78ee19933b9a}</Project>
+      <Name>SINHA.MEDLAR.ERP.COMMON</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SINHA.MEDLAR.ERP.DAL\SINHA.MEDLAR.ERP.DAL.csproj">
+      <Project>{9B8020D5-5AE9-4AF7-9F82-23E63043778E}</Project>
+      <Name>SINHA.MEDLAR.ERP.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SINHA.MEDLAR.ERP.DTO\SINHA.MEDLAR.ERP.DTO.csproj">
+      <Project>{2C2E9B59-0094-4FCD-9DF6-7E8DEDBFD491}</Project>
+      <Name>SINHA.MEDLAR.ERP.DTO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

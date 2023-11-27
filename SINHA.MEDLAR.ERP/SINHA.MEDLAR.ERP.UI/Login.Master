@@ -1,0 +1,79 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Login.master.cs" Inherits="SINHA.MEDLAR.HR.UI.Login" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8" content="text/html; charset=utf-8">
+    <title>SINHA-MEDLAR ERP EMPLOYEE LOGIN</title>
+    <meta name="description" content="HR & PAYROLL SOFTWARE">
+    <meta name="keywords" content="HR, PAYROLL, SALARY SOFT">
+    <link href="login/css/style.css" rel="stylesheet" type="text/css">
+    <link type="text/css" rel="stylesheet" href="css/ButtonStyle.css" />
+
+    <script type="text/javascript">
+        function changeHashOnLoad() {
+            window.location.href += "#";
+            setTimeout("changeHashAgain()", "50");
+        }
+
+        function changeHashAgain() {
+            window.location.href += "1";
+        }
+
+        var storedHash = window.location.hash;
+        window.setInterval(function () {
+            if (window.location.hash != storedHash) {
+                window.location.hash = storedHash;
+            }
+        }, 50);
+
+
+    </script>
+</head>
+<body onload="changeHashOnLoad(); ">
+    <form id="form1" runat="server">
+    <div class="main">
+        <div class="page">
+            <div class="page-in">
+                <div class="header">
+                    <div class="header-img">
+                        <h1>
+                            SINHA MEDLAR ERP</h1>
+                    </div>
+                </div>
+                <div class="mid">
+                    <div>
+                    </div>
+                    <div>
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        </asp:ContentPlaceHolder>
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+                        </asp:ContentPlaceHolder>
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder3" runat="server">
+                        </asp:ContentPlaceHolder>
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder4" runat="server">
+                        </asp:ContentPlaceHolder>
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder5" runat="server">
+                        </asp:ContentPlaceHolder>
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder6" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div>
+                </div>
+                <div class="footer">
+                    <!--DO NOT Remove The Footer Links-->
+                    <!--Designed by-->
+                    <a href="#">
+                        <%-- <img src="images/footnote.gif" class="copyright" alt="html templates"></a>--%>
+                    <p class="copyright-text">
+                        <a class="footer-link" href="#">&copy; 2014 SINHA MEDLAR GROUP. Designed and Developed
+                            by <a class="footer-link" href="#">SINHA MEDLAR(IT DEPARTMENT) || 82 Mohakhali, C/A
+                                Dhaka-1212 </a>
+                    </p>
+                    <!--DO NOT Remove The Footer Links-->
+                </div>
+            </div>
+        </div>
+    </div>
+    </form>
+</body>
+</html>

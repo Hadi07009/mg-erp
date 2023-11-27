@@ -1,0 +1,429 @@
+﻿body
+{
+	/*width:1000px;*/
+	text-align:center;
+	margin:-30px auto;
+}
+
+.maincontainer {
+	/*height:1000px;
+	border-collapse:collapse;*/
+        width:1000px;
+        margin:0 auto;
+        table-layout: auto;
+        
+}
+
+.headercontainer {
+	/* height:136px;*/
+}
+
+.topmenucontainer {
+	height:40px;
+}
+
+.belowtopmenu {
+	height:5px;
+}
+
+.leftcontainer {
+        width:220px;
+	background:#2066B6;
+	position:relative;
+       
+}
+
+.afterleftcont {
+	width:10px;
+        float:left;
+        position:relative;
+}
+
+.bodycontainer {
+	width:770px;
+	/*height:800px;*/
+        float:left;
+        position:relative;
+    top: 198px;
+    left: 237px;
+}
+
+.belowbody {
+	background:lightgrey;
+	height:10px;
+}
+
+.footercontainer {
+	height:120px;
+	background:#666666;
+}
+
+.bottomcontainer {
+	height:34px;
+	background:#4B4B4B;
+}
+
+.header {
+	width:100%;
+	height:126px;
+	border-collapse:collapse;
+}
+
+.topmenu {
+	width:166px;
+	background:#3F2B78;
+	color:white;
+	cursor:pointer;
+}
+
+.leftmenu {
+	height:30px;
+	font-family:tahoma;
+	font-size:13px;
+	color:white;
+	cursor:pointer;
+}
+
+.devider {
+	width:220px;
+	height:1px;
+}
+
+.leftsubmenu {
+	height:30px;
+	font-family:tahoma;
+	font-size:13px;
+	color:white;
+	cursor:pointer;
+}
+
+.leftmenubar{
+	width:220px;
+	float:left;
+	position:relative;
+	text-align: left;
+	}
+.leftmenubar ul{padding:0; margin:0;}
+
+.leftmenubar ul li{
+	font-family: tahoma;
+    font-size: 13px;
+	color:#FFF;
+	list-style-type:none;
+	background:url(../images/devider.gif) bottom center no-repeat;
+	}
+
+.leftmenubar ul li a.sub{
+	background:url(../images/devider.gif) bottom center no-repeat;
+	}
+
+.leftmenubar ul li a{
+	text-decoration:none;
+	padding:8px 10px;
+	display:block;
+	color:#FFF;
+	}
+
+.leftmenubar ul li a:hover{
+	color:#2066b6;
+	text-decoration:none;
+	background:#FFF;
+	}
+.leftmenubar ul li ul{
+	margin:0;
+	padding:0;
+	}
+.leftmenubar ul li ul li{
+	font-family: tahoma;
+    font-size: 13px;
+	color:#FFF;
+	list-style-type:none;
+	background:none;
+	}
+.leftmenubar ul li ul li a{
+	text-decoration:none;
+	padding:8px 20px;
+	display:block;
+	color:#FFF;
+	}
+.leftmenubar ul li ul li a:hover{
+	color:#2066b6;
+	text-decoration:none;
+	background:#FFF;
+	}
+.leftmenubar h2{
+	font-family: tahoma;
+    font-size: 15px;
+    font-weight: bold;
+	color: white;
+	padding:15px 0 8px 10px;
+	margin:0;
+	}
+.infields{
+	width:91%;
+	padding:2px 10px;
+	float:left;
+	}
+
+
+
+.ctable td{
+	border:1px solid lightgrey;
+}
+
+
+.footer_link_dec {
+	color:#F0F0F0
+}
+
+.footer_link_dec a{
+	color:#F0F0F0
+}
+
+.footer_link_dec ul {
+	color:#F0F0F0;
+}
+
+.footer_link_dec ul li{
+	color:#F0F0F0;
+}
+
+.footer_link_dec ul li a{
+	color:#F0F0F0;
+}
+
+.footer_link_dec  a:hover{
+	color:skyblue;
+
+}	
+
+		a {color:#333; text-decoration:none}
+		a:hover {color:#ccc; text-decoration:none}
+
+		#mask {
+		  position:absolute;
+		  left:0;
+		  top:0;
+		  z-index:9000;
+		  background-color:#000;
+		  display:none;
+		} 
+		#boxes a{
+			color: yellow;
+			font-family:verdana;
+		} 
+		#boxes:hover {
+			color: white;
+		}
+		#boxes a:hover {
+			color: white;
+		}
+		#boxes .window {
+		  position:absolute;
+		  left:0;
+		  top:0;
+		  width:440px;
+		  height:400px;
+		  display:none;
+		  z-index:9999;
+		  padding:20px;
+		}
+		#boxes #dialog {
+		  width:375px; 
+		  height:347px;
+		  padding:10px;
+		  background-color:#FFF;
+		}
+
+		.content1 {
+			background-color: #2066B6;
+			margin-bottom: 3px;
+			font-family:verdana;
+			padding: 5px;
+
+		}
+		.content1 a {
+			color: white;
+			font-family:verdana;
+		}
+		.content1:hover {
+			
+			background-color:rgb(63, 43, 120);	
+		}
+		.content1 a:hover {
+			color: #fff;
+		}
+		.order1{
+			float: left;
+			width: 113px;
+			padding: 3px;
+			padding-top: 0px;
+			padding-bottom: 0px;
+			background-color:rgb(63, 43, 120);
+			color: white; 
+			margin-left: 5px;
+			border-radius: 10px;
+			margin-top: 4px;
+		}
+		.order1:hover {
+			background-color:  #2066B6;
+		}
+		.order1 a{
+
+			color: white;
+		}
+
+
+		@font-face {
+		    font-family: myFirstFont;
+		    src: url(css/Intro.otf);
+		    
+		}
+		.myfonteffect {
+			margin-top: 5px;
+		}
+		.myfonteffect h2 {
+			color:red;
+			font-size: 28px;
+		}
+
+		.myfonteffect a {
+			color:red;
+		}
+
+		.myfonteffect h2:hover {
+			color: #2066B6;
+		}
+
+		@font-face {
+		    font-family: myShowFont;
+		    src: url(css/Running_shoe.ttf);
+		    
+		}
+		.myfonteffect1 {
+			height: 50px;
+			margin-bottom: 14px;
+			
+		}
+		.myfonteffect1:hover {
+			background-color: green;
+		}
+		.myfonteffect1 h2 {
+			text-align: center;
+			vertical-align: center;
+			padding: 9px;
+			color:yellow;
+
+		}
+
+		.myfonteffect1 a {
+			color:yellow;
+			
+		}
+
+		.myfonteffect1 h2:hover {
+			color: white;
+			
+		}
+
+		.border{
+			border :1px solid #EBEBEB;
+			border-radius: 10px;
+			margin-top: 5px;
+			width: 770px;
+			background-color:#d1d1d1;
+
+
+		}
+		.hover_class {
+
+		}
+
+		.hover_class img:hover {
+		    opacity: 4.0;
+		    filter: alpha(opacity=40); /* For IE8 and earlier */
+		}
+
+		.desired{
+			border:1px solid #056EA8;
+			border-radius: 5px;
+			padding: 7px;
+			
+		}
+
+	.footer_link_dec a {
+		color: #F0F0F0;
+		text-decoration: none;
+	}
+
+	.invitation{
+
+		position: relative;
+		top: -46px;
+		height: 41px;
+		width: 215px;
+
+	}
+
+	.invitation_a img:hover {
+		opacity: 0.8;
+		filter: alpha(opacity=80);
+	}
+
+
+	.express_retail_solution {
+	  background-color: #ccc;
+	  border: 1px solid #ccc;
+	  padding: 2px;
+	}
+
+	.express_retail_solution img:hover{
+		opacity: 0.8;
+		filter: #94DCE0(opacity=80);
+
+		}
+
+
+ input [type='submit']	{
+ 	background-color: transparent;
+	background:url('images/submit_button-copy.png');
+	font-weight: bold;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+    height: 331px; /* height of the background image */
+    width: 500px; /* width of the background image */
+    border: 5px solid #fff;
+    border-radius: 4em;
+
+}
+
+
+.logo_modification{
+	top:14px;
+	position: relative;
+    left: -377px;
+    height: 90px;
+    width: 253px;
+}
+
+.three_address {
+	width:256;
+	height:20px;
+	border:1px solid lightgray;
+	font-family:tahoma;
+	font-size:13px; 
+	padding:9px;
+}
+
+.retail_div {
+  border: 1px solid #d3d3d3;
+  float: left;
+  height: 226px;
+  margin-bottom: 5px;
+  margin-right: 4px;
+  width: 375px;
+}
+.required{
+	color:#9C0000; font-weight:700
+}

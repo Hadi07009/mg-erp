@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2C2E9B59-0094-4FCD-9DF6-7E8DEDBFD491}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SINHA.MEDLAR.ERP.DTO</RootNamespace>
+    <AssemblyName>SINHA.MEDLAR.ERP.DTO</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddApprovedByDTO.cs" />
+    <Compile Include="AprovedEmployeeDTO.cs" />
+    <Compile Include="ArrearDTO.cs" />
+    <Compile Include="AttendanceDashboardDTO.cs" />
+    <Compile Include="AttendenceDTO.cs" />
+    <Compile Include="BankDTO.cs" />
+    <Compile Include="BaseModel.cs" />
+    <Compile Include="ButtonPriceListDTO.cs" />
+    <Compile Include="BuyerDTO.cs" />
+    <Compile Include="BuyerPODTO.cs" />
+    <Compile Include="CartoonDetails.cs" />
+    <Compile Include="CartoonDTO.cs" />
+    <Compile Include="CartoonMapping.cs" />
+    <Compile Include="CartoonPriceListDTO.cs" />
+    <Compile Include="CaseInfoDTO.cs" />
+    <Compile Include="CaseInfornation.cs" />
+    <Compile Include="ColorDTO.cs" />
+    <Compile Include="ContactSheetDTO.cs" />
+    <Compile Include="ContractDTO.cs" />
+    <Compile Include="CostingDTO.cs" />
+    <Compile Include="DailyProductionDTO.cs" />
+    <Compile Include="DigitalBoardDTO.cs" />
+    <Compile Include="EidBonusDTO.cs" />
+    <Compile Include="EmployeeDTO.cs" />
+    <Compile Include="EmployeeShiftHolidayMapping.cs" />
+    <Compile Include="EmployeeShiftMapping.cs" />
+    <Compile Include="EventPermissionDTO.cs" />
+    <Compile Include="FabricIssueDTO.cs" />
+    <Compile Include="FabricsDetailsDTO.cs" />
+    <Compile Include="FabricsImportRatioDTO.cs" />
+    <Compile Include="FactoryDTO.cs" />
+    <Compile Include="FOBDTO.cs" />
+    <Compile Include="ForeignFabricLcIssueDTO.cs" />
+    <Compile Include="ForeignFabricReceiveDTO.cs" />
+    <Compile Include="ForgetPassDTO.cs" />
+    <Compile Include="GazetteDTO.cs" />
+    <Compile Include="HangerPriceDTO.cs" />
+    <Compile Include="IfratTimeSheetDTO.cs" />
+    <Compile Include="ImageDTO.cs" />
+    <Compile Include="IncrementDTO.cs" />
+    <Compile Include="IssuedProductDTO.cs" />
+    <Compile Include="LayChartDTO.cs" />
+    <Compile Include="LeaveDTO.cs" />
+    <Compile Include="LineDTO.cs" />
+    <Compile Include="LoginDTO.cs" />
+    <Compile Include="LookUpDTO.cs" />
+    <Compile Include="MaintenanceDTO.cs" />
+    <Compile Include="MfsTemplate.cs" />
+    <Compile Include="MonthlyStoreDTO.cs" />
+    <Compile Include="OfficeTimeDTO.cs" />
+    <Compile Include="POAssignDTO.cs" />
+    <Compile Include="POCloseDTO.cs" />
+    <Compile Include="PoDocumentsDTO.cs" />
+    <Compile Include="POEntryDTO.cs" />
+    <Compile Include="PolyBagDTO.cs" />
+    <Compile Include="POOpenDTO.cs" />
+    <Compile Include="PoOrderDTO.cs" />
+    <Compile Include="PoRequisitionDTO.cs" />
+    <Compile Include="PoTrackingDTO.cs" />
+    <Compile Include="POTypeDTO.cs" />
+    <Compile Include="ProcessDTO.cs" />
+    <Compile Include="ProductionDTO.cs" />
+    <Compile Include="ProductReceivedDTO.cs" />
+    <Compile Include="ProductSizeInfo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PurchaseDTO.cs" />
+    <Compile Include="PurchaseOrderDTO.cs" />
+    <Compile Include="PurchasePartsDTO.cs" />
+    <Compile Include="ReportDTO.cs" />
+    <Compile Include="SalaryDTO.cs" />
+    <Compile Include="SalaryUnitDTO.cs" />
+    <Compile Include="SewingDTO.cs" />
+    <Compile Include="SewingThreadPriceDTO.cs" />
+    <Compile Include="ShareDistributionDTO.cs" />
+    <Compile Include="ShipmentEntryDTO.cs" />
+    <Compile Include="ShipmentInfoDTO.cs" />
+    <Compile Include="SparePartDTO.cs" />
+    <Compile Include="StyleDTO.cs" />
+    <Compile Include="TiffinDTO.cs" />
+    <Compile Include="TransferDTO.cs" />
+    <Compile Include="TrimsDetailsDTO.cs" />
+    <Compile Include="ViewModels\BuyerInfo.cs" />
+    <Compile Include="ViewModels\CartoonDetail.cs" />
+    <Compile Include="ViewModels\CartoonSummary.cs" />
+    <Compile Include="ViewModels\ManufacturerInfo.cs" />
+    <Compile Include="ViewModels\PackingMaster.cs" />
+    <Compile Include="ViewModels\PackingType.cs" />
+    <Compile Include="ViewModels\SeasonInfo.cs" />
+    <Compile Include="ViewModels\ShipmentType.cs" />
+    <Compile Include="WokerProcessDTO.cs" />
+    <Compile Include="ZipperReceiveDTO.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
