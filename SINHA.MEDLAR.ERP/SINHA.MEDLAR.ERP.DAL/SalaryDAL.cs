@@ -9231,6 +9231,179 @@ namespace SINHA.MEDLAR.ERP.DAL
             return strMsg;
 
         }
+
+        public string AddGradeChangeInfo(SalaryDTO objSalaryDTO)
+        {
+            string strMsg = "";
+            OracleTransaction objOracleTransaction;
+            OracleCommand objOracleCommand = new OracleCommand("SP_GRADE_CHANGE_SAVE");
+            objOracleCommand.CommandType = CommandType.StoredProcedure;
+
+
+            objOracleCommand.Parameters.Add("p_employee_id", OracleDbType.Varchar2, ParameterDirection.Input).Value = objSalaryDTO.EmployeeId;
+            objOracleCommand.Parameters.Add("p_occurence_type_id", OracleDbType.Varchar2, ParameterDirection.Input).Value = objSalaryDTO.OccurrenceTypeId;
+
+            if (objSalaryDTO.UnitIdFrom != "")
+            {
+                objOracleCommand.Parameters.Add("p_unit_id_from", OracleDbType.Varchar2, ParameterDirection.Input).Value = objSalaryDTO.UnitIdFrom;
+            }
+            else
+            {
+                objOracleCommand.Parameters.Add("p_unit_id_from", OracleDbType.Varchar2, ParameterDirection.Input).Value = null;
+            }
+
+            if (objSalaryDTO.UnitIdTo != "")
+            {
+                objOracleCommand.Parameters.Add("p_unit_id_to", OracleDbType.Varchar2, ParameterDirection.Input).Value = objSalaryDTO.UnitIdTo;
+            }
+            else
+            {
+                objOracleCommand.Parameters.Add("p_unit_id_to", OracleDbType.Varchar2, ParameterDirection.Input).Value = null;
+            }
+
+            if (objSalaryDTO.SectionIdFrom != "")
+            {
+                objOracleCommand.Parameters.Add("p_section_id_from", OracleDbType.Varchar2, ParameterDirection.Input).Value = objSalaryDTO.SectionIdFrom;
+            }
+            else
+            {
+                objOracleCommand.Parameters.Add("p_section_id_from", OracleDbType.Varchar2, ParameterDirection.Input).Value = null;
+            }
+
+            if (objSalaryDTO.SectionIdTo != "")
+            {
+                objOracleCommand.Parameters.Add("p_section_id_to", OracleDbType.Varchar2, ParameterDirection.Input).Value = objSalaryDTO.SectionIdTo;
+            }
+            else
+            {
+                objOracleCommand.Parameters.Add("p_section_id_to", OracleDbType.Varchar2, ParameterDirection.Input).Value = null;
+            }
+
+            if (objSalaryDTO.DesignationIdFrom != "")
+            {
+                objOracleCommand.Parameters.Add("P_DESIGNATION_ID_FROM", OracleDbType.Varchar2, ParameterDirection.Input).Value = objSalaryDTO.DesignationIdFrom;
+            }
+            else
+            {
+                objOracleCommand.Parameters.Add("P_DESIGNATION_ID_FROM", OracleDbType.Varchar2, ParameterDirection.Input).Value = null;
+            }
+            if (objSalaryDTO.DesignationIdTo != "")
+            {
+                objOracleCommand.Parameters.Add("P_DESIGNATION_ID_TO", OracleDbType.Varchar2, ParameterDirection.Input).Value = objSalaryDTO.DesignationIdTo;
+            }
+            else
+            {
+                objOracleCommand.Parameters.Add("P_DESIGNATION_ID_TO", OracleDbType.Varchar2, ParameterDirection.Input).Value = null;
+            }
+
+            if (objSalaryDTO.GradeIdFrom != "")
+            {
+                objOracleCommand.Parameters.Add("P_GRADE_ID_FROM", OracleDbType.Varchar2, ParameterDirection.Input).Value = objSalaryDTO.GradeIdFrom;
+            }
+            else
+            {
+                objOracleCommand.Parameters.Add("P_GRADE_ID_FROM", OracleDbType.Varchar2, ParameterDirection.Input).Value = null;
+            }
+
+            if (objSalaryDTO.GradeIdTo != "")
+            {
+                objOracleCommand.Parameters.Add("P_GRADE_ID_TO", OracleDbType.Varchar2, ParameterDirection.Input).Value = objSalaryDTO.GradeIdTo;
+            }
+            else
+            {
+                objOracleCommand.Parameters.Add("P_GRADE_ID_TO", OracleDbType.Varchar2, ParameterDirection.Input).Value = null;
+            }
+
+            if (objSalaryDTO.GrossSalaryFrom != " ")
+            {
+                objOracleCommand.Parameters.Add("p_gross_salary_from", OracleDbType.Varchar2, ParameterDirection.Input).Value = objSalaryDTO.GrossSalaryFrom;
+            }
+            else
+            {
+                objOracleCommand.Parameters.Add("p_gross_salary_from", OracleDbType.Varchar2, ParameterDirection.Input).Value = null;
+            }
+            if (objSalaryDTO.GrossSalaryTo != "")
+            {
+                objOracleCommand.Parameters.Add("p_gross_salary_to", OracleDbType.Varchar2, ParameterDirection.Input).Value = objSalaryDTO.GrossSalaryTo;
+            }
+            else
+            {
+                objOracleCommand.Parameters.Add("p_gross_salary_to", OracleDbType.Varchar2, ParameterDirection.Input).Value = null;
+            }
+
+            if (objSalaryDTO.FirstSalaryFrom != "")
+            {
+                objOracleCommand.Parameters.Add("p_first_salary_from", OracleDbType.Varchar2, ParameterDirection.Input).Value = objSalaryDTO.FirstSalaryFrom;
+            }
+            else
+            {
+                objOracleCommand.Parameters.Add("p_first_salary_from", OracleDbType.Varchar2, ParameterDirection.Input).Value = null;
+            }
+            if (objSalaryDTO.FirstSalaryTo != "")
+            {
+                objOracleCommand.Parameters.Add("p_first_salary_to", OracleDbType.Varchar2, ParameterDirection.Input).Value = objSalaryDTO.FirstSalaryTo;
+            }
+            else
+            {
+                objOracleCommand.Parameters.Add("p_first_salary_to", OracleDbType.Varchar2, ParameterDirection.Input).Value = null;
+            }
+
+            objOracleCommand.Parameters.Add("p_promotion_year", OracleDbType.Varchar2, ParameterDirection.Input).Value = objSalaryDTO.Year;
+
+            if (objSalaryDTO.Month != "")
+            {
+                objOracleCommand.Parameters.Add("p_promotion_month", OracleDbType.Varchar2, ParameterDirection.Input).Value = objSalaryDTO.Month;
+            }
+            else
+            {
+                objOracleCommand.Parameters.Add("p_promotion_month", OracleDbType.Varchar2, ParameterDirection.Input).Value = null;
+            }
+
+            if (objSalaryDTO.EffectiveDate.Length > 0)
+            {
+                objOracleCommand.Parameters.Add("p_effective_date", OracleDbType.Varchar2, ParameterDirection.Input).Value = objSalaryDTO.EffectiveDate;
+            }
+            else
+            {
+                objOracleCommand.Parameters.Add("p_effective_date", OracleDbType.Varchar2, ParameterDirection.Input).Value = null;
+            }
+            objOracleCommand.Parameters.Add("p_employee_type_id", OracleDbType.Varchar2, ParameterDirection.Input).Value = objSalaryDTO.EmployeeTypeId;
+
+            objOracleCommand.Parameters.Add("p_head_office_id", OracleDbType.Varchar2, ParameterDirection.Input).Value = objSalaryDTO.HeadOfficeId;
+            objOracleCommand.Parameters.Add("p_branch_office_id", OracleDbType.Varchar2, ParameterDirection.Input).Value = objSalaryDTO.BranchOfficeId;
+            objOracleCommand.Parameters.Add("p_create_by", OracleDbType.Varchar2, ParameterDirection.Input).Value = objSalaryDTO.UpdateBy;
+
+            objOracleCommand.Parameters.Add("P_MESSAGE", OracleDbType.Varchar2, 500).Direction = ParameterDirection.Output;
+
+            using (OracleConnection strConn = GetConnection())
+            {
+                try
+                {
+                    objOracleCommand.Connection = strConn;
+                    strConn.Open();
+                    trans = strConn.BeginTransaction();
+                    objOracleCommand.ExecuteNonQuery();
+                    trans.Commit();
+                    strConn.Close();
+                    strMsg = objOracleCommand.Parameters["P_MESSAGE"].Value.ToString();
+                }
+
+                catch (Exception ex)
+                {
+                    trans.Rollback();
+                    throw new Exception("Error : " + ex.Message);
+                }
+
+                finally
+                {
+
+                    strConn.Close();
+                }
+
+            }
+            return strMsg;
+
+        }
         public string saveTax(SalaryDTO objSalaryDTO)
         {
             string strMsg = "";

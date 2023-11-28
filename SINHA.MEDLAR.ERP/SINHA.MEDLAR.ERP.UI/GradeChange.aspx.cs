@@ -1369,19 +1369,13 @@ namespace SINHA.MEDLAR.ERP.UI
                     dtpEffectDate.Focus();
                     return;
                 }
-                //if (ddlEmployeeTypeIdProcess.SelectedValue == "")
-                //{
-                //    string strMsg = "Please Select Employee Type";
-                //    MessageBox(strMsg);
-                //    ddlEmployeeTypeIdProcess.Focus();
-                //    return;
-                //}
 
-                ProcessPromotionQueue();
-                GetEmpForPromotion();
 
-                LoadWorkerPromotionRecord();
-                gvEmployeeList.SelectedIndex = 0;
+                ProcessGradeChangeQueue();
+                //GetEmpForPromotion();
+
+                //LoadWorkerPromotionRecord();
+                //gvEmployeeList.SelectedIndex = 0;
             }
             catch (Exception ex)
             {
@@ -1414,14 +1408,7 @@ namespace SINHA.MEDLAR.ERP.UI
                 objSalaryDTO.SectionId = "";
             }
 
-            //if (ddlEmployeeTypeIdProcess.SelectedValue.ToString() != "")
-            //{
-            //    objSalaryDTO.EmployeeTypeId = ddlEmployeeTypeIdProcess.SelectedValue.ToString();
-            //}
-            //else
-            //{
-            //    objSalaryDTO.EmployeeTypeId = "";
-            //}
+            
 
             objSalaryDTO.HeadOfficeId = strHeadOfficeId;
             objSalaryDTO.BranchOfficeId = strBranchOfficeId;
@@ -1429,6 +1416,45 @@ namespace SINHA.MEDLAR.ERP.UI
             
             string strMsg = objSalaryBLL.ProcessPromotionQueue(objSalaryDTO);
             
+            MessageBox(strMsg);
+            lblMsg.Text = strMsg;
+        }
+
+        private void ProcessGradeChangeQueue()
+        {
+            SalaryDTO objSalaryDTO = new SalaryDTO();
+            SalaryBLL objSalaryBLL = new SalaryBLL();
+
+            objSalaryDTO.Year = txtPromotionYear.Text;
+            objSalaryDTO.Month = ddlMonthId.SelectedItem.Value;
+            objSalaryDTO.EffectiveDate = dtpEffectDate.Text;
+
+            if (ddlUnitId.SelectedValue.ToString() != " ")
+            {
+                objSalaryDTO.UnitId = ddlUnitId.SelectedValue.ToString();
+            }
+            else
+            {
+                objSalaryDTO.UnitId = "";
+            }
+
+            if (ddlSectionId.SelectedValue.ToString() != " ")
+            {
+                objSalaryDTO.SectionId = ddlSectionId.SelectedValue.ToString();
+            }
+            else
+            {
+                objSalaryDTO.SectionId = "";
+            }
+
+
+
+            objSalaryDTO.HeadOfficeId = strHeadOfficeId;
+            objSalaryDTO.BranchOfficeId = strBranchOfficeId;
+            objSalaryDTO.UpdateBy = strEmployeeId;
+
+            string strMsg = objSalaryBLL.ProcessPromotionQueue(objSalaryDTO);
+
             MessageBox(strMsg);
             lblMsg.Text = strMsg;
         }
@@ -1463,15 +1489,6 @@ namespace SINHA.MEDLAR.ERP.UI
 
         protected void btnSaveNewVersion_Click(object sender, EventArgs e)
         {
-
-            if (ddlDesignationIdTo.SelectedItem.Value == " ")
-            {
-                string strMsg = "Please Select Designation!!!";
-                MessageBox(strMsg);
-                ddlDesignationIdTo.Focus();
-                return;
-            }
-
             if (ddlGradeNoTo.SelectedItem.Value == " ")
             {
                 string strMsg = "Please Select Grade!!!";
@@ -1480,57 +1497,8 @@ namespace SINHA.MEDLAR.ERP.UI
                 return;
             }
 
-            if (ddlUnitIdTo.SelectedItem.Value == " ")
-            {
-                string strMsg = "Please Select To Unit!!!";
-                MessageBox(strMsg);
-                ddlUnitIdTo.Focus();
-                return;
-            }
-
-            if (ddlSectionIdTo.SelectedItem.Value == " ")
-            {
-                string strMsg = "Please Select To Unit!!!";
-                MessageBox(strMsg);
-                ddlSectionIdTo.Focus();
-                return;
-            }
-
-            //if (txtGrossSalaryTo.Text == "")
-            //{
-            //    string strMsg = "Please Enter Gross Salary!!!";
-            //    MessageBox(strMsg);
-            //    txtGrossSalaryTo.Focus();
-            //    return;
-            //}
-
-            if (txtPromotionYear.Text == " ")
-            {
-
-                string strMsg = "Please Enter Year!!!";
-                MessageBox(strMsg);
-                txtPromotionYear.Focus();
-                return;
-            }
-            if (ddlMonthId.SelectedItem.Value == " ")
-            {
-
-                string strMsg = "Please Select Month!!!";
-                MessageBox(strMsg);
-                ddlMonthId.Focus();
-                return;
-            }
-
-            if (dtpEffectDate.Text == string.Empty)
-            {
-                string strMsg = "Please Enter Effective Date!!!";
-                MessageBox(strMsg);
-                dtpEffectDate.Focus();
-                return;
-            }
-            
             SaveNewVersion();
-            LoadWorkerPromotionRecord();
+            //LoadWorkerPromotionRecord();
 
         }
         public void SaveNewVersion()
@@ -1579,11 +1547,7 @@ namespace SINHA.MEDLAR.ERP.UI
                         objSalaryDTO.GradeIdFrom = GradeIdFrom.Text;
                         objSalaryDTO.GradeIdTo = ddlGradeNoTo.SelectedItem.Value == " " ? "" : ddlGradeNoTo.SelectedItem.Value;
 
-                        //objSalaryDTO.GrossSalaryFrom = txtGrossSalaryFrom.Text;
-                        //objSalaryDTO.GrossSalaryTo = txtGrossSalaryTo.Text;
-
-                        //objSalaryDTO.FirstSalaryFrom = txtFirstSalaryFrom.Text;
-                        //objSalaryDTO.FirstSalaryTo = txtFirstSalaryTo.Text;
+                        
 
                         objSalaryDTO.Year = txtPromotionYear.Text;
                         objSalaryDTO.EffectiveDate = dtpEffectDate.Text;
@@ -1593,7 +1557,7 @@ namespace SINHA.MEDLAR.ERP.UI
                         objSalaryDTO.BranchOfficeId = strBranchOfficeId;
                         objSalaryDTO.UpdateBy = strEmployeeId;
 
-                        strMsg = objSalaryBLL.AddPromotionInfo(objSalaryDTO);
+                        strMsg = objSalaryBLL.AddGradeChangeInfo(objSalaryDTO);
                         count = count + 1;
                         
                         //----------------------------------------------                                               

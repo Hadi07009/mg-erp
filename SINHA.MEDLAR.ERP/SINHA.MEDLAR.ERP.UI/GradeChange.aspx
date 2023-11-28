@@ -161,7 +161,7 @@
                     <fieldset>
                         <legend>GRADE CHANGE PROCESS</legend>
                         <table class="style1">
-                            <tr>
+                            <tr style="visibility:hidden">
                                 <td style="width: 234px; text-align: right">
                                     <asp:Label ID="lblTransferMsg0" runat="server" Text="From " Font-Bold="True" Font-Size="Small"
                                         Font-Names="Tahoma" ForeColor="Green"></asp:Label>
@@ -169,8 +169,7 @@
                                 <td style="width: 270px; ">
                                                     &nbsp;</td>
                                 <td style="width: 176px; text-align: right">
-                                    <asp:Label ID="lblTransferMsg1" runat="server" Text="To" Font-Bold="True" Font-Size="Small"
-                                        Font-Names="Tahoma" ForeColor="Green"></asp:Label>
+                                    
                                                     </td>
                                 <td style="width: 381px; text-align: left;">
                                     &nbsp;</td>
@@ -179,7 +178,7 @@
                                 <td style="width: 365px">
                                     &nbsp;</td>
                             </tr>
-                            <tr>
+                            <tr style="visibility:hidden">
                                 <td style="width: 234px; text-align: right">
                                                     <asp:Label ID="Label46" runat="server" Text="Designation/Grade :"></asp:Label>
                                 </td>
@@ -196,8 +195,7 @@
                                     <asp:DropDownList ID="ddlDesignationIdTo" runat="server" Width="170px" 
                                         Height="19px" OnSelectedIndexChanged="ddlDesignationIdTo_SelectedIndexChanged" AutoPostBack="true">
                                     </asp:DropDownList>
-                                    <asp:DropDownList ID="ddlGradeNoTo" runat="server" Width="67px" Height="18px"> 
-                                    </asp:DropDownList>
+                                    
                                     </td>
                                         <td>
                                     <asp:Label ID="Label40" runat="server" Text="Card No/Name :"></asp:Label>                                   
@@ -211,7 +209,7 @@
                                 <td>
                                     &nbsp;</td>
                             </tr>
-                            <tr>
+                            <tr style="visibility:hidden">
                                 <td style="width: 234px; text-align: right">
                                                     <asp:Label ID="Label34" runat="server" Text="Unit :"></asp:Label>
                                 </td>
@@ -233,7 +231,7 @@
                                                     <asp:TextBox ID="txtEmpId" runat="server" Width="198px" BackColor="#DFDFDF" style="margin-left: 0" ReadOnly="true"></asp:TextBox>
                                 </td>
                             </tr>
-                            <tr>
+                            <tr style="visibility:hidden">
                                 <td style="width: 234px; text-align: right">
                                                     <asp:Label ID="Label35" runat="server" Text="Section :"></asp:Label>
                                 </td>
@@ -262,7 +260,7 @@
                                     
                                 </td>
                             </tr>
-                            <tr>
+                            <tr style="visibility:hidden">
                                 <td style="width: 234px; text-align: right">
                                                     <asp:Label ID="Label39" runat="server" Text="First/Gross salary :"></asp:Label>
                                 </td>
@@ -284,7 +282,7 @@
                                         Font-Bold="True"></asp:TextBox>
                                 </td>
                             </tr>
-                            <tr>
+                            <tr style="visibility:hidden">
                                 <td style="width: 234px; text-align: right; height: 15px;">
                                                     </td>
                                 <td style="width: 270px; height: 15px;">
@@ -306,6 +304,37 @@
                                 </td>
                             </tr>
                             <tr>
+                                <td style="width: 234px; text-align: right; height: 15px;">
+                                                    &nbsp;</td>
+                                <td style="width: 270px; height: 15px;">
+                                    &nbsp;</td>
+                                <td style="width: 176px; text-align: right; height: 15px;">
+                                    <%--<asp:Label ID="lblTransferMsg1" runat="server" Text="To" Font-Bold="True" Font-Size="Small"
+                                        Font-Names="Tahoma" ForeColor="Green"></asp:Label>--%></td>
+                                <td style="width: 381px; text-align: left; height: 15px;">
+                                    &nbsp;</td>
+                                <td style="width: 390px; text-align: left; height: 15px; display:none;">
+                                    &nbsp;</td>
+                                <td style="width: 365px; height: 15px;">
+                                    &nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td style="width: 234px; text-align: right; height: 15px;">
+                                                    &nbsp;</td>
+                                <td style="width: 270px; height: 15px;">
+                                    &nbsp;</td>
+                                <td style="width: 176px; text-align: right; height: 15px;">
+                                    <asp:Label ID="Label7" runat="server" Text="To Grade :"></asp:Label></td>
+                                <td style="width: 381px; text-align: left; height: 15px;">
+                                    <asp:DropDownList ID="ddlGradeNoTo" runat="server" Width="150px" Height="18px"> 
+                                    </asp:DropDownList> &nbsp &nbsp <asp:Button ID="btnSaveNewVersion" runat="server" Height="31px" Text="Process" Width="70px"
+                                        CssClass="styled-button-4" OnClick="btnSaveNewVersion_Click" /></td>
+                                <td style="width: 390px; text-align: left; height: 15px; display:none;">
+                                    &nbsp;</td>
+                                <td style="width: 365px; height: 15px;">
+                                    &nbsp;</td>
+                            </tr>
+                            <tr>
                                 <td style="text-align: left" colspan="6">
                                     <asp:Label ID="lblTransferMsg" runat="server" Text="lblMsg" Font-Bold="True" Font-Size="Small"
                                         Font-Names="Tahoma" ForeColor="Black"></asp:Label>
@@ -314,16 +343,18 @@
                             <tr>
                                 
                                 <td style="text-align: center" colspan="6">
-                                    <asp:Button ID="btnSaveNewVersion" runat="server" Height="31px" Text="Save [NV]" Width="70px"
-                                        CssClass="styled-button-4" OnClick="btnSaveNewVersion_Click" />
+                                    
                                     <asp:Button ID="btnSavePromotion" runat="server" Height="31px" Text="Save" Width="66px" Visible="false"
                                         CssClass="styled-button-4" OnClick="btnSavePromotion_Click" />
-                                    <asp:Button ID="btnProcessPromotion" runat="server" Height="31px" Text="Process" Width="66px"
-                                        CssClass="styled-button-4" OnClick="btnProcessPromotion_Click" />
+                                    <asp:Button ID="btnProcessPromotion" runat="server" Height="31px" 
+                                        Text="Process-1" Width="66px"
+                                        CssClass="styled-button-4" OnClick="btnProcessPromotion_Click" 
+                                        Visible="False" />
                                     <asp:Button ID="btnShow" runat="server" Height="31px" Text="Show" Width="66px" OnClick="btnShow_Click"
-                                        CssClass="styled-button-4" />
+                                        CssClass="styled-button-4" Visible="False" />
                                     <asp:Button ID="btnTransferSheet" runat="server" Height="31px" Text="Sheet" Width="60px"
-                                        CssClass="styled-button-4" OnClick="btnTransferSheet_Click" />
+                                        CssClass="styled-button-4" OnClick="btnTransferSheet_Click" 
+                                        Visible="False" />
 
                                     
 
@@ -359,7 +390,7 @@
                                          
                                             <tr>
                                                 <td style="text-align: right; height: 31px;" class="auto-style3">
-                                                    <asp:Label ID="Label6" runat="server" Text="Grade :"></asp:Label></td>
+                                                    <asp:Label ID="Label6" runat="server" Text="From Grade :"></asp:Label></td>
                                                 <td style="width: 270px; height: 31px;">
                                                     <asp:DropDownList ID="ddlGradeSearch" runat="server" Width="150px" Height="18px"> 
                                     </asp:DropDownList>

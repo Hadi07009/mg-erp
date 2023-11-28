@@ -733,6 +733,14 @@ namespace SINHA.MEDLAR.ERP.BLL
             return strMsg;
         }
 
+        public string AddGradeChangeInfo(SalaryDTO objSalaryDTO)
+        {
+
+            SalaryDAL objSalaryDAL = new SalaryDAL();
+            string strMsg = objSalaryDAL.AddGradeChangeInfo(objSalaryDTO);
+            return strMsg;
+        }
+
         public string addWorkerIncrement(SalaryDTO objSalaryDTO)
         {
 

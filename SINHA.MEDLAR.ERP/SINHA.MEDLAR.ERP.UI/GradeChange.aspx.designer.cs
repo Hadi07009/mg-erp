@@ -85,15 +85,6 @@ namespace SINHA.MEDLAR.ERP.UI {
         protected global::System.Web.UI.WebControls.Label lblTransferMsg0;
         
         /// <summary>
-        /// lblTransferMsg1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTransferMsg1;
-        
-        /// <summary>
         /// Label46 control.
         /// </summary>
         /// <remarks>
@@ -137,15 +128,6 @@ namespace SINHA.MEDLAR.ERP.UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlDesignationIdTo;
-        
-        /// <summary>
-        /// ddlGradeNoTo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlGradeNoTo;
         
         /// <summary>
         /// Label40 control.
@@ -373,13 +355,22 @@ namespace SINHA.MEDLAR.ERP.UI {
         protected global::System.Web.UI.WebControls.DropDownList ddlEmployeeTypeIdProcess;
         
         /// <summary>
-        /// lblTransferMsg control.
+        /// Label7 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTransferMsg;
+        protected global::System.Web.UI.WebControls.Label Label7;
+        
+        /// <summary>
+        /// ddlGradeNoTo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlGradeNoTo;
         
         /// <summary>
         /// btnSaveNewVersion control.
@@ -389,6 +380,15 @@ namespace SINHA.MEDLAR.ERP.UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSaveNewVersion;
+        
+        /// <summary>
+        /// lblTransferMsg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTransferMsg;
         
         /// <summary>
         /// btnSavePromotion control.
