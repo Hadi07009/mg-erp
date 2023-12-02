@@ -1596,6 +1596,15 @@
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="Reports\rptYearlyTaxStatementSummeryFB.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptYearlyTaxStatementSummeryFB1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptYearlyTaxStatementSummeryFB.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="SalaryEntryStaffTiffin.aspx.cs">
       <DependentUpon>SalaryEntryStaffTiffin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -5225,10 +5234,10 @@
       <DependentUpon>rptYearlyTaxStatementSummery.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Reports\rptYearlyTaxStatementSummeryFB.cs">
+    <Compile Include="Reports\rptYearlyTaxStatementSummeryFB_B.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>rptYearlyTaxStatementSummeryFB.rpt</DependentUpon>
+      <DependentUpon>rptYearlyTaxStatementSummeryFB_B.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reports\rptYearlyWorkerPromotionSheet.cs">
@@ -9883,7 +9892,11 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\rptYearlyTaxStatementSummeryFB.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>rptYearlyTaxStatementSummeryFB.cs</LastGenOutput>
+      <LastGenOutput>rptYearlyTaxStatementSummeryFB1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptYearlyTaxStatementSummeryFB_B.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptYearlyTaxStatementSummeryFB_B.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\rptYearlyWorkerPromotionSheet.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
