@@ -5837,6 +5837,8 @@ namespace SINHA.MEDLAR.ERP.DAL
                     "DESIGNATION_NAME, " +
                     "TO_CHAR(JOINING_DATE, 'dd/mm/yyyy')JOINING_DATE " +
                     ",GENDER_NAME " +
+                    ", TO_CHAR(DATE_OF_BIRTH, 'dd/mm/yyyy')DATE_OF_BIRTH " +                    
+                    ",nid_no " +
                    "FROM VEW_SEARCH_EMPLOYEE_INFO WHERE head_office_id = '" + objEmployeeDTO.HeadOfficeId + "' AND branch_office_id = '" + objEmployeeDTO.BranchOfficeId + "' AND active_yn = '" + objEmployeeDTO.EmployeeActiveYn + "'";
 
              if (objEmployeeDTO.EmployeeId.Length > 0)

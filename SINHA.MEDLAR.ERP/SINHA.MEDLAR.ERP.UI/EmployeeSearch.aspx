@@ -352,10 +352,12 @@
 
                             <asp:BoundField DataField="DESIGNATION_NAME" HeaderText="DESIGNATION" />
                             <asp:BoundField DataField="JOINING_DATE" HeaderText="JOINING DATE" />
-                            <asp:BoundField DataField="GENDER_NAME" HeaderText="GENDER">
+                            <asp:BoundField DataField="GENDER_NAME" HeaderText="GENDER">                                
                             <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                             <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                             </asp:BoundField>
+                            <asp:BoundField DataField="DATE_OF_BIRTH" HeaderText="DATE OF BIRTH" />
+                            <asp:BoundField DataField="nid_no" HeaderText="NID" />
                             <asp:TemplateField>
                                 <ItemTemplate>
                                     <div class="tooltip">

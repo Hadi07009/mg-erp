@@ -16,9 +16,9 @@ namespace SINHA.MEDLAR.ERP.UI.Reports {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class rptYearlyTaxStatementSummeryFB : ReportClass {
+    public class rptYearlyTaxStatementSummeryFB1 : ReportClass {
         
-        public rptYearlyTaxStatementSummeryFB() {
+        public rptYearlyTaxStatementSummeryFB1() {
         }
         
         public override string ResourceName {
@@ -106,9 +106,9 @@ namespace SINHA.MEDLAR.ERP.UI.Reports {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedrptYearlyTaxStatementSummeryFB : Component, ICachedReport {
+    public class CachedrptYearlyTaxStatementSummeryFB1 : Component, ICachedReport {
         
-        public CachedrptYearlyTaxStatementSummeryFB() {
+        public CachedrptYearlyTaxStatementSummeryFB1() {
         }
         
         [Browsable(false)]
