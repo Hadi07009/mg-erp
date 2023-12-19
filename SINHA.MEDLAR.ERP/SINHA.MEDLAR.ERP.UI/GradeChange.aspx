@@ -375,10 +375,28 @@
                                             <tr>
                                                                                               
                                                 <td style="width: 60px">
-                                                    &nbsp;
-                                                </td>
+                                                    &nbsp;</td>
                                                 <td style="text-align: right" class="auto-style3">
-                                                    &nbsp;
+                                                    &nbsp;</td>
+                                                <td style="width: 66px">
+                                                    &nbsp;</td>
+                                                
+                                                
+                                            </tr>
+
+
+                                         
+                                            <tr>
+                                                                                              
+                                                <td style="text-align: right; height: 31px;" class="auto-style3">
+                                                    <asp:Label ID="lblId" runat="server" Text="Schedule:"></asp:Label>
+                                                </td>
+                                                <td style="width: 270px; height: 31px;">
+                                                    <asp:DropDownList ID="ddlSchedule" runat="server" Width="160px" Height="22px">
+                        <asp:ListItem Enabled="true" Text="Select Schedule" Value=" "></asp:ListItem>
+                        <asp:ListItem Text="A" Value="1"></asp:ListItem>
+                        <asp:ListItem Text="B" Value="2"></asp:ListItem>
+                    </asp:DropDownList>
                                                 </td>
                                                 <td style="width: 66px">
                                                     &nbsp;</td>

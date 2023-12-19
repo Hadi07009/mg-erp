@@ -636,6 +636,14 @@ namespace SINHA.MEDLAR.ERP.UI
                     ddlGradeSearch.Focus();
                     return;
                 }
+
+                if (ddlSchedule.SelectedItem.Value == " ")
+                {
+                    string strMsg = "Please Select Schedule!!!";
+                    MessageBox(strMsg);
+                    ddlSchedule.Focus();
+                    return;
+                }
                 else
                 {
                     GetEmpForGradeChange();
@@ -1115,6 +1123,11 @@ namespace SINHA.MEDLAR.ERP.UI
             if (ddlGradeSearch.SelectedValue.ToString() != " ")
             {
                 objEmployeeDTO.GradeId = ddlGradeSearch.SelectedValue.ToString();
+            }
+
+            if (ddlSchedule.SelectedValue.ToString() != " ")
+            {
+                objEmployeeDTO.ScheduleID = ddlSchedule.SelectedValue.ToString();
             }
 
             dt = objEmployeeBLL.GetEmpForGradeChange(objEmployeeDTO);

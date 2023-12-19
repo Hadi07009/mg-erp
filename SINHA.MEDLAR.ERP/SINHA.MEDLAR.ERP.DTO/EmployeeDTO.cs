@@ -1297,5 +1297,6 @@ namespace SINHA.MEDLAR.ERP.DTO
 
         }
 
+        public string ScheduleID { get; set; }
     }
 }

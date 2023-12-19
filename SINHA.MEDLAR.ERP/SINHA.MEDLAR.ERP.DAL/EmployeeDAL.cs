@@ -24343,6 +24343,7 @@ namespace SINHA.MEDLAR.ERP.DAL
                 objOracleCommand.Parameters.Add("p_grade_id", OracleDbType.Varchar2, ParameterDirection.Input).Value = objEmployeeDTO.GradeId;
                 objOracleCommand.Parameters.Add("p_head_office_id", OracleDbType.Varchar2, ParameterDirection.Input).Value = objEmployeeDTO.HeadOfficeId;
                 objOracleCommand.Parameters.Add("p_branch_office_id", OracleDbType.Varchar2, ParameterDirection.Input).Value = objEmployeeDTO.BranchOfficeId;
+                objOracleCommand.Parameters.Add("p_SCHEDULE_ID", OracleDbType.Varchar2, ParameterDirection.Input).Value = objEmployeeDTO.ScheduleID;
                 objOracleCommand.Parameters.Add("p_dbcursor", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
 
                 string VALUE = string.Empty;
