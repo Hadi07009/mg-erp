@@ -11870,14 +11870,14 @@ namespace SINHA.MEDLAR.ERP.DAL
 
                    "FROM VEW_INC_PROSAL_WORKER_ABOVE_1 WHERE head_office_id = '" + objEmployeeDTO.HeadOfficeId + "'  AND BRANCH_OFFICE_ID = '" + objEmployeeDTO.BranchOfficeId + "' AND INCREMENT_YEAR = '" + objEmployeeDTO.Year + "' AND INCREMENT_MONTH = '" + objEmployeeDTO.Month + "' ";
 
-                    if (objEmployeeDTO.BranchOfficeId == "110")
-                    {
-                        sql = sql + " and total_month >= 12 ";
-                    }
-                    else
-                    {
-                        sql = sql + " and total_month > 12 ";
-                    }
+                    //if (objEmployeeDTO.BranchOfficeId == "110")
+                    //{
+                    //    sql = sql + " and total_month >= 12 ";
+                    //}
+                    //else
+                    //{
+                    //    sql = sql + " and total_month > 12 ";
+                    //}
 
 
                     if (objEmployeeDTO.CardNo.Length > 0)

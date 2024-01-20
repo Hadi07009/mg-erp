@@ -977,10 +977,10 @@ namespace SINHA.MEDLAR.ERP.DAL
                 sql = sql + "and unit_id = '" + objTiffinDTO.UnitId + "'";
             }
             //Asad added on 07.08.2022
-            sql = sql +
-            " AND EXISTS(SELECT 1 FROM MONTHLY_SALARY M WHERE M.EMPLOYEE_ID = J.EMPLOYEE_ID AND M.SALARY_YEAR ='" + objTiffinDTO.Year + "' " +
-            " AND M.SALARY_MONTH = '" + objTiffinDTO.Month + "' " +
-            " AND M.BRANCH_OFFICE_ID = '" + objTiffinDTO.BranchOfficeId + "') ";
+            //sql = sql +
+            //" AND EXISTS(SELECT 1 FROM MONTHLY_SALARY M WHERE M.EMPLOYEE_ID = J.EMPLOYEE_ID AND M.SALARY_YEAR ='" + objTiffinDTO.Year + "' " +
+            //" AND M.SALARY_MONTH = '" + objTiffinDTO.Month + "' " +
+            //" AND M.BRANCH_OFFICE_ID = '" + objTiffinDTO.BranchOfficeId + "') ";
 
             sql = sql + "order by SL ";
 

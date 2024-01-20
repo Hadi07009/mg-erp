@@ -803,6 +803,7 @@ namespace SINHA.MEDLAR.ERP.DAL
                 "GAZETTE_YEAR, " +
                 "ACTIVE_YN " +
                 " FROM VEW_SALARY_GAZETTE_MAPPING ";
+            //VEW_SALARY_GAZETTE_MAPPING
 
             OracleCommand objCommand = new OracleCommand(sql);
             OracleDataAdapter objDataAdapter = new OracleDataAdapter(objCommand);
@@ -843,7 +844,10 @@ namespace SINHA.MEDLAR.ERP.DAL
             "( " +
            "select " +
            "tracer_no, " +
-           "to_char(publish_year) || ' (' || to_char(publish_date, 'dd/mm/yyyy') || ')' gazette_year " +
+           //"to_char(publish_year) || ' (' || to_char(publish_date, 'dd/mm/yyyy') || ')' gazette_year " +
+
+           "to_char(publish_year) gazette_year " +
+
            "FROM GAZETTE " +
            ") t " +
            "order by gazette_year";

@@ -67,10 +67,10 @@ namespace SINHA.MEDLAR.ERP.UI
                     btnRequisition.Visible = false;
                     btnGazetAdjustment.Visible = false;
                 }
-                if (strEmployeeId == "5" || strEmployeeId == "100" || strEmployeeId == "103") //IT(BP), IT(MAL), IT(JK)
-                    btnGazetAdjustment.Visible = true;
-                else
-                    btnGazetAdjustment.Visible = false;
+                //if (strEmployeeId == "5" || strEmployeeId == "100" || strEmployeeId == "103") //IT(BP), IT(MAL), IT(JK)
+                //    btnGazetAdjustment.Visible = true;
+                //else
+                //    btnGazetAdjustment.Visible = false;
             }
             if (IsPostBack)
             {
