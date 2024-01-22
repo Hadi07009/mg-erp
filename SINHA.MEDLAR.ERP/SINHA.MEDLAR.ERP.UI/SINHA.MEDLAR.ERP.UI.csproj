@@ -1554,6 +1554,18 @@
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="Reports\rptGradeAdjustSheetYearlyWithoutIncrAfIn.cs">
+      <DependentUpon>rptGradeAdjustSheetYearlyWithoutIncrAfIn.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\rptGradeAdjustSheetYearlyWithoutIncrAfIncr.cs">
+      <DependentUpon>rptGradeAdjustSheetYearlyWithoutIncrAfIncr.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Reports\rptSalaryRequisitionAllInOne.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -8365,6 +8377,14 @@
     <EmbeddedResource Include="Reports\rptGradeAdjustSheetYearly.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptGradeAdjustSheetYearly.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptGradeAdjustSheetYearlyWithoutIncrAfIn.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptGradeAdjustSheetYearlyWithoutIncrAfIn.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptGradeAdjustSheetYearlyWithoutIncrAfIncr.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptGradeAdjustSheetYearlyWithoutIncrAfIncr.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\rptGradeAdjustSheetYearlyWithoutIncr.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

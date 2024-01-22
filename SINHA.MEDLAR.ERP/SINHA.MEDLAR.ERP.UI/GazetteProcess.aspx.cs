@@ -614,6 +614,88 @@ namespace SINHA.MEDLAR.ERP.UI
             return counter;
         }
 
+        private int GetIncrementPlusGazetAdjSheetIncrement()
+        {
+            GazetteDTO objGazetteDTO = new GazetteDTO();
+            GazetteBLL objGazetteBLL = new GazetteBLL();
+
+            if (ddlUnitGroupId.SelectedValue.ToString() != " ")
+            {
+                objGazetteDTO.UnitGroupId = ddlUnitGroupId.SelectedValue.ToString();
+            }
+            else
+            {
+                objGazetteDTO.UnitGroupId = "";
+            }
+            if (ddlUnitId.SelectedValue.ToString() != " ")
+            {
+                objGazetteDTO.UnitId = ddlUnitId.SelectedValue.ToString();
+            }
+            else
+            {
+                objGazetteDTO.UnitId = "";
+            }
+
+            if (ddlSectionId.SelectedValue.ToString() != " ")
+            {
+                objGazetteDTO.SectionId = ddlSectionId.SelectedValue.ToString();
+            }
+            else
+            {
+                objGazetteDTO.SectionId = "";
+            }
+
+            objGazetteDTO.Year = txtGazetteYear.Text;
+            if (ddlGazetteMonth.SelectedValue.ToString() != " ")
+            {
+                objGazetteDTO.Month = ddlGazetteMonth.SelectedValue.ToString();
+            }
+            else
+            {
+                objGazetteDTO.Month = "";
+            }
+
+            if (chkIncrementYn.Checked == true)
+                objGazetteDTO.IncrementYn = "Y";
+            else
+                objGazetteDTO.IncrementYn = "N";
+
+            objGazetteDTO.HeadOfficeId = strHeadOfficeId;
+            objGazetteDTO.BranchOfficeId = strBranchOfficeId;
+            objGazetteDTO.UpdateBy = strEmployeeId;
+
+            string strPath = string.Empty;
+
+            if (chkIncrementYn.Checked == true)
+                strPath = Path.Combine(Server.MapPath("~/Reports/rptGradeAdjustSheetYearly.rpt"));
+            else
+                strPath = Path.Combine(Server.MapPath("~/Reports/rptGradeAdjustSheetYearlyWithoutIncrAfIn.rpt"));
+
+            //VEW_SALARY_GRADE_ADJUST_YEARLY
+            this.Context.Session["strReportPath"] = strPath;
+            rd.Load(strPath);
+
+            //dt.Rows.Count
+            var data = objGazetteBLL.GetIncrementPlusGazetAdjSheet(objGazetteDTO);
+            int counter = data.Rows.Count;
+
+            if (counter > 0)
+            {
+                rd.SetDataSource(data);
+                rd.SetDatabaseLogon("erp", "erp");
+                CrystalReportViewer1.ReportSource = rd;
+                CrystalReportViewer1.DataBind();
+                ReportFormatMaster();
+                this.CrystalReportViewer1.Dispose();
+                this.CrystalReportViewer1 = null;
+                rd.Dispose();
+                rd.Close();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+            }
+            return counter;
+        }
+
         private int GetIncrementPlusGazetAdjRequisition()
         {
             GazetteDTO objGazetteDTO = new GazetteDTO();
@@ -994,6 +1076,41 @@ namespace SINHA.MEDLAR.ERP.UI
             catch
             {
             }
+        }
+
+        protected void btnSheetIncrement_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (txtGazetteYear.Text == string.Empty)
+                {
+                    string strMsg = "Please Enter Year!!!";
+                    MessageBox(strMsg);
+                    txtGazetteYear.Focus();
+                    return;
+                }
+
+                if (ddlGazetteMonth.SelectedItem.Value == "0")
+                {
+                    string strMsg = "Please Select Month Name!!!";
+                    MessageBox(strMsg);
+                    ddlGazetteMonth.Focus();
+                    return;
+                }
+
+                int counter = GetIncrementPlusGazetAdjSheetIncrement();
+                if (counter == 0)
+                {
+                    string strMsg = "Please Analyze and then see the Sheet";
+                    MessageBox(strMsg);
+                    ddlGazetteMonth.Focus();
+                    return;
+                }
+            }
+            catch
+            {
+            }
+
         }
     }
 }

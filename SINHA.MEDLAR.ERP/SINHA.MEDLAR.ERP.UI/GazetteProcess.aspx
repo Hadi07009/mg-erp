@@ -262,7 +262,10 @@
                                         CssClass="styled-button-4" OnClick="ButSummary_Click"  />
                                    <asp:Button ID="btnGazetAdjustment" runat="server" Height="31px" 
                                          Text="Adjust Gazette" Width="100px" CssClass="styled-button-4" Visible="false"
-                                         OnClick="btnGazetAdjustment_Click"/>   
+                                         OnClick="btnGazetAdjustment_Click"/>
+                                    <asp:Button ID="btnSheetIncrement" runat="server" Height="31px" 
+                                         Text="Sheet(Increment)" Width="150px"
+                                        CssClass="styled-button-4" OnClick="btnSheetIncrement_Click"  />   
                                 </td>
                             </tr>
                                         </table>
