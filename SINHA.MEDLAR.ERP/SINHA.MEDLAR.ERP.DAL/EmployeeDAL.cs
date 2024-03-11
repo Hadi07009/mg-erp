@@ -9783,34 +9783,36 @@ namespace SINHA.MEDLAR.ERP.DAL
              DataTable dt = new DataTable();
              string sql = "";
 
-             sql = "SELECT " +
-                    "rownum sl, " +
-                    "CARD_NO, " +
-                    "EMPLOYEE_ID, " +
-                    "EMPLOYEE_NAME, " +
-                    "DESIGNATION_NAME, " +
-                    "TO_CHAR(JOINING_DATE, 'dd/mm/yyyy')JOINING_DATE, "+
+            sql = "SELECT " +
+                   "rownum sl, " +
+                   "CARD_NO, " +
+                   "EMPLOYEE_ID, " +
+                   "EMPLOYEE_NAME, " +
+                   "DESIGNATION_NAME, " +
+                   "TO_CHAR(JOINING_DATE, 'dd/mm/yyyy')JOINING_DATE, " +
 
-                      "(SELECT   increment_amount "+
-                 " FROM   INCREMENT_WORKER "+
-                " WHERE   employee_id = e.employee_id "+
-                       " AND (SELECT   TO_CHAR (joining_date, 'YYYY') "+
-                              " FROM   employee_job_detail "+
-                             " WHERE       employee_id = e.employee_id "+
-                                     " AND head_office_id = e.head_office_id "+
-                                     " AND branch_office_id = e.branch_office_id) = '"+objEmployeeDTO.Year+"' "+
-                        "AND TO_NUMBER((SELECT   TO_CHAR (joining_date, 'MM') "+
-                         "      FROM   employee_job_detail "+
-                          "    WHERE       employee_id = e.employee_id "+
-                           "           AND head_office_id = e.head_office_id "+
-                            "          AND branch_office_id = e.branch_office_id)) = "+
-                            "  '"+objEmployeeDTO.Month+"' "+
-                       " AND head_office_id = e.head_office_id "+
-                       " AND branch_office_id = e.branch_office_id)increment_amount " +
+                     "(SELECT   MANUAL_INCREMENT_AMOUNT " +
+                " FROM   INCREMENT_WORKER " +
+               " WHERE   employee_id = e.employee_id " +
+                      //" AND (SELECT   TO_CHAR (joining_date, 'YYYY') " +
+                      //       " FROM   employee_job_detail " +
+                      //      " WHERE       employee_id = e.employee_id " +
+                      //              " AND head_office_id = e.head_office_id " +
+                      //              " AND branch_office_id = e.branch_office_id) = '" + objEmployeeDTO.Year + "' " +
+                      // "AND TO_NUMBER((SELECT   TO_CHAR (joining_date, 'MM') " +
+                      //  "      FROM   employee_job_detail " +
+                      //   "    WHERE       employee_id = e.employee_id " +
+                      //    "           AND head_office_id = e.head_office_id " +
+                      //     "          AND branch_office_id = e.branch_office_id)) = " +
+                      //     "  '" + objEmployeeDTO.Month + "' " +
+                      " AND INCREMENT_YEAR = '" + objEmployeeDTO.Year + "' " +
+                      " AND INCREMENT_MONTH = '" + objEmployeeDTO.Month + "' " +
+                      " AND head_office_id = e.head_office_id " +
+                      " AND branch_office_id = e.branch_office_id)increment_amount " +
 
 
 
-                   "FROM vew_search_worker_for_arrear e WHERE head_office_id = '" + objEmployeeDTO.HeadOfficeId + "'  AND BRANCH_OFFICE_ID = '" + objEmployeeDTO.BranchOfficeId + "' AND JOINING_YEAR = '" + objEmployeeDTO.Year + "' AND TO_NUMBER(JOINING_MONTH) = '" + objEmployeeDTO.Month + "' ";
+                  "FROM vew_search_worker_for_arrear e WHERE head_office_id = '" + objEmployeeDTO.HeadOfficeId + "'  AND BRANCH_OFFICE_ID = '" + objEmployeeDTO.BranchOfficeId + "'";// AND JOINING_YEAR = '" + objEmployeeDTO.Year + "' AND TO_NUMBER(JOINING_MONTH) = '" + objEmployeeDTO.Month + "' ";
 
 
              if (objEmployeeDTO.CardNo.Length > 0)
