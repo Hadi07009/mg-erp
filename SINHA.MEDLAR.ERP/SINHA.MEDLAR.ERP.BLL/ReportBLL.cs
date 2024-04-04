@@ -2403,6 +2403,30 @@ namespace SINHA.MEDLAR.ERP.BLL
                 throw ex;
             }
         }
+
+        public DataTable GetStaffMasterSalarySheet(ReportDTO objReportDTO, int tagNo)
+        {
+            try
+            {
+                DataSet ds = new DataSet();
+                DataTable dt = new DataTable();
+                try
+                {
+                    ReportDAL objReportDAL = new ReportDAL();
+                    dt = objReportDAL.GetStaffMasterSalarySheet(objReportDTO,tagNo);
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public DataTable GetAllStaffMasterSalarySheet(ReportDTO objReportDTO)
         {
             try
@@ -5921,6 +5945,29 @@ namespace SINHA.MEDLAR.ERP.BLL
                 {
                     ReportDAL objReportDAL = new ReportDAL();
                     dt = objReportDAL.GetWorkerSalaryMasterSheet(objReportDTO);
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public DataTable GetWorkerSalaryMasterSheet(ReportDTO objReportDTO, int tagNo)
+        {
+            try
+            {
+                DataSet ds = new DataSet();
+                DataTable dt = new DataTable();
+                try
+                {
+                    ReportDAL objReportDAL = new ReportDAL();
+                    dt = objReportDAL.GetWorkerSalaryMasterSheet(objReportDTO,tagNo);
                 }
                 catch (Exception ex)
                 {

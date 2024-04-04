@@ -1590,6 +1590,18 @@
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="Reports\RptStaffMasterSalarySheetCompare.cs">
+      <DependentUpon>RptStaffMasterSalarySheetCompare.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\RptWorkerSalaryMasterSheetCompare.cs">
+      <DependentUpon>RptWorkerSalaryMasterSheetCompare.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Reports\RptWorkerSalaryMasterSheetTiffinSummary.cs">
       <DependentUpon>RptWorkerSalaryMasterSheetTiffinSummary.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -9714,6 +9726,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptStaffIncrementProposalSheetByUnitGroup.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RptStaffMasterSalarySheetCompare.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptStaffMasterSalarySheetCompare.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\RptStaffMasterSalarySheet.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RptStaffMasterSalarySheet.cs</LastGenOutput>
@@ -9857,6 +9873,10 @@
     <EmbeddedResource Include="Reports\RptWorkerMasterSalarySheetCorona.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RptWorkerMasterSalarySheetCorona.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RptWorkerSalaryMasterSheetCompare.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptWorkerSalaryMasterSheetCompare.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\RptWorkerSalaryMasterSheetTiffinSummary.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

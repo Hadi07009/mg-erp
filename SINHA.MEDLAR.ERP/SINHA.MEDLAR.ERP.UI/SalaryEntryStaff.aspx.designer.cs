@@ -517,6 +517,15 @@ namespace SINHA.MEDLAR.ERP.UI {
         protected global::System.Web.UI.WebControls.Button BtnCashSheetAll;
         
         /// <summary>
+        /// btnStaffCompareSheet control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnStaffCompareSheet;
+        
+        /// <summary>
         /// Label46 control.
         /// </summary>
         /// <remarks>

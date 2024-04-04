@@ -327,7 +327,7 @@ namespace SINHA.MEDLAR.ERP.DAL
 
             string sql = "";   
               
-            sql = "SELECT  " +
+            sql = "SELECT " +
             "TO_CHAR (NVL (TRAN_ID, ''))TRAN_ID, " +
             "TO_CHAR (NVL (PO_NO, ''))PO_NO, " +
             "TO_CHAR (NVL (STYLE_NO, ''))STYLE_NO, " +
@@ -378,7 +378,7 @@ namespace SINHA.MEDLAR.ERP.DAL
             string msg = "";
 
               string   sql = "";
-                sql = "SELECT  " +
+                sql = "SELECT   " +
 
                     "TO_CHAR (NVL (TRAN_ID, ''))TRAN_ID, " +
                     "TO_CHAR (NVL (PO_NO, ''))PO_NO, " +

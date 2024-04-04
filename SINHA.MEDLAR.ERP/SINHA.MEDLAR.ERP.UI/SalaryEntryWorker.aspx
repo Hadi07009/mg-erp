@@ -412,6 +412,9 @@
 
                                     <asp:Button ID="btnSalaryReqAllInOne" runat="server" Height="31px" Text="RQ" Width="50px"
                                         CssClass="styled-button-4" OnClick="btnSalaryReqAllInOne_Click" />
+                                    <asp:Button ID="btnCompareSheet" runat="server" Height="31px"
+                                        Text="Compare Sheet." CssClass="styled-button-4"
+                                        Width="100px" OnClick="btnCompareSheet_Click"  />
 
                                 </td>
                             </tr>

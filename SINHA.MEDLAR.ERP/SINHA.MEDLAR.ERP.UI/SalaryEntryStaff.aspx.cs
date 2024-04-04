@@ -2688,6 +2688,83 @@ namespace SINHA.MEDLAR.ERP.UI
                 GC.WaitForPendingFinalizers();
             }
         }
+
+        public void GetStaffMasterSalarySheet(int tagNo)
+        {
+            try
+            {
+                ReportDTO objReportDTO = new ReportDTO();
+                ReportBLL objReportBLL = new ReportBLL();
+
+                if (ddlSectionId.SelectedValue.ToString() != " ")
+                {
+                    objReportDTO.SectionId = ddlSectionId.SelectedValue.ToString();
+                }
+                else
+                {
+                    objReportDTO.SectionId = "";
+                }
+
+                if (ddlUnitId.SelectedValue.ToString() != " ")
+                {
+                    objReportDTO.UnitId = ddlUnitId.SelectedValue.ToString();
+                }
+                else
+                {
+                    objReportDTO.UnitId = "";
+                }
+                objReportDTO.UnitGroupId = ddlUnitGroupId.SelectedItem.Value;
+
+                objReportDTO.Year = txtSalaryYear.Text;
+                objReportDTO.Month = txtsalaryMonth.Text;
+
+                objReportDTO.HeadOfficeId = strHeadOfficeId;
+                objReportDTO.BranchOfficeId = strBranchOfficeId;
+                objReportDTO.UpdateBy = strEmployeeId;
+
+                if (objReportDTO.Year.Trim() == "2020" && (objReportDTO.Month.Trim() == "04" || objReportDTO.Month.Trim() == "4"))
+                {
+                    string strPath = Path.Combine(Server.MapPath("~/Reports/RptStaffMasterSalarySheetCorona.rpt"));
+                    rd.Load(strPath);
+
+                    rd.SetDataSource(objReportBLL.GetStaffSalarySheet(objReportDTO));
+                }
+                else
+                {
+                    string strPath = Path.Combine(Server.MapPath("~/Reports/RptStaffMasterSalarySheetCompare.rpt"));
+                    this.Context.Session["strReportPath"] = strPath;
+                    rd.Load(strPath);
+                    rd.SetDataSource(objReportBLL.GetStaffMasterSalarySheet(objReportDTO,tagNo));
+                }
+
+                //master
+                //string strPath = Path.Combine(Server.MapPath("~/Reports/RptStaffMasterSalarySheet.rpt"));
+                //this.Context.Session["strReportPath"] = strPath;
+                //rd.Load(strPath);
+                //rd.SetDataSource(objReportBLL.GetStaffMasterSalarySheet(objReportDTO));
+
+                rd.SetDatabaseLogon("erp", "erp");
+                CrystalReportViewer1.ReportSource = rd;
+                CrystalReportViewer1.DataBind();
+                reportMaster();
+                this.CrystalReportViewer1.Dispose();
+                this.CrystalReportViewer1 = null;
+                rd.Dispose();
+                rd.Close();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+            }
+
+            catch (Exception ex)
+            {
+                this.CrystalReportViewer1.Dispose();
+                this.CrystalReportViewer1 = null;
+                rd.Dispose();
+                rd.Close();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+            }
+        }
         public void GetAllStaffMasterSalarySheet()
         {
             try
@@ -4484,6 +4561,54 @@ namespace SINHA.MEDLAR.ERP.UI
                     }
                 }
                 GetStaffSalarySheetAsCashOnlyBP();
+            }
+            catch (Exception ex)
+            {
+                this.CrystalReportViewer1.Dispose();
+                this.CrystalReportViewer1 = null;
+                rd.Dispose();
+                rd.Close();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+            }
+        }
+
+        protected void btnStaffCompareSheet_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int tagNo = 1;
+                if (ddlUnitGroupId.SelectedItem.Value == "")
+                {
+                    if (ddlUnitId.Text == " ")
+                    {
+                        string strMsg = "Please Select Unit Name!!!";
+                        MessageBox(strMsg);
+                        ddlUnitId.Focus();
+                        return;
+                    }
+                    if (ddlSectionId.Text == " ")
+                    {
+                        string strMsg = "Please Select Section Name!!!";
+                        MessageBox(strMsg);
+                        ddlUnitId.Focus();
+                        return;
+                    }
+                }
+                else
+                {
+                    if (ddlUnitId.Text != " ")
+                    {
+                        if (ddlSectionId.Text == " ")
+                        {
+                            string strMsg = "Please Select Section Name!!!";
+                            MessageBox(strMsg);
+                            ddlUnitId.Focus();
+                            return;
+                        }
+                    }
+                }
+                GetStaffMasterSalarySheet(tagNo);
             }
             catch (Exception ex)
             {

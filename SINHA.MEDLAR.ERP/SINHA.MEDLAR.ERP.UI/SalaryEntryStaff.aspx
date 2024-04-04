@@ -269,6 +269,9 @@
                                         CssClass="styled-button-4" OnClick="BtnBankSheetAll_Click" />
                                       <asp:Button ID="BtnCashSheetAll" runat="server" Height="31px" Text="Bk. Sheet (All)" Width="80px"
                                         CssClass="styled-button-4" OnClick="BtnCashSheetAll_Click" />
+                                    <asp:Button ID="btnStaffCompareSheet" runat="server" Height="31px" Text="Compare Sheet"
+                                        CssClass="styled-button-4" Width="90px" 
+                                        OnClick="btnStaffCompareSheet_Click"  />
                                 
                                 </td>
                             </tr>

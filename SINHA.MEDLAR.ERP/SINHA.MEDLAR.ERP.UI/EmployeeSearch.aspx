@@ -358,6 +358,7 @@
                             </asp:BoundField>
                             <asp:BoundField DataField="DATE_OF_BIRTH" HeaderText="DATE OF BIRTH" />
                             <asp:BoundField DataField="nid_no" HeaderText="NID" />
+                            <asp:BoundField DataField="BKASH_NO" HeaderText="Bkash No" />
                             <asp:TemplateField>
                                 <ItemTemplate>
                                     <div class="tooltip">
