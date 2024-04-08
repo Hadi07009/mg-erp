@@ -160,10 +160,11 @@
 
                             <tr>
                                 <td style=" text-align: right; width: 263px;">
-                                    &nbsp;
+                                    <asp:Label ID="Label3" runat="server" Text="Tiffin Amount :"></asp:Label>
                                 </td>
                                 <td style="width: 293px; text-align: left;">
-                                    &nbsp;
+                                    <asp:TextBox ID="txtTiffinAmount" runat="server" Width="130px" Height="20px" onkeydown="javascript:TextName_OnKeyDown(event)"
+                                        Font-Bold="True"></asp:TextBox>
                                 </td>
                                 <td style="width: 91px; text-align: right;">
                                     &nbsp;
@@ -172,6 +173,17 @@
                                     &nbsp;
                                     <asp:HiddenField ID="HfGridView" runat="server" />
                                 </td>
+                            </tr>
+
+                            <tr>
+                                <td style=" text-align: right; width: 263px;">
+                                    &nbsp;</td>
+                                <td style="width: 293px; text-align: left;">
+                                    &nbsp;</td>
+                                <td style="width: 91px; text-align: right;">
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
                             </tr>
                             <tr>
                                 <td style="text-align: center" colspan="4">

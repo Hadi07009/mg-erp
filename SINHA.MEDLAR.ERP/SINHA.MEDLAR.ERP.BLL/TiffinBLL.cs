@@ -267,6 +267,19 @@ namespace SINHA.MEDLAR.ERP.BLL
             return objTiffinDTO;
 
         }
+
+        public TiffinDTO getTiffinAmount(string strEmployeeId, string strYear, string strMonth, string strHeadOfficeId, string strBranchOfficeId)
+        {
+
+            TiffinDTO objTiffinDTO = new TiffinDTO();
+            TiffinDAL objTiffinDAL = new TiffinDAL();
+
+
+            objTiffinDTO = objTiffinDAL.getTiffinAmount(strEmployeeId, strYear, strMonth, strHeadOfficeId, strBranchOfficeId);
+            return objTiffinDTO;
+
+        }
+
         public string ProcessIncrementProposalReqSummary(TiffinDTO objTiffinDTO)
         {
 

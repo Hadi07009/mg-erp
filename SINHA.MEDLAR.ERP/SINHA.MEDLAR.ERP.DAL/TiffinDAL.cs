@@ -133,6 +133,15 @@ namespace SINHA.MEDLAR.ERP.DAL
                 objOracleCommand.Parameters.Add("P_TIFFIN_DAY", OracleDbType.Varchar2, ParameterDirection.Input).Value = null;
             }
 
+            if (objTiffinDTO.TiffinAmount != "")
+            {
+                objOracleCommand.Parameters.Add("P_TIFFIN_AMOUNT", OracleDbType.Varchar2, ParameterDirection.Input).Value = objTiffinDTO.TiffinAmount;
+            }
+            else
+            {
+                objOracleCommand.Parameters.Add("P_TIFFIN_AMOUNT", OracleDbType.Varchar2, ParameterDirection.Input).Value = null;
+            }
+
             //if (objTiffinDTO.TiffinDayAdditional != "")
             //{
             //    objOracleCommand.Parameters.Add("p_tiffin_day_additional", OracleDbType.Varchar2, ParameterDirection.Input).Value = objTiffinDTO.TiffinDayAdditional;
@@ -2661,6 +2670,62 @@ namespace SINHA.MEDLAR.ERP.DAL
 
 
           
+            return objTiffinDTO;
+
+        }
+
+        public TiffinDTO getTiffinAmount(string strEmployeeId, string strYear, string strMonth, string strHeadOfficeId, string strBranchOfficeId)
+        {
+
+            TiffinDTO objTiffinDTO = new TiffinDTO();
+            string sql = "";
+            sql = "SELECT " +
+
+                  "to_char(nvl(PAYMENT_AMOUNT, '')) " +
+
+
+                  "FROM vew_search_tiffin_entry WHERE HEAD_OFFICE_ID = '" + strHeadOfficeId + "' AND BRANCH_OFFICE_ID ='" + strBranchOfficeId + "' AND employee_id = '" + strEmployeeId + "' " +
+                  " AND tiffin_year = '" + strYear + "' AND tiffin_month = '" + strMonth + "' ";
+
+
+
+
+            OracleCommand objCommand = new OracleCommand(sql);
+            OracleDataReader objDataReader;
+
+            using (OracleConnection strConn = GetConnection())
+            {
+
+                objCommand.Connection = strConn;
+                strConn.Open();
+                objDataReader = objCommand.ExecuteReader();
+                try
+                {
+                    while (objDataReader.Read())
+                    {
+
+                        objTiffinDTO.TiffinAmount = objDataReader.GetString(0);
+
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Error : " + ex.Message);
+
+                }
+
+                finally
+                {
+
+                    strConn.Close();
+                }
+
+            }
+
+
+
+
             return objTiffinDTO;
 
         }

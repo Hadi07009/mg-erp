@@ -180,6 +180,27 @@ namespace SINHA.MEDLAR.ERP.UI
 
         }
 
+        public void getTiffinAmount()
+        {
+
+            TiffinDTO objTiffinDTO = new TiffinDTO();
+            TiffinBLL objTiffinBLL = new TiffinBLL();
+
+            objTiffinDTO = objTiffinBLL.getTiffinAmount(txtEmployeeId.Text, txtYear.Text, txtMonth.Text, strHeadOfficeId, strBranchOfficeId);
+
+            if (objTiffinDTO.TiffinAmount == string.Empty)
+            {
+                txtTiffinAmount.Text = "";
+
+            }
+            else
+            {
+
+                txtTiffinAmount.Text = objTiffinDTO.TiffinAmount;
+            }
+
+        }
+
 
 
         public void clearMsg()
@@ -538,6 +559,7 @@ namespace SINHA.MEDLAR.ERP.UI
                 txtDesignationName.Text = strDesignation;
 
                 txtTiffinDay.Focus();
+                txtTiffinAmount.Focus();
 
             }
         }
@@ -650,6 +672,7 @@ namespace SINHA.MEDLAR.ERP.UI
                 txtEmployeeName.Text = strEmployeeName;
                 txtDesignationName.Text = strDesignation;
                 txtTiffinDay.Focus();
+                txtTiffinAmount.Focus();
             }
         }
         public void goToPreviousRecordTop()
@@ -672,6 +695,7 @@ namespace SINHA.MEDLAR.ERP.UI
                     string strMsg = "There is no Data for the Previous Record!!!";
                     MessageBox(strMsg);
                     txtTiffinDay.Focus();
+                    txtTiffinAmount.Focus();
                     return;
 
                 }
@@ -691,6 +715,7 @@ namespace SINHA.MEDLAR.ERP.UI
                     string strMsg = "There is no Data for the Previous Record!!!";
                     MessageBox(strMsg);
                     txtTiffinDay.Focus();
+                    txtTiffinAmount.Focus();
                     return;
 
                 }
@@ -731,6 +756,7 @@ namespace SINHA.MEDLAR.ERP.UI
 
 
             txtTiffinDay.Focus();
+            txtTiffinAmount.Focus();
 
         }
         public void goToPreviousRecordBottom()
@@ -809,6 +835,7 @@ namespace SINHA.MEDLAR.ERP.UI
         public void clearTextBox()
         {
             txtTiffinDay.Text = string.Empty;
+            txtTiffinAmount.Text = string.Empty;
             //txtTiffinDayAdditional.Text = string.Empty;   
         }
 
@@ -828,6 +855,7 @@ namespace SINHA.MEDLAR.ERP.UI
             objTiffinDTO.Year = txtYear.Text;
             objTiffinDTO.Month = txtMonth.Text;
             objTiffinDTO.TiffinDay = txtTiffinDay.Text;
+            objTiffinDTO.TiffinAmount = txtTiffinAmount.Text;
 
             //objTiffinDTO.TiffinDayAdditional = txtTiffinDayAdditional.Text;
 
@@ -870,6 +898,7 @@ namespace SINHA.MEDLAR.ERP.UI
                     clearTextBox();
                     goToNextRecordTop();
                     getTiffinDay();
+                    getTiffinAmount();
                     searchTiffinEntry();
                 }
                 if (HfGridView.Value == "Bottom")
@@ -877,6 +906,7 @@ namespace SINHA.MEDLAR.ERP.UI
                     clearTextBox();
                     goToNextRecordBottom();
                     getTiffinDay();
+                    getTiffinAmount();
                     searchTiffinEntry();
                 }
 
@@ -1380,6 +1410,8 @@ namespace SINHA.MEDLAR.ERP.UI
 
             getTiffinDay();
             txtTiffinDay.Focus();
+            getTiffinAmount();
+            txtTiffinAmount.Focus();
 
 
 
@@ -1463,6 +1495,8 @@ namespace SINHA.MEDLAR.ERP.UI
 
             getTiffinDay();
             txtTiffinDay.Focus();
+            getTiffinAmount();
+            txtTiffinAmount.Focus();
 
         }
 
@@ -1586,11 +1620,13 @@ namespace SINHA.MEDLAR.ERP.UI
                 {
                     goToNextRecordTop();
                     getTiffinDay();
+                    getTiffinAmount();
                 }
                 if (HfGridView.Value == "Bottom")
                 {
                     goToNextRecordBottom();
                     getTiffinDay();
+                    getTiffinAmount();
                 }
                 clearMessage();
 
@@ -1623,11 +1659,13 @@ namespace SINHA.MEDLAR.ERP.UI
                 {
                     goToPreviousRecordTop();
                     getTiffinDay();
+                    getTiffinAmount();
                 }
                 if (HfGridView.Value == "Bottom")
                 {
                     goToPreviousRecordBottom();
                     getTiffinDay();
+                    getTiffinAmount();
                 }
                 clearMessage();
 
@@ -1672,11 +1710,13 @@ namespace SINHA.MEDLAR.ERP.UI
                     {
                         goToNextRecordTop();
                         getTiffinDay();
+                        getTiffinAmount();
                     }
                     if (HfGridView.Value == "Bottom")
                     {
                         goToNextRecordBottom();
                         getTiffinDay();
+                        getTiffinAmount();
                     }
                     clearMessage();
 
