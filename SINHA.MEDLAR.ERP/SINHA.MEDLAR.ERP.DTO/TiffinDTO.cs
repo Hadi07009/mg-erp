@@ -133,5 +133,7 @@ namespace SINHA.MEDLAR.ERP.DTO
 
         public string UnitGroupId { get; set; }
         public string TiffinAmount { get; set; }
+        public string T_Day { get; set; }
+        public string I_Day { get; set; }
     }
 }

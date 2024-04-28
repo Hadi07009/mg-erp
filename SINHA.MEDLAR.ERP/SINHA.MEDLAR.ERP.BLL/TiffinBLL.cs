@@ -280,6 +280,31 @@ namespace SINHA.MEDLAR.ERP.BLL
 
         }
 
+        public TiffinDTO getIftarDayOnly(string strEmployeeId, string strYear, string strMonth, string strHeadOfficeId, string strBranchOfficeId)
+        {
+
+            TiffinDTO objTiffinDTO = new TiffinDTO();
+            TiffinDAL objTiffinDAL = new TiffinDAL();
+
+
+            objTiffinDTO = objTiffinDAL.getIftarDayOnly(strEmployeeId, strYear, strMonth, strHeadOfficeId, strBranchOfficeId);
+            return objTiffinDTO;
+
+        }
+
+
+        public TiffinDTO getTiffinDayOnly(string strEmployeeId, string strYear, string strMonth, string strHeadOfficeId, string strBranchOfficeId)
+        {
+
+            TiffinDTO objTiffinDTO = new TiffinDTO();
+            TiffinDAL objTiffinDAL = new TiffinDAL();
+
+
+            objTiffinDTO = objTiffinDAL.getTiffinDayOnly(strEmployeeId, strYear, strMonth, strHeadOfficeId, strBranchOfficeId);
+            return objTiffinDTO;
+
+        }
+
         public string ProcessIncrementProposalReqSummary(TiffinDTO objTiffinDTO)
         {
 

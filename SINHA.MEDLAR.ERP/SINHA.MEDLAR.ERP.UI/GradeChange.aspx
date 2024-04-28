@@ -324,11 +324,14 @@
                                 <td style="width: 270px; height: 15px;">
                                     &nbsp;</td>
                                 <td style="width: 176px; text-align: right; height: 15px;">
-                                    <asp:Label ID="Label7" runat="server" Text="To Grade :"></asp:Label></td>
+                                    <asp:Label ID="Label7" runat="server" Text="To Grade :" Visible="False"></asp:Label></td>
                                 <td style="width: 381px; text-align: left; height: 15px;">
-                                    <asp:DropDownList ID="ddlGradeNoTo" runat="server" Width="150px" Height="18px"> 
-                                    </asp:DropDownList> &nbsp &nbsp <asp:Button ID="btnSaveNewVersion" runat="server" Height="31px" Text="Process" Width="70px"
-                                        CssClass="styled-button-4" OnClick="btnSaveNewVersion_Click" /></td>
+                                    <asp:DropDownList ID="ddlGradeNoTo" runat="server" Width="150px" Height="18px" 
+                                        Visible="False"> 
+                                    </asp:DropDownList> &nbsp &nbsp <asp:Button ID="btnSaveNewVersion" 
+                                        runat="server" Height="31px" Text="Process" Width="70px"
+                                        CssClass="styled-button-4" OnClick="btnSaveNewVersion_Click" 
+                                        Enabled="False" Visible="False" /></td>
                                 <td style="width: 390px; text-align: left; height: 15px; display:none;">
                                     &nbsp;</td>
                                 <td style="width: 365px; height: 15px;">

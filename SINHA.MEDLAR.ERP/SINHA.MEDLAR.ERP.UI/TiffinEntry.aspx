@@ -128,7 +128,7 @@
                             </tr>
                             <tr>
                                 <td style="width: 263px; text-align: right; height: 22px;">
-                                    <asp:Label ID="Label27" runat="server" Text="Tiffin Day :"></asp:Label>
+                                    <asp:Label ID="Label27" runat="server" Text="Total Day :"></asp:Label>
                                 </td>
                                 <td style="width: 293px; text-align: left; height: 22px;">
                                     <asp:TextBox ID="txtTiffinDay" runat="server" Width="130px" Height="20px" onkeydown="javascript:TextName_OnKeyDown(event)"
@@ -160,7 +160,7 @@
 
                             <tr>
                                 <td style=" text-align: right; width: 263px;">
-                                    <asp:Label ID="Label3" runat="server" Text="Tiffin Amount :"></asp:Label>
+                                    <asp:Label ID="Label3" runat="server" Text="Total Amount :"></asp:Label>
                                 </td>
                                 <td style="width: 293px; text-align: left;">
                                     <asp:TextBox ID="txtTiffinAmount" runat="server" Width="130px" Height="20px" onkeydown="javascript:TextName_OnKeyDown(event)"
@@ -173,6 +173,30 @@
                                     &nbsp;
                                     <asp:HiddenField ID="HfGridView" runat="server" />
                                 </td>
+                            </tr>
+
+                            <tr>
+                                <td style=" text-align: right; width: 263px;">
+                                    <asp:Label ID="Label4" runat="server" Text="Tiffin Day :"></asp:Label></td>
+                                <td style="width: 293px; text-align: left;">
+                                    <asp:TextBox ID="txtTDay" runat="server" Width="130px" Height="20px" onkeydown="javascript:TextName_OnKeyDown(event)"
+                                        Font-Bold="True"></asp:TextBox></td>
+                                <td style="width: 91px; text-align: right;">
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                            </tr>
+
+                            <tr>
+                                <td style=" text-align: right; width: 263px;">
+                                    <asp:Label ID="Label5" runat="server" Text="Iftar Day :"></asp:Label></td></td>
+                                <td style="width: 293px; text-align: left;">
+                                    <asp:TextBox ID="txtIftarDay" runat="server" Width="130px" Height="20px" onkeydown="javascript:TextName_OnKeyDown(event)"
+                                        Font-Bold="True"></asp:TextBox></td>
+                                <td style="width: 91px; text-align: right;">
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
                             </tr>
 
                             <tr>

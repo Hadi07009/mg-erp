@@ -201,6 +201,48 @@ namespace SINHA.MEDLAR.ERP.UI
 
         }
 
+        public void getIftarDayOnly()
+        {
+
+            TiffinDTO objTiffinDTO = new TiffinDTO();
+            TiffinBLL objTiffinBLL = new TiffinBLL();
+
+            objTiffinDTO = objTiffinBLL.getIftarDayOnly(txtEmployeeId.Text, txtYear.Text, txtMonth.Text, strHeadOfficeId, strBranchOfficeId);
+
+            if (objTiffinDTO.I_Day == string.Empty)
+            {
+                txtIftarDay.Text = "";
+
+            }
+            else
+            {
+
+                txtIftarDay.Text = objTiffinDTO.I_Day;
+            }
+
+        }
+
+        public void getTiffinDayOnly()
+        {
+
+            TiffinDTO objTiffinDTO = new TiffinDTO();
+            TiffinBLL objTiffinBLL = new TiffinBLL();
+
+            objTiffinDTO = objTiffinBLL.getTiffinDayOnly(txtEmployeeId.Text, txtYear.Text, txtMonth.Text, strHeadOfficeId, strBranchOfficeId);
+
+            if (objTiffinDTO.T_Day == string.Empty)
+            {
+                txtTDay.Text = "";
+
+            }
+            else
+            {
+
+                txtTDay.Text = objTiffinDTO.T_Day;
+            }
+
+        }
+
 
 
         public void clearMsg()
@@ -836,6 +878,8 @@ namespace SINHA.MEDLAR.ERP.UI
         {
             txtTiffinDay.Text = string.Empty;
             txtTiffinAmount.Text = string.Empty;
+            txtTDay.Text = string.Empty;
+            txtIftarDay.Text = string.Empty;
             //txtTiffinDayAdditional.Text = string.Empty;   
         }
 
@@ -856,6 +900,8 @@ namespace SINHA.MEDLAR.ERP.UI
             objTiffinDTO.Month = txtMonth.Text;
             objTiffinDTO.TiffinDay = txtTiffinDay.Text;
             objTiffinDTO.TiffinAmount = txtTiffinAmount.Text;
+            objTiffinDTO.T_Day = txtTDay.Text;
+            objTiffinDTO.I_Day = txtIftarDay.Text; 
 
             //objTiffinDTO.TiffinDayAdditional = txtTiffinDayAdditional.Text;
 
@@ -899,6 +945,8 @@ namespace SINHA.MEDLAR.ERP.UI
                     goToNextRecordTop();
                     getTiffinDay();
                     getTiffinAmount();
+                    getTiffinDayOnly();
+                    getIftarDayOnly();
                     searchTiffinEntry();
                 }
                 if (HfGridView.Value == "Bottom")
@@ -907,6 +955,8 @@ namespace SINHA.MEDLAR.ERP.UI
                     goToNextRecordBottom();
                     getTiffinDay();
                     getTiffinAmount();
+                    getTiffinDayOnly();
+                    getIftarDayOnly();
                     searchTiffinEntry();
                 }
 
@@ -1103,7 +1153,18 @@ namespace SINHA.MEDLAR.ERP.UI
                 }
                 //end
 
-                string strPath = Path.Combine(Server.MapPath("~/Reports/rptTiffinSheet.rpt"));
+                string strPath = null; 
+                if (objReportDTO.Year == "2024" && objReportDTO.Month.Trim() == "03")
+                {
+                     strPath = Path.Combine(Server.MapPath("~/Reports/rptTiffinSheetIfter.rpt"));
+                }
+                else
+                {
+                     strPath = Path.Combine(Server.MapPath("~/Reports/rptTiffinSheet.rpt"));
+                }
+                
+
+
                 this.Context.Session["strReportPath"] = strPath;
                 rd.Load(strPath);
                 //DataSet ds = new DataSet();
@@ -1244,8 +1305,18 @@ namespace SINHA.MEDLAR.ERP.UI
                 }
 
 
+                string strPath = null;
+                if (objReportDTO.Year == "2024" && objReportDTO.Month.Trim() == "03")
+                {
+                     strPath = Path.Combine(Server.MapPath("~/Reports/rptTiffinRequisitionIfter.rpt"));
+                }
+                else
+                {
+                     strPath = Path.Combine(Server.MapPath("~/Reports/rptTiffinRequisition.rpt"));
+                }
 
-                string strPath = Path.Combine(Server.MapPath("~/Reports/rptTiffinRequisition.rpt"));
+
+                
                 this.Context.Session["strReportPath"] = strPath;
                 rd.Load(strPath);
                 rd.SetDataSource(objReportBLL.monthlyTiffinRequisition(objReportDTO));
@@ -1412,6 +1483,10 @@ namespace SINHA.MEDLAR.ERP.UI
             txtTiffinDay.Focus();
             getTiffinAmount();
             txtTiffinAmount.Focus();
+            getTiffinDayOnly();
+            txtTDay.Focus();
+            getIftarDayOnly();
+            txtIftarDay.Focus();
 
 
 
@@ -1497,6 +1572,10 @@ namespace SINHA.MEDLAR.ERP.UI
             txtTiffinDay.Focus();
             getTiffinAmount();
             txtTiffinAmount.Focus();
+            getTiffinDayOnly();
+            txtTDay.Focus();
+            getIftarDayOnly();
+            txtIftarDay.Focus();
 
         }
 
@@ -1621,12 +1700,16 @@ namespace SINHA.MEDLAR.ERP.UI
                     goToNextRecordTop();
                     getTiffinDay();
                     getTiffinAmount();
+                    getTiffinDayOnly();
+                    getIftarDayOnly();
                 }
                 if (HfGridView.Value == "Bottom")
                 {
                     goToNextRecordBottom();
                     getTiffinDay();
                     getTiffinAmount();
+                    getTiffinDayOnly();
+                    getIftarDayOnly();
                 }
                 clearMessage();
 
@@ -1660,12 +1743,17 @@ namespace SINHA.MEDLAR.ERP.UI
                     goToPreviousRecordTop();
                     getTiffinDay();
                     getTiffinAmount();
+                    getTiffinDayOnly();
+                    getIftarDayOnly();
+
                 }
                 if (HfGridView.Value == "Bottom")
                 {
                     goToPreviousRecordBottom();
                     getTiffinDay();
                     getTiffinAmount();
+                    getTiffinDayOnly();
+                    getIftarDayOnly();
                 }
                 clearMessage();
 
@@ -1711,12 +1799,16 @@ namespace SINHA.MEDLAR.ERP.UI
                         goToNextRecordTop();
                         getTiffinDay();
                         getTiffinAmount();
+                        getTiffinDayOnly();
+                        getIftarDayOnly();
                     }
                     if (HfGridView.Value == "Bottom")
                     {
                         goToNextRecordBottom();
                         getTiffinDay();
                         getTiffinAmount();
+                        getTiffinDayOnly();
+                        getIftarDayOnly();
                     }
                     clearMessage();
 
@@ -2475,7 +2567,7 @@ namespace SINHA.MEDLAR.ERP.UI
 
                 objReportDTO.HeadOfficeId = strHeadOfficeId;
                 objReportDTO.BranchOfficeId = strBranchOfficeId;
-                objReportDTO.EmployeeTypeId = "";
+                objReportDTO.EmployeeTypeId = ddlEmployeeTypeId.SelectedValue;
                 objReportDTO.Year = txtYear.Text.Trim();
                 objReportDTO.Month = txtMonth.Text.Trim();
                 objReportDTO.UpdateBy = strEmployeeId;
@@ -2483,7 +2575,17 @@ namespace SINHA.MEDLAR.ERP.UI
                 string strPath = Path.Combine(Server.MapPath("~/Reports/rptTiffinWalletSheet.rpt"));
                 this.Context.Session["strReportPath"] = strPath;
                 rd.Load(strPath);
-                rd.SetDataSource(objReportBLL.GetTiffinWalletSheet(objReportDTO));
+
+                if (objReportDTO.EmployeeTypeId == "")
+                {
+                    rd.SetDataSource(objReportBLL.GetTiffinWalletSheet(objReportDTO));
+                }
+                else
+                {
+                    rd.SetDataSource(objReportBLL.GetTiffinWalletSheetByEType(objReportDTO));
+                }
+
+                
                 
                 rd.SetDatabaseLogon("erp", "erp");
                 CrystalReportViewer1.ReportSource = rd;
