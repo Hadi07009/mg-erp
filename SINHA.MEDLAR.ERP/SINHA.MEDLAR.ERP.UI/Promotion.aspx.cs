@@ -1528,11 +1528,11 @@ namespace SINHA.MEDLAR.ERP.UI
                         objSalaryDTO.GradeIdFrom = GradeIdFrom.Text;
                         objSalaryDTO.GradeIdTo = ddlGradeNoTo.SelectedItem.Value == " " ? "" : ddlGradeNoTo.SelectedItem.Value;
 
-                        //objSalaryDTO.GrossSalaryFrom = txtGrossSalaryFrom.Text;
-                        //objSalaryDTO.GrossSalaryTo = txtGrossSalaryTo.Text;
+                        objSalaryDTO.GrossSalaryFrom = txtGrossSalaryFrom.Text;
+                        objSalaryDTO.GrossSalaryTo = txtGrossSalaryTo.Text;
 
-                        //objSalaryDTO.FirstSalaryFrom = txtFirstSalaryFrom.Text;
-                        //objSalaryDTO.FirstSalaryTo = txtFirstSalaryTo.Text;
+                        objSalaryDTO.FirstSalaryFrom = txtFirstSalaryFrom.Text;
+                        objSalaryDTO.FirstSalaryTo = txtFirstSalaryTo.Text;
 
                         objSalaryDTO.Year = txtPromotionYear.Text;
                         objSalaryDTO.EffectiveDate = dtpEffectDate.Text;

@@ -9,6 +9,8 @@
             $(".date").datepicker({
                 changeMonth: true,
                 changeYear: true,
+                defaultDate: '-1m', 
+                
                 //numberOfMonths: 1,
                 //showCurrentAtPos: 2,
                 dateFormat: 'dd/mm/yy'

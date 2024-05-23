@@ -38848,7 +38848,7 @@ public DataTable getTranshipmentId()
                 "SELECT " +
                   "to_char(STATUS_ID), " +
                   "to_char(STATUS_NAME) " +
-                  "FROM EMPLOYEE_STATUS where STATUS_ID IN(8,9,10,15,16)  ORDER BY  STATUS_NAME";
+                  "FROM EMPLOYEE_STATUS where STATUS_ID IN(8,9,10,15,16,23)  ORDER BY  STATUS_NAME";
 
             OracleCommand objCommand = new OracleCommand(sql);
             OracleDataAdapter objDataAdapter = new OracleDataAdapter(objCommand);
