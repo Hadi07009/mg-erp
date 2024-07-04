@@ -380,7 +380,11 @@
                                         CssClass="styled-button-4" OnClick="btnOverTimeReq_Click" />
 
                                     <asp:Button ID="btnOTBKashTemplate" runat="server" Height="31px" Text="OT Template" Width="90px"
-                                        CssClass="styled-button-4" OnClick="btnOTBKashTemplate_Click" />                                
+                                        CssClass="styled-button-4" OnClick="btnOTBKashTemplate_Click" /> 
+                                    
+                                    <asp:Button ID="btnSalaryTemplate" runat="server" Height="31px" 
+                                        Text="Salary Template" Width="110px"
+                                        CssClass="styled-button-4" OnClick="btnSalaryTemplate_Click"  />                                 
                                     
                                     <asp:Button ID="btnDformReq" runat="server" Height="31px" Text="D Req Form" Width="80px"
                                         CssClass="styled-button-4" OnClick="btnDformReq_Click" />
@@ -415,6 +419,9 @@
                                     <asp:Button ID="btnCompareSheet" runat="server" Height="31px"
                                         Text="Compare Sheet." CssClass="styled-button-4"
                                         Width="100px" OnClick="btnCompareSheet_Click"  />
+                                    <asp:Button ID="btnCompareShort" runat="server" Height="31px"
+                                        Text="Compare Sheet.(Short)" CssClass="styled-button-4"
+                                        Width="150px" OnClick="btnCompareShort_Click"   />
 
                                 </td>
                             </tr>

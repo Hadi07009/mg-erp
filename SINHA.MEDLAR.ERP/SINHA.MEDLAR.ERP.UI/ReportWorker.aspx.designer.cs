@@ -985,6 +985,15 @@ namespace SINHA.MEDLAR.ERP.UI.Reports {
         protected global::System.Web.UI.WebControls.RadioButton rdoNewEmployeeList;
         
         /// <summary>
+        /// rbprobationer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton rbprobationer;
+        
+        /// <summary>
         /// rdoNewEmpListBeforeSalarySet control.
         /// </summary>
         /// <remarks>

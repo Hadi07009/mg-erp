@@ -1248,6 +1248,25 @@
         <td style="height: 22px">
             &nbsp;
         </td>
+        </tr>
+            <tr>
+        <td style="width: 309px; font-weight: 700; height: 22px;">
+            <asp:RadioButton ID="rbprobationer" runat="server" AutoPostBack="true" Text="New Employee List (probationer)"
+                Font-Bold="False" GroupName="Controls" />
+        </td>
+        <td style="width: 75px; text-align: right; height: 22px;">
+            &nbsp;
+        </td>
+        <td style="width: 147px; height: 22px;">
+            &nbsp;
+        </td>
+        <td style="width: 81px; text-align: right; height: 22px;">
+            &nbsp;
+        </td>
+        <td style="height: 22px">
+            &nbsp;
+        </td>
+        </tr>
         <tr>
         <td style="width: 256px">
             <asp:RadioButton ID="rdoNewEmpListBeforeSalarySet" runat="server" AutoPostBack="true" 

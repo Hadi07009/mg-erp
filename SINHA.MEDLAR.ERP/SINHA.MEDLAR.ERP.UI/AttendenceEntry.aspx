@@ -427,11 +427,12 @@
                         AlternatingRowStyle-CssClass="alt" OnPageIndexChanging="gvEmployeeList_PageIndexChanging"
                         OnRowDataBound="OnRowDataBound">
                         <Columns>
-                            <asp:BoundField DataField="SL" HeaderText="SL" />
+                            <asp:BoundField DataField="SL" HeaderText="SL" />                            
                             <asp:BoundField DataField="CARD_NO" HeaderText="CARD NO" />
                             <asp:BoundField DataField="EMPLOYEE_ID" HeaderText="ID" />
                             <asp:BoundField DataField="EMPLOYEE_NAME" HeaderText="NAME" />
                             <asp:BoundField DataField="DESIGNATION_NAME" HeaderText="DESIGNATION" />
+                            <asp:BoundField DataField="unit_name" HeaderText="UNIT NAME" />
                             <asp:TemplateField HeaderText="SELECT" ItemStyle-Width="40px" ItemStyle-HorizontalAlign="Center">
                                 <ItemTemplate>
                                     <asp:ImageButton ID="btnselect" Width="25" Height="20" runat="server" CommandName="Select"

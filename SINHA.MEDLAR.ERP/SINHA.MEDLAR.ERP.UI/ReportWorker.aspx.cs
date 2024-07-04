@@ -741,6 +741,86 @@ namespace SINHA.MEDLAR.ERP.UI.Reports
 
 
                 }
+
+                if (rbprobationer.Checked == true)
+                {
+
+                    ReportDTO objReportDTO = new ReportDTO();
+                    ReportBLL objReportBLL = new ReportBLL();
+
+
+                    objReportDTO.HeadOfficeId = strHeadOfficeId;
+                    objReportDTO.BranchOfficeId = strBranchOfficeId;
+                    objReportDTO.EmployeeId = txtEmpId.Text;
+                    objReportDTO.UpdateBy = strEmployeeId;
+
+
+                    objReportDTO.FromDate = dtpFromDate.Text;
+                    objReportDTO.ToDate = dtpToDate.Text;
+
+                    objReportDTO.CardNo = txtCardNo.Text;
+                    objReportDTO.Year = txtYear.Text;
+                    objReportDTO.Month = txtMonth.Text;
+
+                    if (ddlSectionId.SelectedValue.ToString() != " ")
+                    {
+                        objReportDTO.SectionId = ddlSectionId.SelectedValue.ToString();
+                    }
+                    else
+                    {
+                        objReportDTO.SectionId = "";
+                    }
+                    if (ddlUnitId.SelectedValue.ToString() != " ")
+                    {
+                        objReportDTO.UnitId = ddlUnitId.SelectedValue.ToString();
+                    }
+                    else
+                    {
+                        objReportDTO.UnitId = "";
+
+                    }
+                    if (ddlUnitGroupId.SelectedValue.ToString() != "")
+                    {
+                        objReportDTO.UnitGroupId = ddlUnitGroupId.SelectedValue.ToString();
+                    }
+                    else
+                    {
+                        objReportDTO.UnitGroupId = "";
+                    }
+
+
+
+
+
+                    string strPath = Path.Combine(Server.MapPath("~/Reports/rptEmployeeListNewWorker.rpt"));
+                    this.Context.Session["strReportPath"] = strPath;
+                    rd.Load(strPath);
+
+                    DataTable dt = new DataTable();
+                    dt = (objReportBLL.NewEmployeeListJoiningBasisProbationer(objReportDTO));
+                    rd.SetDataSource(dt);
+                    //DataSet ds = new DataSet();
+                    //ds = (objReportBLL.newEmployeeListWorker(objReportDTO));
+                    //rd.SetDataSource(ds);
+                    rd.SetDatabaseLogon("erp", "erp");
+                    CrystalReportViewer1.ReportSource = rd;
+                    CrystalReportViewer1.DataBind();
+
+
+
+
+                    ReportFormatMaster();
+                    this.CrystalReportViewer1.Dispose();
+                    this.CrystalReportViewer1 = null;
+                    rd.Dispose();
+                    rd.Close();
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();
+
+
+
+                }
+
                 if (rdoNewEmpListBeforeSalarySet.Checked == true)
                 {
 
@@ -10168,6 +10248,9 @@ namespace SINHA.MEDLAR.ERP.UI.Reports
                 counter = counter + 1;
 
             if (rdoNewEmployeeList.Checked == true)
+                counter = counter + 1;
+
+            if (rbprobationer.Checked == true)
                 counter = counter + 1;
 
             if (rdoNewEmpListBeforeSalarySet.Checked == true)

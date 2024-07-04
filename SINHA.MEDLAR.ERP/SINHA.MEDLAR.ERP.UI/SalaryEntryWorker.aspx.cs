@@ -1463,12 +1463,20 @@ namespace SINHA.MEDLAR.ERP.UI
                         rd.Load(strPath);
                         rd.SetDataSource(objReportBLL.GetFACSalarySheetWorkerForCorona(objReportDTO));
                     }
+                    else if (tagNo == 2)
+                    {
+                        strPath = Path.Combine(Server.MapPath("~/Reports/RptWorkerSalaryRCompare.rpt"));                        
+                        this.Context.Session["strReportPath"] = strPath;
+                        rd.Load(strPath);
+                        rd.SetDataSource(objReportBLL.GetWorkerSalaryMasterSheet(objReportDTO, tagNo));
+                    }
                     else
                     {
+                        
                         strPath = Path.Combine(Server.MapPath("~/Reports/RptWorkerSalaryMasterSheetCompare.rpt"));
                         this.Context.Session["strReportPath"] = strPath;
                         rd.Load(strPath);
-                        rd.SetDataSource(objReportBLL.GetWorkerSalaryMasterSheet(objReportDTO,tagNo));
+                        rd.SetDataSource(objReportBLL.GetWorkerSalaryMasterSheet(objReportDTO, tagNo));
                     }
                 }
                 rd.SetDatabaseLogon("erp", "erp");
@@ -5281,6 +5289,54 @@ namespace SINHA.MEDLAR.ERP.UI
             }
         }
 
+        public void GetBKashSheetWorkerSalary()
+        {
+
+            try
+            {
+                string strDefaultName = "Report";
+                ExportFormatType formatType = ExportFormatType.NoFormat;
+
+                ReportDTO objReportDTO = new ReportDTO();
+                ReportBLL objReportBLL = new ReportBLL();
+
+                objReportDTO.HeadOfficeId = strHeadOfficeId;
+                objReportDTO.BranchOfficeId = strBranchOfficeId;
+                objReportDTO.EmployeeTypeId = "2";
+                objReportDTO.Year = txtSalaryYear.Text.Trim();
+                objReportDTO.Month = txtsalaryMonth.Text.Trim();
+                objReportDTO.UpdateBy = strEmployeeId;
+
+
+
+                string strPath = Path.Combine(Server.MapPath("~/Reports/rptWalletSheet.rpt"));
+                this.Context.Session["strReportPath"] = strPath;
+                rd.Load(strPath);
+                rd.SetDataSource(objReportBLL.GetWalletSheetSalary(objReportDTO));
+
+
+                rd.SetDatabaseLogon("erp", "erp");
+                CrystalReportViewer1.ReportSource = rd;
+                CrystalReportViewer1.DataBind();
+                reportMaster();
+                this.CrystalReportViewer1.Dispose();
+                this.CrystalReportViewer1 = null;
+                rd.Dispose();
+                rd.Close();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+            }
+            catch (Exception ex)
+            {
+                this.CrystalReportViewer1.Dispose();
+                this.CrystalReportViewer1 = null;
+                rd.Dispose();
+                rd.Close();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+            }
+        }
+
         protected void btnCashSalarySheetWorker_Click(object sender, EventArgs e)
         {
             try
@@ -6431,6 +6487,102 @@ namespace SINHA.MEDLAR.ERP.UI
                 GC.WaitForPendingFinalizers();
             }
         }
+
+        protected void btnSalaryTemplate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (txtSalaryYear.Text == string.Empty)
+                {
+                    string strMsg = "Please Enter Year!!!";
+                    MessageBox(strMsg);
+                    txtSalaryYear.Focus();
+                    return;
+                }
+
+                if (txtsalaryMonth.Text == string.Empty)
+                {
+                    string strMsg = "Please Enter Month!!!";
+                    MessageBox(strMsg);
+                    txtsalaryMonth.Focus();
+                    return;
+                }
+
+                GetBKashSheetWorkerSalary();
+            }
+
+            catch (Exception ex)
+            {
+                this.CrystalReportViewer1.Dispose();
+                this.CrystalReportViewer1 = null;
+                rd.Dispose();
+                rd.Close();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+            }
+
+        }
+
+        protected void btnCompareShort_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int tagNoCompareSheet = 2;
+                if (ddlEmployeeTypeId.SelectedItem.Value == "")
+                {
+                    string strMsg = "Please Select Employee Type!!!";
+                    MessageBox(strMsg);
+                    ddlEmployeeTypeId.Focus();
+                    return;
+                }
+
+                if (ddlUnitGroupId.SelectedItem.Value == "")
+                {
+                    if (ddlUnitId.Text == " ")
+                    {
+                        string strMsg = "Please Select Unit Name!!!";
+                        MessageBox(strMsg);
+                        ddlUnitId.Focus();
+                        return;
+                    }
+                    if (ddlSectionId.Text == " ")
+                    {
+                        string strMsg = "Please Select Section Name!!!";
+                        MessageBox(strMsg);
+                        ddlUnitId.Focus();
+                        return;
+                    }
+                    GetWorkerSalaryMasterSheet(tagNoCompareSheet);
+                }
+                else
+                {
+                    if (ddlUnitId.Text != " ")
+                    {
+                        if (ddlSectionId.Text == " ")
+                        {
+                            string strMsg = "Please Select Section Name!!!";
+                            MessageBox(strMsg);
+                            ddlUnitId.Focus();
+                            return;
+                        }
+                    }
+                    GetWorkerSalaryMasterSheet(tagNoCompareSheet);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                this.CrystalReportViewer1.Dispose();
+                this.CrystalReportViewer1 = null;
+                rd.Dispose();
+                rd.Close();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+            }
+
+        }
+
+
 
         //protected void btnAtten_Click(object sender, EventArgs e)
         //{

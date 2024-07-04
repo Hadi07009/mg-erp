@@ -5950,7 +5950,8 @@ namespace SINHA.MEDLAR.ERP.DAL
                         "EMPLOYEE_ID, " +
                         "EMPLOYEE_NAME, " +
                         "DESIGNATION_NAME, " +
-                        "shift_id " +
+                        "shift_id, " +
+                        "unit_name " +
                        "FROM VEW_SEARCH_EMP_FOR_ATTENDENCE WHERE head_office_id = '" + objEmployeeDTO.HeadOfficeId + "' AND branch_office_id = '" + objEmployeeDTO.BranchOfficeId + "' ";
 
 
@@ -6029,7 +6030,8 @@ namespace SINHA.MEDLAR.ERP.DAL
                     "CARD_NO, " +
                     "EMPLOYEE_ID, " +
                     "EMPLOYEE_NAME, " +
-                    "DESIGNATION_NAME " +
+                    "DESIGNATION_NAME, " +
+                    "unit_name " +
 
 
                    "FROM VEW_SEARCH_EMP_ALL_ATTENDENCE WHERE head_office_id = '" + objEmployeeDTO.HeadOfficeId + "' AND branch_office_id = '" + objEmployeeDTO.BranchOfficeId + "' ";

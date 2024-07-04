@@ -598,6 +598,15 @@ namespace SINHA.MEDLAR.ERP.UI {
         protected global::System.Web.UI.WebControls.Button btnOTBKashTemplate;
         
         /// <summary>
+        /// btnSalaryTemplate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSalaryTemplate;
+        
+        /// <summary>
         /// btnDformReq control.
         /// </summary>
         /// <remarks>
@@ -704,6 +713,15 @@ namespace SINHA.MEDLAR.ERP.UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCompareSheet;
+        
+        /// <summary>
+        /// btnCompareShort control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCompareShort;
         
         /// <summary>
         /// Label1 control.
