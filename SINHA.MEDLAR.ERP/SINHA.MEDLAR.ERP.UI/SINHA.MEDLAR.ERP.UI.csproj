@@ -1590,6 +1590,12 @@
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="Reports\RptStaffSalaryRequisitionCompare.cs">
+      <DependentUpon>RptStaffSalaryRequisitionCompare.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Reports\RptStaffMasterSalarySheetCompare.cs">
       <DependentUpon>RptStaffMasterSalarySheetCompare.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -9743,6 +9749,10 @@
     <EmbeddedResource Include="Reports\rptStaffIncrementProposalSheetByUnitGroup.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptStaffIncrementProposalSheetByUnitGroup.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RptStaffSalaryRequisitionCompare.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptStaffSalaryRequisitionCompare.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\RptStaffMasterSalarySheetCompare.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

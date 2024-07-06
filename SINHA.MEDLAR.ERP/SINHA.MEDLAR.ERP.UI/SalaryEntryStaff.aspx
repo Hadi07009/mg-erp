@@ -272,6 +272,9 @@
                                     <asp:Button ID="btnStaffCompareSheet" runat="server" Height="31px" Text="Compare Sheet"
                                         CssClass="styled-button-4" Width="90px" 
                                         OnClick="btnStaffCompareSheet_Click"  />
+                                    <asp:Button ID="btnCompareSheetShort" runat="server" Height="31px" Text="Compare Sheet(Short)"
+                                        CssClass="styled-button-4" Width="150px" OnClick="btnCompareSheetShort_Click" 
+                                          />
                                 
                                 </td>
                             </tr>

@@ -2729,12 +2729,20 @@ namespace SINHA.MEDLAR.ERP.UI
 
                     rd.SetDataSource(objReportBLL.GetStaffSalarySheet(objReportDTO));
                 }
+                else if (tagNo==2)
+                {
+                    string strPath = Path.Combine(Server.MapPath("~/Reports/RptStaffSalaryRequisitionCompare.rpt"));
+                    this.Context.Session["strReportPath"] = strPath;
+                    rd.Load(strPath);
+                    rd.SetDataSource(objReportBLL.GetStaffMasterSalarySheet(objReportDTO, tagNo));
+
+                }
                 else
                 {
                     string strPath = Path.Combine(Server.MapPath("~/Reports/RptStaffMasterSalarySheetCompare.rpt"));
                     this.Context.Session["strReportPath"] = strPath;
                     rd.Load(strPath);
-                    rd.SetDataSource(objReportBLL.GetStaffMasterSalarySheet(objReportDTO,tagNo));
+                    rd.SetDataSource(objReportBLL.GetStaffMasterSalarySheet(objReportDTO, tagNo));
                 }
 
                 //master
@@ -4619,6 +4627,55 @@ namespace SINHA.MEDLAR.ERP.UI
                 GC.Collect();
                 GC.WaitForPendingFinalizers();
             }
+        }
+
+        protected void btnCompareSheetShort_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int tagNo = 2;
+                if (ddlUnitGroupId.SelectedItem.Value == "")
+                {
+                    if (ddlUnitId.Text == " ")
+                    {
+                        string strMsg = "Please Select Unit Name!!!";
+                        MessageBox(strMsg);
+                        ddlUnitId.Focus();
+                        return;
+                    }
+                    if (ddlSectionId.Text == " ")
+                    {
+                        string strMsg = "Please Select Section Name!!!";
+                        MessageBox(strMsg);
+                        ddlUnitId.Focus();
+                        return;
+                    }
+                }
+                else
+                {
+                    if (ddlUnitId.Text != " ")
+                    {
+                        if (ddlSectionId.Text == " ")
+                        {
+                            string strMsg = "Please Select Section Name!!!";
+                            MessageBox(strMsg);
+                            ddlUnitId.Focus();
+                            return;
+                        }
+                    }
+                }
+                GetStaffMasterSalarySheet(tagNo);
+            }
+            catch (Exception ex)
+            {
+                this.CrystalReportViewer1.Dispose();
+                this.CrystalReportViewer1 = null;
+                rd.Dispose();
+                rd.Close();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+            }
+
         }
     }
 }
