@@ -1442,6 +1442,24 @@ namespace SINHA.MEDLAR.ERP.DAL
                 objOracleCommand.Parameters.Add("P_ACCOUNT_NO", OracleDbType.Varchar2, ParameterDirection.Input).Value = null;
             }
 
+            if (objEmployeeDTO.BankIdAlternet != "")
+            {
+                objOracleCommand.Parameters.Add("P_BANK_ID_ALTER", OracleDbType.Varchar2, ParameterDirection.Input).Value = objEmployeeDTO.BankIdAlternet;
+            }
+            else
+            {
+                objOracleCommand.Parameters.Add("P_BANK_ID_ALTER", OracleDbType.Varchar2, ParameterDirection.Input).Value = null;
+            }
+
+            if (objEmployeeDTO.AccountNoAlter != "")
+            {
+                objOracleCommand.Parameters.Add("P_ACCOUNT_NO_ALTER", OracleDbType.Varchar2, ParameterDirection.Input).Value = objEmployeeDTO.AccountNoAlter;
+            }
+            else
+            {
+                objOracleCommand.Parameters.Add("P_ACCOUNT_NO_ALTER", OracleDbType.Varchar2, ParameterDirection.Input).Value = null;
+            }
+
 
 
             if (objEmployeeDTO.GrossSalary != "")
@@ -4906,7 +4924,9 @@ namespace SINHA.MEDLAR.ERP.DAL
                     "TO_CHAR (NVL (bank_id, '0')), " +
                     "TO_CHAR (NVL (ID_CARD_NO, '0')), " +
                     "TO_CHAR (NVL (company_id, '0')), " +
-                    "TO_CHAR (NVL (hidden_salary, '0')) " +
+                    "TO_CHAR (NVL (hidden_salary, '0')), " +
+                    "TO_CHAR (NVL (BANK_ID_ALTERNATE, '0')), " +
+                    "TO_CHAR (NVL (ACCOUNT_NO_ALTERNATE, '0')) " +
                     //bank_id
                     "from vew_search_employee_detail where employee_id = '" + strEmployeeId + "' and head_office_id = '" + strHeadOfficeId + "' AND branch_office_id = '" + strBranchOfficeId + "' ";
 
@@ -5001,7 +5021,9 @@ namespace SINHA.MEDLAR.ERP.DAL
                         objEmployeeDTO.BankId = objDataReader.GetString(72);
                         objEmployeeDTO.IdCardNo = objDataReader.GetString(73);
                         objEmployeeDTO.CompanyId = objDataReader.GetString(74);
-                        objEmployeeDTO.HiddenSalary = objDataReader.GetString(75);
+                        objEmployeeDTO.HiddenSalary = objDataReader.GetString(75);                        
+                        objEmployeeDTO.BankIdAlternet = objDataReader.GetString(76);
+                        objEmployeeDTO.AccountNoAlter = objDataReader.GetString(77);
                     }
                 }
                 catch (Exception ex)

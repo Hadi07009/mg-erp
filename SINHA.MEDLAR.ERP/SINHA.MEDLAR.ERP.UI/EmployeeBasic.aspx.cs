@@ -73,6 +73,7 @@ namespace SINHA.MEDLAR.ERP.UI
                 getSectionIdForEmployee();
                 getJobId();
                 GetAllBank();
+                GetAllBankAlternate();
                 getUnitId();
                 getSectionId();
                 getDesignationId();
@@ -314,6 +315,24 @@ namespace SINHA.MEDLAR.ERP.UI
                 ddlBank.SelectedIndex = 0;
             }
         }
+
+        public void GetAllBankAlternate()
+        {
+
+            LookUpBLL objLookUpBLL = new LookUpBLL();
+            ddlAlternateBank.DataSource = objLookUpBLL.GetAllBank();
+
+            ddlAlternateBank.DataTextField = "BANK_NAME";
+            ddlAlternateBank.DataValueField = "BANK_ID";
+
+            ddlAlternateBank.DataBind();
+            if (ddlAlternateBank.Items.Count > 0)
+            {
+                ddlAlternateBank.SelectedIndex = 0;
+            }
+        }
+
+
 
         public void getMaritalStatusId()
         {
@@ -1665,6 +1684,7 @@ namespace SINHA.MEDLAR.ERP.UI
             }
 
             objEmployeeDTO.AccountNo = txtAccountNo.Text;
+            objEmployeeDTO.AccountNoAlter = txtAlterAccountNo.Text;
 
             bool IsNumberGrossSalary = Regex.IsMatch(txtJoiningSalary.Text, @"^\d+$");
             if (IsNumberGrossSalary == true)
@@ -1750,6 +1770,16 @@ namespace SINHA.MEDLAR.ERP.UI
             {
                 objEmployeeDTO.BankId = "";
             }
+
+            if (ddlAlternateBank.SelectedValue.ToString() != "")
+            {
+                objEmployeeDTO.BankIdAlternet = ddlAlternateBank.SelectedValue.ToString();
+            }
+            else
+            {
+                objEmployeeDTO.BankIdAlternet = "";
+            }
+
             objEmployeeDTO.IdCardNo = txtIdCardNo.Text;
             if (ddlCompanyId.SelectedValue.ToString() != "")
             {
@@ -1779,6 +1809,7 @@ namespace SINHA.MEDLAR.ERP.UI
             lblMsg.Text = string.Empty;
             txtEmployeeId.Text = string.Empty;
             txtAccountNo.Text = string.Empty;
+            txtAlterAccountNo.Text = string.Empty;
             txtJoiningSalary.Text = string.Empty;
             txtPhoneNo.Text = string.Empty;
            // txtVoterIdCardNo.Text = string.Empty;
@@ -1912,7 +1943,16 @@ namespace SINHA.MEDLAR.ERP.UI
             {
                 txtAccountNo.Text = objEmployeeDTO.AccountNo;
             }
-            
+
+            if (objEmployeeDTO.AccountNoAlter == "0")
+            {
+                txtAlterAccountNo.Text = "";
+            }
+            else
+            {
+                txtAlterAccountNo.Text = objEmployeeDTO.AccountNoAlter;
+            }
+
             //bank
             if (objEmployeeDTO.BankId == "0")
             {
@@ -1923,7 +1963,17 @@ namespace SINHA.MEDLAR.ERP.UI
             {
                 ddlBank.SelectedValue = objEmployeeDTO.BankId;
             }
-            
+
+            if (objEmployeeDTO.BankIdAlternet == "0")
+            {
+                //getGenderId();
+                ddlAlternateBank.SelectedValue = "";
+            }
+            else
+            {
+                ddlAlternateBank.SelectedValue = objEmployeeDTO.BankIdAlternet;
+            }
+
             txtTinNo.Text = objEmployeeDTO.TinNo;
 
             txtJoiningSalary.Text = objEmployeeDTO.JoiningSalary;

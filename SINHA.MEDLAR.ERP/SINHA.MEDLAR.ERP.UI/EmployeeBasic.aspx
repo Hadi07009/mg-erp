@@ -820,6 +820,22 @@
             </tr>
             <tr>
                 <td style="text-align: right; width: 247px; height: 19px">
+                <asp:Label ID="Label11" runat="server" Text="Alternate Account No :"></asp:Label>    
+                </td>
+                <td style="height: 19px; width: 247px;">
+                <asp:TextBox ID="txtAlterAccountNo" runat="server" Width="211px" BackColor="White" 
+                        Font-Bold="True"></asp:TextBox>    
+                </td>
+                <td style="height: 19px; text-align: right; width: 108px;">
+                <asp:Label ID="Label14" runat="server" Text="Alternate Bank :"></asp:Label>    
+                </td>
+                <td style="height: 19px">
+                <asp:DropDownList ID="ddlAlternateBank" runat="server" Width="215px" Height="22px">
+                    </asp:DropDownList>    
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right; width: 247px; height: 19px">
                     <asp:Label ID="Label40" runat="server" Text="Joining Salary :" ForeColor="Red"></asp:Label>
                 </td>
                 <td style="height: 19px; width: 247px;">
