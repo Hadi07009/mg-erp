@@ -41,6 +41,69 @@
             }
         }
     </script>
+    <script type="text/javascript">
+
+        function checkAll(objRef) {
+
+            var GridView = objRef.parentNode.parentNode.parentNode;
+
+            var inputList = GridView.getElementsByTagName("input");
+
+            for (var i = 0; i < inputList.length; i++) {
+
+                //Get the Cell To find out ColumnIndex
+
+                var row = inputList[i].parentNode.parentNode;
+
+                if (inputList[i].type == "checkbox" && objRef != inputList[i]) {
+
+                    if (objRef.checked) {
+
+                        //If the header checkbox is checked
+
+                        //check all checkboxes
+
+                        //and highlight all rows
+
+                        row.style.backgroundColor = "white";
+
+                        inputList[i].checked = true;
+
+                    }
+
+                    else {
+
+                        //If the header checkbox is checked
+
+                        //uncheck all checkboxes
+
+                        //and change rowcolor back to original
+
+                        if (row.rowIndex % 2 == 0) {
+
+                            //Alternating Row Color
+
+                            row.style.backgroundColor = "white";
+
+                        }
+
+                        else {
+
+                            row.style.backgroundColor = "white";
+
+                        }
+
+                        inputList[i].checked = false;
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    </script>
     <table class="style1">
         <tr>
             <td style="width: 342px; height: 15px">
@@ -218,6 +281,8 @@
                                 <td style="text-align: center" colspan="4">
                                     <asp:Button ID="btnSave" runat="server" Height="31px" Text="Save" Width="66px" OnClick="btnSave_Click"
                                         CssClass="styled-button-4" />
+                                    <asp:Button ID="btnSaveAll" runat="server" Height="31px" Text="Save(All)" Width="85px" 
+                                        CssClass="styled-button-4" OnClick="btnSaveAll_Click" />
                                     <asp:Button ID="btnPrevious" runat="server" Height="31px" Text="Previous" Width="66px"
                                         CssClass="styled-button-4" OnClick="btnPrevious_Click" OnClientClick="target = '_SELF';" />
                                     <asp:Button ID="btnNext" runat="server" Height="31px" Text="Next" Width="66px" OnClick="btnNext_Click"
@@ -436,6 +501,14 @@
                                 <ItemTemplate>
                                     <asp:ImageButton ID="btnselect" Width="25" Height="20" runat="server" CommandName="Select"
                                         Style="cursor: pointer" Text="..." CausesValidation="false"  ImageUrl="~/images/select_png.jpg"  AlternateText="Select"/>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField>
+                                <HeaderTemplate>
+                                    <asp:CheckBox ID="checkAll" runat="server" onclick="checkAll(this);" AutoPostBack="false" />
+                                </HeaderTemplate>
+                                <ItemTemplate>
+                                    <asp:CheckBox ID="chkEmployee" runat="server" onclick="Check_Click(this)" AutoPostBack="false" />
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>

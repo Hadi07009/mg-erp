@@ -3154,6 +3154,173 @@ namespace SINHA.MEDLAR.ERP.DAL
 
          }
 
+        public string saveEmployeeAttendenceAll(EmployeeDTO objEmployeeDTO)
+        {
+
+
+            string strMsg = "";
+            OracleTransaction trans = null;
+            //old
+            OracleCommand objOracleCommand = new OracleCommand("PRO_EMP_LOG_TEMP_MANUALLY_All");
+            //new security comment
+            //OracleCommand objOracleCommand = new OracleCommand("SP_SAVE_MANUAL_ATTENDANCE");
+
+            objOracleCommand.CommandType = CommandType.StoredProcedure;
+
+            if (objEmployeeDTO.EmployeeId != "")
+            {
+                objOracleCommand.Parameters.Add("P_EMPLOYEE_ID", OracleDbType.Varchar2, ParameterDirection.Input).Value = objEmployeeDTO.EmployeeId;
+            }
+            else
+            {
+                objOracleCommand.Parameters.Add("P_EMPLOYEE_ID", OracleDbType.Varchar2, ParameterDirection.Input).Value = null;
+            }
+
+
+            if (objEmployeeDTO.UnitId != "")
+            {
+                objOracleCommand.Parameters.Add("P_UNIT_ID", OracleDbType.Varchar2, ParameterDirection.Input).Value = objEmployeeDTO.UnitId;
+            }
+            else
+            {
+                objOracleCommand.Parameters.Add("P_UNIT_ID", OracleDbType.Varchar2, ParameterDirection.Input).Value = null;
+            }
+
+            if (objEmployeeDTO.SectionId != "")
+            {
+                objOracleCommand.Parameters.Add("P_SECTION_ID", OracleDbType.Varchar2, ParameterDirection.Input).Value = objEmployeeDTO.SectionId;
+            }
+            else
+            {
+                objOracleCommand.Parameters.Add("P_SECTION_ID", OracleDbType.Varchar2, ParameterDirection.Input).Value = null;
+            }
+
+            if (objEmployeeDTO.LogInTime != "")
+            {
+                objOracleCommand.Parameters.Add("P_FIRST_IN", OracleDbType.Varchar2, ParameterDirection.Input).Value = objEmployeeDTO.LogInTime;
+            }
+            else
+            {
+                objOracleCommand.Parameters.Add("P_FIRST_IN", OracleDbType.Varchar2, ParameterDirection.Input).Value = null;
+            }
+
+            if (objEmployeeDTO.LunchOutTime != "")
+            {
+                objOracleCommand.Parameters.Add("P_LUNCH_OUT", OracleDbType.Varchar2, ParameterDirection.Input).Value = objEmployeeDTO.LunchOutTime;
+
+            }
+            else
+            {
+                objOracleCommand.Parameters.Add("P_LUNCH_OUT", OracleDbType.Varchar2, ParameterDirection.Input).Value = null;
+
+            }
+
+            if (objEmployeeDTO.LunchInTime != "")
+            {
+                objOracleCommand.Parameters.Add("P_LUNCH_IN", OracleDbType.Varchar2, ParameterDirection.Input).Value = objEmployeeDTO.LunchInTime;
+
+            }
+            else
+            {
+                objOracleCommand.Parameters.Add("P_LUNCH_IN", OracleDbType.Varchar2, ParameterDirection.Input).Value = null;
+
+            }
+
+            if (objEmployeeDTO.FinalOutTime != "")
+            {
+                objOracleCommand.Parameters.Add("P_LAST_OUT", OracleDbType.Varchar2, ParameterDirection.Input).Value = objEmployeeDTO.FinalOutTime;
+            }
+            else
+            {
+                objOracleCommand.Parameters.Add("P_LAST_OUT", OracleDbType.Varchar2, ParameterDirection.Input).Value = null;
+            }
+
+
+            if (objEmployeeDTO.LogDate.Length > 6)
+            {
+                objOracleCommand.Parameters.Add("P_LOG_DATE", OracleDbType.Varchar2, ParameterDirection.Input).Value = objEmployeeDTO.LogDate;
+            }
+            else
+            {
+                objOracleCommand.Parameters.Add("P_LOG_DATE", OracleDbType.Varchar2, ParameterDirection.Input).Value = null;
+            }
+
+            if (objEmployeeDTO.FinalOutDate.Length > 6)
+            {
+                objOracleCommand.Parameters.Add("P_LAST_OUT_DATE", OracleDbType.Varchar2, ParameterDirection.Input).Value = objEmployeeDTO.FinalOutDate;
+            }
+            else
+            {
+                objOracleCommand.Parameters.Add("P_LAST_OUT_DATE", OracleDbType.Varchar2, ParameterDirection.Input).Value = null;
+            }
+
+            if (objEmployeeDTO.AllUnitYn != "")
+            {
+                objOracleCommand.Parameters.Add("P_ALL_UNIT", OracleDbType.Varchar2, ParameterDirection.Input).Value = objEmployeeDTO.AllUnitYn;
+            }
+            else
+            {
+                objOracleCommand.Parameters.Add("P_ALL_UNIT", OracleDbType.Varchar2, ParameterDirection.Input).Value = null;
+            }
+
+            //if (objEmployeeDTO.ActiveYn != "")
+            //{
+            //    objOracleCommand.Parameters.Add("p_active_yn", OracleDbType.Varchar2, ParameterDirection.Input).Value = objEmployeeDTO.ActiveYn;
+            //}
+            //else
+            //{
+            //    objOracleCommand.Parameters.Add("p_active_yn", OracleDbType.Varchar2, ParameterDirection.Input).Value = null;
+            //}
+
+            if (objEmployeeDTO.Remark != "")
+            {
+                objOracleCommand.Parameters.Add("P_REMARKS", OracleDbType.Varchar2, ParameterDirection.Input).Value = objEmployeeDTO.Remark;
+
+            }
+            else
+            {
+                objOracleCommand.Parameters.Add("P_REMARKS", OracleDbType.Varchar2, ParameterDirection.Input).Value = null;
+
+            }
+
+
+
+            objOracleCommand.Parameters.Add("P_UPDATE_BY", OracleDbType.Varchar2, ParameterDirection.Input).Value = objEmployeeDTO.UpdateBy;
+            objOracleCommand.Parameters.Add("P_HEAD_OFFICE_ID", OracleDbType.Varchar2, ParameterDirection.Input).Value = objEmployeeDTO.HeadOfficeId;
+            objOracleCommand.Parameters.Add("P_BRANCH_OFFICE_ID", OracleDbType.Varchar2, ParameterDirection.Input).Value = objEmployeeDTO.BranchOfficeId;
+
+
+            objOracleCommand.Parameters.Add("P_MESSAGE", OracleDbType.Varchar2, 500).Direction = ParameterDirection.Output;
+
+            using (OracleConnection strConn = GetConnection())
+            {
+                try
+                {
+                    objOracleCommand.Connection = strConn;
+                    strConn.Open();
+                    trans = strConn.BeginTransaction();
+                    objOracleCommand.ExecuteNonQuery();
+                    trans.Commit();
+                    strConn.Close();
+                    strMsg = objOracleCommand.Parameters["P_MESSAGE"].Value.ToString();
+                }
+                catch (Exception ex)
+                {
+                    trans.Rollback();
+                    throw new Exception("Error : " + ex.Message);
+                }
+
+                finally
+                {
+                    strConn.Close();
+                }
+            }
+
+            return strMsg;
+
+
+        }
+
         public string saveEmployeeAttendenceRemarks(EmployeeDTO objEmployeeDTO)
         {
 

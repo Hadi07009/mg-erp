@@ -230,6 +230,14 @@ namespace SINHA.MEDLAR.ERP.BLL
             return strMsg;   
         }
 
+        public string saveEmployeeAttendenceAll(EmployeeDTO objEmployeeDTO)
+        {
+            string strMsg = "";
+            EmployeeDAL objEmployeeDAL = new EmployeeDAL();
+            strMsg = objEmployeeDAL.saveEmployeeAttendenceAll(objEmployeeDTO);
+            return strMsg;
+        }
+
         public string saveEmployeeAttendenceRemarks(EmployeeDTO objEmployeeDTO)
         {
             string strMsg = "";

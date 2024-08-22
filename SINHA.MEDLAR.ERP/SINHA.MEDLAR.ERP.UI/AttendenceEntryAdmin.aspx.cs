@@ -1091,6 +1091,98 @@ namespace SINHA.MEDLAR.ERP.UI
             string strMsg = objEmployeeBLL.saveEmployeeAttendence(objEmployeeDTO);
             lblMsg.Text = strMsg;
         }
+
+        public void saveEmployeeAttendenceALL()
+        {
+            EmployeeDTO objEmployeeDTO = new EmployeeDTO();
+            EmployeeBLL objEmployeeBLL = new EmployeeBLL();
+
+            string strMsg = "";
+            try
+            {
+                foreach (GridViewRow row in gvEmployeeList.Rows)
+                {
+                    if (row.RowType == DataControlRowType.DataRow)
+                    {
+                        CheckBox chkEmployee = (CheckBox)row.FindControl("chkEmployee");
+                        if (chkEmployee.Checked)
+                        {
+                            string strEmployeeId = row.Cells[2].Text;
+
+                            objEmployeeDTO.EmployeeId = strEmployeeId;
+
+                            if (ddlUnitId.SelectedValue.ToString() != " ")
+                            {
+                                objEmployeeDTO.UnitId = ddlUnitId.SelectedValue.ToString();
+                            }
+                            else
+                            {
+                                objEmployeeDTO.UnitId = "";
+                            }
+
+                            if (ddlSectionId.SelectedValue.ToString() != " ")
+                            {
+                                objEmployeeDTO.SectionId = ddlSectionId.SelectedValue.ToString();
+                            }
+                            else
+                            {
+                                objEmployeeDTO.SectionId = "";
+                            }
+
+                            if (ChkAllActive.Checked == true)
+                            {
+                                objEmployeeDTO.ActiveYn = "Y";
+                            }
+                            else
+                            {
+                                objEmployeeDTO.ActiveYn = "N";
+                            }
+
+                            if (chkAllUnit.Checked == true)
+                            {
+                                objEmployeeDTO.AllUnitYn = "Y";
+                            }
+                            else
+                            {
+                                objEmployeeDTO.AllUnitYn = "N";
+                            }
+
+                            objEmployeeDTO.LogDate = dtpAttendenceDate.Text;
+
+                            if (string.IsNullOrEmpty(dtpFinalOutDate.Text))
+                            {
+                                objEmployeeDTO.FinalOutDate = dtpAttendenceDate.Text;
+                            }
+                            else
+                            {
+                                objEmployeeDTO.FinalOutDate = dtpFinalOutDate.Text;
+                            }
+
+                            objEmployeeDTO.Remark = txtRemarks.Text;
+
+                            objEmployeeDTO.LogInTime = txtFirstInTime.Text;
+                            objEmployeeDTO.FinalOutTime = txtFinalTimeOut.Text;
+                            objEmployeeDTO.LunchInTime = txtLunchInTime.Text;
+                            objEmployeeDTO.LunchOutTime = txtLunchOutTime.Text;
+
+                            objEmployeeDTO.HeadOfficeId = strHeadOfficeId;
+                            objEmployeeDTO.BranchOfficeId = strBranchOfficeId;
+                            objEmployeeDTO.UpdateBy = strEmployeeId;
+
+                             strMsg = objEmployeeBLL.saveEmployeeAttendenceAll(objEmployeeDTO);
+                            lblMsg.Text = strMsg;
+
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+            }
+
+
+        }
+
         public void searchAttendenceRecord()
         {
             EmployeeDTO objEmployeeDTO = new EmployeeDTO();
@@ -2464,6 +2556,69 @@ namespace SINHA.MEDLAR.ERP.UI
                 GC.Collect();
                 GC.WaitForPendingFinalizers();
             }
+        }
+
+        protected void btnSaveAll_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int emptyCounter = 0;
+
+                if (string.IsNullOrEmpty(txtFirstInTime.Text))
+                {
+                    emptyCounter = emptyCounter + 1;
+                }
+                if (string.IsNullOrEmpty(txtLunchOutTime.Text))
+                {
+                    emptyCounter = emptyCounter + 1;
+                }
+                if (string.IsNullOrEmpty(txtLunchInTime.Text))
+                {
+                    emptyCounter = emptyCounter + 1;
+                }
+                if (string.IsNullOrEmpty(txtFinalTimeOut.Text))
+                {
+                    emptyCounter = emptyCounter + 1;
+                }
+
+                if (dtpAttendenceDate.Text == string.Empty)
+                {
+                    string strMsg = "Please Enter Attendence Date!!!";
+                    MessageBox(strMsg);
+                    dtpAttendenceDate.Focus();
+                    return;
+                }
+                else
+                {
+                    if (strBranchOfficeId == "102" || strBranchOfficeId == "103" || strBranchOfficeId == "110")
+                    {
+                        if (emptyCounter > 2)
+                        {
+                            goToNextRecord();
+                            searchAttendenceRecord();
+                        }
+                        else
+                        {
+                            saveEmployeeAttendenceALL();
+                            searchAttendenceEntry();
+                            goToNextRecord();
+                            searchAttendenceRecord();
+                        }
+                    }
+                    else
+                    {
+                        saveEmployeeAttendenceALL();
+                        searchAttendenceEntry();
+                        goToNextRecord();
+                        searchAttendenceRecord();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error : " + ex.Message);
+            }
+
         }
     }
 }
