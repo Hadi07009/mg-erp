@@ -1866,7 +1866,16 @@ namespace SINHA.MEDLAR.ERP.UI
                 {
                     objReportDTO.LateLimit = 0;
                 }
-                
+
+                if (ddlSittingType.SelectedValue.ToString() != "")
+                {
+                    objReportDTO.SittingTypeId = ddlSittingType.SelectedValue.ToString();
+                }
+                else
+                {
+                    objReportDTO.SittingTypeId = "";
+                }
+
                 string strPath = Path.Combine(Server.MapPath("~/Reports/rptDailyAttendenceLateSheet.rpt"));
                 this.Context.Session["strReportPath"] = strPath;
                 rd.Load(strPath);

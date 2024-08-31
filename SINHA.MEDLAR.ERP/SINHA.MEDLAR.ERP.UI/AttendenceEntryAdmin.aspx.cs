@@ -1107,9 +1107,9 @@ namespace SINHA.MEDLAR.ERP.UI
                         CheckBox chkEmployee = (CheckBox)row.FindControl("chkEmployee");
                         if (chkEmployee.Checked)
                         {
-                            string strEmployeeId = row.Cells[2].Text;
+                            string strEmployeeIdTemp = row.Cells[2].Text;
 
-                            objEmployeeDTO.EmployeeId = strEmployeeId;
+                            objEmployeeDTO.EmployeeId = strEmployeeIdTemp;
 
                             if (ddlUnitId.SelectedValue.ToString() != " ")
                             {
