@@ -2616,5 +2616,146 @@ namespace SINHA.MEDLAR.ERP.UI
                 GC.WaitForPendingFinalizers();
             }
         }
+
+        protected void btnPaySlip_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ddlEmployeeTypeId.SelectedItem.Value == "")
+                {
+                    string strMsg = "Please Select Employee Type!!!";
+                    MessageBox(strMsg);
+                    ddlEmployeeTypeId.Focus();
+                    return;
+                }
+
+                if (ddlUnitGroupId.SelectedItem.Value == "")
+                {
+                    if (ddlUnitId.Text == " ")
+                    {
+                        string strMsg = "Please Select Unit Name!!!";
+                        MessageBox(strMsg);
+                        ddlUnitId.Focus();
+                        return;
+                    }
+                    if (ddlSectionId.Text == " ")
+                    {
+                        string strMsg = "Please Select Section Name!!!";
+                        MessageBox(strMsg);
+                        ddlUnitId.Focus();
+                        return;
+                    }
+                    GetWorkerPaySlipByUnitGroup();
+                }
+                else
+                {
+                    if (ddlUnitId.Text != " ")
+                    {
+                        if (ddlSectionId.Text == " ")
+                        {
+                            string strMsg = "Please Select Section Name!!!";
+                            MessageBox(strMsg);
+                            ddlUnitId.Focus();
+                            return;
+                        }
+                    }
+                    GetWorkerPaySlipByUnitGroup();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                this.CrystalReportViewer1.Dispose();
+                this.CrystalReportViewer1 = null;
+                rd.Dispose();
+                rd.Close();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+            }
+        }
+
+
+        public void GetWorkerPaySlipByUnitGroup()
+        {
+            try
+            {
+                string strDefaultName = "Report";
+                ExportFormatType formatType = ExportFormatType.NoFormat;
+
+                ReportDTO objReportDTO = new ReportDTO();
+                ReportBLL objReportBLL = new ReportBLL();
+
+                objReportDTO.HeadOfficeId = strHeadOfficeId;
+                objReportDTO.BranchOfficeId = strBranchOfficeId;
+                objReportDTO.UpdateBy = strEmployeeId;
+
+                objReportDTO.Year = txtYear.Text;
+                objReportDTO.Month = txtMonth.Text;
+                objReportDTO.UnitGroupId = ddlUnitGroupId.SelectedItem.Value;
+                objReportDTO.EmployeeTypeId = ddlEmployeeTypeId.SelectedItem.Value;
+
+                objReportDTO.CardNo = txtEmpCardNo.Text;
+                objReportDTO.EmployeeId = txtEmpId.Text;
+
+                if (ddlSectionId.SelectedValue.ToString() != " ")
+                {
+                    objReportDTO.SectionId = ddlSectionId.SelectedValue.ToString();
+                }
+                else
+                {
+                    objReportDTO.SectionId = "";
+                }
+
+                if (ddlUnitId.SelectedValue.ToString() != " ")
+                {
+                    objReportDTO.UnitId = ddlUnitId.SelectedValue.ToString();
+                }
+                else
+                {
+                    objReportDTO.UnitId = "";
+                }
+
+                if (objReportDTO.EmployeeTypeId == "1") //Staff
+                {   //
+                    string strPath = Path.Combine(Server.MapPath("~/Reports/rptPaySlipStaff.rpt"));
+                    this.Context.Session["strReportPath"] = strPath;
+                    rd.Load(strPath);                    
+                    rd.SetDataSource(objReportBLL.GetStaffPaySlip(objReportDTO));
+                }
+
+                if (objReportDTO.EmployeeTypeId == "2")
+                {
+                    string strPath = string.Empty;
+                    strPath = Path.Combine(Server.MapPath("~/Reports/rptPaySlipWorker.rpt"));
+
+                    this.Context.Session["strReportPath"] = strPath;
+                    rd.Load(strPath);                    
+                    rd.SetDataSource(objReportBLL.GetWorkerPaySlipByUnitGroup(objReportDTO));
+                }
+
+                rd.SetDatabaseLogon("erp", "erp");
+                CrystalReportViewer1.ReportSource = rd;
+
+                CrystalReportViewer1.DataBind();
+                reportMaster();
+
+                this.CrystalReportViewer1.Dispose();
+                this.CrystalReportViewer1 = null;
+                rd.Dispose();
+                rd.Close();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+            }
+
+            catch (Exception ex)
+            {
+                this.CrystalReportViewer1.Dispose();
+                this.CrystalReportViewer1 = null;
+                rd.Dispose();
+                rd.Close();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+            }
+        }
     }
 }

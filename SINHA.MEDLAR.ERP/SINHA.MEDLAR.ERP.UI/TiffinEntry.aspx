@@ -234,6 +234,8 @@
                                     <asp:Button ID="btnTiffinRequsitionSummery" runat="server" Height="31px" 
                                         Text="Summary" CssClass = "styled-button-4"
                                         Width="75px" onclick="btnTiffinRequsitionSummery_Click"  />
+                                    <asp:Button ID="btnPaySlip" runat="server" Height="31px" Text="Slip" Width="75px"
+                                        CssClass="styled-button-4" OnClick="btnPaySlip_Click"  />
                                 </td>
                             </tr>
                             <tr>
