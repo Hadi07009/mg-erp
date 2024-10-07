@@ -2717,16 +2717,16 @@ namespace SINHA.MEDLAR.ERP.UI
 
                 if (objReportDTO.EmployeeTypeId == "1") //Staff
                 {   //
-                    string strPath = Path.Combine(Server.MapPath("~/Reports/rptPaySlipStaff.rpt"));
+                    string strPath = Path.Combine(Server.MapPath("~/Reports/rptPaySlipStaffTiffin.rpt"));
                     this.Context.Session["strReportPath"] = strPath;
-                    rd.Load(strPath);                    
+                    rd.Load(strPath);
                     rd.SetDataSource(objReportBLL.GetStaffPaySlip(objReportDTO));
                 }
 
                 if (objReportDTO.EmployeeTypeId == "2")
                 {
                     string strPath = string.Empty;
-                    strPath = Path.Combine(Server.MapPath("~/Reports/rptPaySlipWorker.rpt"));
+                    strPath = Path.Combine(Server.MapPath("~/Reports/rptPaySlipWorkerTiffin.rpt"));
 
                     this.Context.Session["strReportPath"] = strPath;
                     rd.Load(strPath);                    

@@ -1566,6 +1566,18 @@
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="Reports\rptPaySlipStaffTiffin.cs">
+      <DependentUpon>rptPaySlipStaffTiffin.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\rptPaySlipWorkerTiffin.cs">
+      <DependentUpon>rptPaySlipWorkerTiffin.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Reports\rptSalaryRequisitionAllInOne.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -9206,6 +9218,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptPaySlipCorona.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptPaySlipStaffTiffin.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptPaySlipStaffTiffin.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\rptPaySlipStaff.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptPaySlipStaff.cs</LastGenOutput>
@@ -9217,6 +9233,10 @@
     <EmbeddedResource Include="Reports\rptPaySlipStaffMisc.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptPaySlipStaffMisc.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptPaySlipWorkerTiffin.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptPaySlipWorkerTiffin.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\rptPaySlipWorker.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
