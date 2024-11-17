@@ -139,6 +139,10 @@
                 <td style="width: 350px;">
                     <asp:Button ID="btnProcess" runat="server" Height="31px" Text="Process" Width="66px"  CssClass = "styled-button-4" Visible="true"
                         OnClick="btnProcess_Click" />
+                    <asp:Button ID="btnArrearSheetStaff" runat="server" Height="31px" Text="Sheet" Width="50px"
+                                        CssClass="styled-button-4"  />
+                    <asp:Button ID="btnRequisition" runat="server" Height="31px" Text="Requisition" Width="80px"
+                                        CssClass="styled-button-4"  />
                     
                   
                 </td>

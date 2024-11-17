@@ -229,6 +229,24 @@ namespace SINHA.MEDLAR.ERP.UI {
         protected global::System.Web.UI.WebControls.Button btnProcess;
         
         /// <summary>
+        /// btnArrearSheetStaff control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnArrearSheetStaff;
+        
+        /// <summary>
+        /// btnRequisition control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnRequisition;
+        
+        /// <summary>
         /// CrystalReportViewer1 control.
         /// </summary>
         /// <remarks>
