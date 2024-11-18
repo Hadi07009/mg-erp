@@ -42,6 +42,16 @@
             }
     </script>
 
+    <script type="text/javascript">
+        $(function () {
+            $(".date").datepicker({
+                changeMonth: true,
+                changeYear: true,
+                dateFormat: 'dd/mm/yy'
+            });
+        });
+    </script>
+
 
     <table class="style1">
         <tr>
@@ -119,11 +129,11 @@
                                         ReadOnly="True" Font-Bold="True" ForeColor="Red"></asp:TextBox>
                                 </td>
                                 <td style="width: 91px; text-align: right;">
-                                    <asp:Label ID="Label42" runat="server" Text="ID :"></asp:Label>
+                                    <asp:Label ID="lblProductCataroy7" runat="server" Text="Date :"></asp:Label>
                                 </td>
                                 <td>
-                                    <asp:TextBox ID="txtEmployeeId" runat="server" Width="156px" Height="20px" ReadOnly="True"
-                                        BackColor="Yellow" Font-Bold="True" ForeColor="Red"></asp:TextBox>
+                                    <asp:TextBox ID="dtpFromDate" runat="server" Width="156px" BackColor="White" 
+                                        CssClass="date"></asp:TextBox>
                                 </td>
                             </tr>
                             <tr>
@@ -137,10 +147,11 @@
                                         ReadOnly="True" Font-Bold="True" Visible="False"></asp:TextBox>
                                 </td>
                                 <td style="width: 91px; text-align: right; height: 22px;">
-                                    &nbsp;
+                                    <asp:Label ID="Label42" runat="server" Text="ID :"></asp:Label>
                                 </td>
                                 <td style="height: 22px">
-                                    &nbsp;
+                                    <asp:TextBox ID="txtEmployeeId" runat="server" Width="156px" Height="20px" ReadOnly="True"
+                                        BackColor="Yellow" Font-Bold="True" ForeColor="Red"></asp:TextBox>
                                 </td>
                             </tr>
 
@@ -177,10 +188,10 @@
 
                             <tr>
                                 <td style=" text-align: right; width: 263px;">
-                                    <asp:Label ID="Label4" runat="server" Text="Tiffin Day :"></asp:Label></td>
+                                    <asp:Label ID="Label4" runat="server" Text="Tiffin Day :" Visible="False"></asp:Label></td>
                                 <td style="width: 293px; text-align: left;">
                                     <asp:TextBox ID="txtTDay" runat="server" Width="130px" Height="20px" onkeydown="javascript:TextName_OnKeyDown(event)"
-                                        Font-Bold="True"></asp:TextBox></td>
+                                        Font-Bold="True" Visible="False"></asp:TextBox></td>
                                 <td style="width: 91px; text-align: right;">
                                     &nbsp;</td>
                                 <td>
@@ -189,10 +200,10 @@
 
                             <tr>
                                 <td style=" text-align: right; width: 263px;">
-                                    <asp:Label ID="Label5" runat="server" Text="Iftar Day :"></asp:Label></td></td>
+                                    <asp:Label ID="Label5" runat="server" Text="Iftar Day :" Visible="False"></asp:Label></td></td>
                                 <td style="width: 293px; text-align: left;">
                                     <asp:TextBox ID="txtIftarDay" runat="server" Width="130px" Height="20px" onkeydown="javascript:TextName_OnKeyDown(event)"
-                                        Font-Bold="True"></asp:TextBox></td>
+                                        Font-Bold="True" Visible="False"></asp:TextBox></td>
                                 <td style="width: 91px; text-align: right;">
                                     &nbsp;</td>
                                 <td>
@@ -213,29 +224,41 @@
                                 <td style="text-align: center" colspan="4">
                                     <asp:Button ID="btnAdd" runat="server" Height="31px" Text="Atten." Width="66px" 
                                         CssClass = "styled-button-4" OnClick="btnAdd_Click"/>
-                                    <asp:Button ID="btnSave" runat="server" Height="31px" Text="Save" Width="66px" OnClick="btnSave_Click" CssClass = "styled-button-4"/>
-                                    <asp:Button ID="btnNext" runat="server" Height="31px" Text="Next" Width="66px" OnClick="btnNext_Click" CssClass = "styled-button-4"/>
-                                    <asp:Button ID="btnPrevious" runat="server" Height="31px" Text="Previous" Width="66px" CssClass = "styled-button-4"
-                                        OnClick="btnPrevious_Click" />
-                                    <asp:Button ID="btnShow" runat="server" Height="31px" Text="Show" Width="66px" OnClick="btnShow_Click" CssClass = "styled-button-4"/>
-                                    <asp:Button ID="btnTiffinSheet" runat="server" Height="31px" Text="Master Sheet" Width="88px" CssClass = "styled-button-4"
-                                        OnClick="btnTiffinSheet_Click" />
-                                    <asp:Button ID="btnBkashSheet" runat="server" Height="31px" Text="Bkash Sheet" Width="79px" CssClass = "styled-button-4"
-                                        OnClick="btnBkashSheet_Click" />
-                                    <asp:Button ID="btnCashSheet" runat="server" Height="31px" Text="Cash Sheet" Width="79px" CssClass = "styled-button-4"
-                                        OnClick="btnCashSheet_Click" />
-                                    <asp:Button ID="btnTiffinWalletSheet" runat="server" CssClass="styled-button-4" Height="31px" OnClick="btnTiffinWalletSheet_Click" Text="BKash Template(All)" Width="130px" />
-                                    <asp:Button ID="btnBkashReq" runat="server" Height="31px" Text="Bkash Req" Width="79px" CssClass = "styled-button-4"
-                                        OnClick="btnBkashReq_Click" />
-                                    <asp:Button ID="btnCashReq" runat="server" Height="31px" Text="Cash Req" Width="79px" CssClass = "styled-button-4"
-                                        OnClick="btnCashReq_Click" />
-                                    <asp:Button ID="btnTiffinRequsition" runat="server" Height="31px" Text="Requsition" CssClass = "styled-button-4"
-                                        Width="75px" OnClick="btnTiffinRequsition_Click" />
+                                    <asp:Button ID="btnSave" runat="server" Height="31px" Text="Save" Width="66px" 
+                                        OnClick="btnSave_Click" CssClass = "styled-button-4" Visible="False"/>
+                                    <asp:Button ID="btnNext" runat="server" Height="31px" Text="Next" Width="66px" 
+                                        OnClick="btnNext_Click" CssClass = "styled-button-4" Visible="False"/>
+                                    <asp:Button ID="btnPrevious" runat="server" Height="31px" Text="Previous" 
+                                        Width="66px" CssClass = "styled-button-4"
+                                        OnClick="btnPrevious_Click" Visible="False" />
+                                    <asp:Button ID="btnShow" runat="server" Height="31px" Text="Show" Width="66px" 
+                                        OnClick="btnShow_Click" CssClass = "styled-button-4" Visible="False"/>
+                                    <asp:Button ID="btnTiffinSheet" runat="server" Height="31px" 
+                                        Text="Master Sheet" Width="88px" CssClass = "styled-button-4"
+                                        OnClick="btnTiffinSheet_Click" Visible="False" />
+                                    <asp:Button ID="btnBkashSheet" runat="server" Height="31px" Text="Bkash Sheet" 
+                                        Width="79px" CssClass = "styled-button-4"
+                                        OnClick="btnBkashSheet_Click" Visible="False" />
+                                    <asp:Button ID="btnCashSheet" runat="server" Height="31px" Text="Cash Sheet" 
+                                        Width="79px" CssClass = "styled-button-4"
+                                        OnClick="btnCashSheet_Click" Visible="False" />
+                                    <asp:Button ID="btnTiffinWalletSheet" runat="server" CssClass="styled-button-4" 
+                                        Height="31px" OnClick="btnTiffinWalletSheet_Click" Text="BKash Template(All)" 
+                                        Width="130px" Visible="False" />
+                                    <asp:Button ID="btnBkashReq" runat="server" Height="31px" Text="Bkash Req" 
+                                        Width="79px" CssClass = "styled-button-4"
+                                        OnClick="btnBkashReq_Click" Visible="False" />
+                                    <asp:Button ID="btnCashReq" runat="server" Height="31px" Text="Cash Req" 
+                                        Width="79px" CssClass = "styled-button-4"
+                                        OnClick="btnCashReq_Click" Visible="False" />
+                                    <asp:Button ID="btnTiffinRequsition" runat="server" Height="31px" 
+                                        Text="Requsition" CssClass = "styled-button-4"
+                                        Width="75px" OnClick="btnTiffinRequsition_Click" Visible="False" />
                                     <asp:Button ID="btnTiffinRequsitionSummery" runat="server" Height="31px" 
                                         Text="Summary" CssClass = "styled-button-4"
-                                        Width="75px" onclick="btnTiffinRequsitionSummery_Click"  />
+                                        Width="75px" onclick="btnTiffinRequsitionSummery_Click" Visible="False"  />
                                     <asp:Button ID="btnPaySlip" runat="server" Height="31px" Text="Slip" Width="75px"
-                                        CssClass="styled-button-4" OnClick="btnPaySlip_Click"  />
+                                        CssClass="styled-button-4" OnClick="btnPaySlip_Click" Visible="False"  />
                                 </td>
                             </tr>
                             <tr>

@@ -400,7 +400,7 @@ namespace SINHA.MEDLAR.ERP.UI
             }
 
         }
-        public void searchTiffinEntry()
+        public void searchNightBillEntry()
         {
 
             TiffinDTO objTiffinDTO = new TiffinDTO();
@@ -415,6 +415,7 @@ namespace SINHA.MEDLAR.ERP.UI
             objTiffinDTO.CardNo = txtEmpCardNo.Text;
             objTiffinDTO.Year = txtYear.Text;
             objTiffinDTO.Month = txtMonth.Text;
+            objTiffinDTO.FromDate = dtpFromDate.Text;
 
             objTiffinDTO.UnitGroupId = ddlUnitGroupId.SelectedItem.Value;
 
@@ -436,7 +437,7 @@ namespace SINHA.MEDLAR.ERP.UI
                 objTiffinDTO.SectionId = "";
             }
 
-            dt = objTiffinBLL.searchTiffinEntry(objTiffinDTO);
+            dt = objTiffinBLL.searchNightBillEntry(objTiffinDTO);
 
             if (dt.Rows.Count > 0)
             {
@@ -947,7 +948,7 @@ namespace SINHA.MEDLAR.ERP.UI
                     getTiffinAmount();
                     getTiffinDayOnly();
                     getIftarDayOnly();
-                    searchTiffinEntry();
+                    searchNightBillEntry();
                 }
                 if (HfGridView.Value == "Bottom")
                 {
@@ -957,7 +958,7 @@ namespace SINHA.MEDLAR.ERP.UI
                     getTiffinAmount();
                     getTiffinDayOnly();
                     getIftarDayOnly();
-                    searchTiffinEntry();
+                    searchNightBillEntry();
                 }
 
                 //old
@@ -968,7 +969,7 @@ namespace SINHA.MEDLAR.ERP.UI
             }
         }
 
-        public void monthlyDayForTiffin()
+        public void monthlyDayForNightBill()
         {
 
             TiffinDTO objTiffinDTO = new TiffinDTO();
@@ -1002,13 +1003,13 @@ namespace SINHA.MEDLAR.ERP.UI
             objTiffinDTO.BranchOfficeId = strBranchOfficeId;
 
 
-            string strMsg = objTiffinBLL.monthlyDayForTiffin(objTiffinDTO);
+            string strMsg = objTiffinBLL.monthlyDayForNightBill(objTiffinDTO);
             lblMsg.Text = strMsg;
             MessageBox(strMsg);
             
         }
 
-        public void monthlyDayForTiffinStaff()
+        public void monthlyDayForNightBillStaff()
         {
 
             TiffinDTO objTiffinDTO = new TiffinDTO();
@@ -1042,7 +1043,7 @@ namespace SINHA.MEDLAR.ERP.UI
             objTiffinDTO.BranchOfficeId = strBranchOfficeId;
 
 
-            string strMsg = objTiffinBLL.monthlyDayForTiffinStaff(objTiffinDTO);
+            string strMsg = objTiffinBLL.monthlyDayForNightBillStaff(objTiffinDTO);
             lblMsg.Text = strMsg;
             MessageBox(strMsg);
 
@@ -1655,7 +1656,7 @@ namespace SINHA.MEDLAR.ERP.UI
                     //gvEmployeeList.SelectedIndex = 0;
                     //GridView1.SelectedIndex = 0;
                                         
-                    searchTiffinEntry();
+                    searchNightBillEntry();
 
                     HfGridView.Value = string.Empty;
 
@@ -1687,7 +1688,7 @@ namespace SINHA.MEDLAR.ERP.UI
             try
             {
 
-                searchTiffinEntry();
+                searchNightBillEntry();
 
 
             }
@@ -2511,11 +2512,11 @@ namespace SINHA.MEDLAR.ERP.UI
 
             if (ddlEmployeeTypeId.SelectedValue=="2")
             {
-                monthlyDayForTiffin();
+                monthlyDayForNightBill();
             }
             else if (ddlEmployeeTypeId.SelectedValue == "1")
             {
-                monthlyDayForTiffinStaff();
+                monthlyDayForNightBillStaff();
             }
             else
             {

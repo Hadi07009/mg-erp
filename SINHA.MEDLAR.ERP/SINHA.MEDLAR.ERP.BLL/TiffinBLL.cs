@@ -40,11 +40,29 @@ namespace SINHA.MEDLAR.ERP.BLL
 
         }
 
+        public string monthlyDayForNightBill(TiffinDTO objTiffinDTO)
+        {
+
+            TiffinDAL objTiffinDAL = new TiffinDAL();
+            string strMsg = objTiffinDAL.monthlyDayForNightBill(objTiffinDTO);
+            return strMsg;
+
+        }
+
         public string monthlyDayForTiffinStaff(TiffinDTO objTiffinDTO)
         {
 
             TiffinDAL objTiffinDAL = new TiffinDAL();
             string strMsg = objTiffinDAL.monthlyDayForTiffinStaff(objTiffinDTO);
+            return strMsg;
+
+        }
+
+        public string monthlyDayForNightBillStaff(TiffinDTO objTiffinDTO)
+        {
+
+            TiffinDAL objTiffinDAL = new TiffinDAL();
+            string strMsg = objTiffinDAL.monthlyDayForNightBillStaff(objTiffinDTO);
             return strMsg;
 
         }
@@ -168,6 +186,18 @@ namespace SINHA.MEDLAR.ERP.BLL
 
 
             dt = objTiffinDAL.searchTiffinEntry(objTiffinDTO);
+            return dt;
+
+        }
+
+        public DataTable searchNightBillEntry(TiffinDTO objTiffinDTO)
+        {
+
+            DataTable dt = new DataTable();
+            TiffinDAL objTiffinDAL = new TiffinDAL();
+
+
+            dt = objTiffinDAL.searchNightBillEntry(objTiffinDTO);
             return dt;
 
         }

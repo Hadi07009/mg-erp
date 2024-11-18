@@ -157,22 +157,22 @@ namespace SINHA.MEDLAR.ERP.UI {
         protected global::System.Web.UI.WebControls.TextBox txtDesignationName;
         
         /// <summary>
-        /// Label42 control.
+        /// lblProductCataroy7 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label42;
+        protected global::System.Web.UI.WebControls.Label lblProductCataroy7;
         
         /// <summary>
-        /// txtEmployeeId control.
+        /// dtpFromDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEmployeeId;
+        protected global::System.Web.UI.WebControls.TextBox dtpFromDate;
         
         /// <summary>
         /// Label27 control.
@@ -200,6 +200,24 @@ namespace SINHA.MEDLAR.ERP.UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtSLNew;
+        
+        /// <summary>
+        /// Label42 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label42;
+        
+        /// <summary>
+        /// txtEmployeeId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtEmployeeId;
         
         /// <summary>
         /// Label3 control.
