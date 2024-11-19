@@ -58,9 +58,9 @@ namespace SINHA.MEDLAR.ERP.UI
             }
             else
             {
-                btnTiffinRequsitionSummery.Visible = true;
-                btnTiffinRequsition.Visible = true;
-                btnTiffinSheet.Visible = true;
+                //btnTiffinRequsitionSummery.Visible = true;
+                //btnTiffinRequsition.Visible = true;
+                //btnTiffinSheet.Visible = true;
             }
 
             if (!IsPostBack)
@@ -165,7 +165,7 @@ namespace SINHA.MEDLAR.ERP.UI
             TiffinDTO objTiffinDTO = new TiffinDTO();
             TiffinBLL objTiffinBLL = new TiffinBLL();
 
-            objTiffinDTO = objTiffinBLL.getTiffinDay(txtEmployeeId.Text, txtYear.Text, txtMonth.Text, strHeadOfficeId, strBranchOfficeId);
+            objTiffinDTO = objTiffinBLL.getNightDay(txtEmployeeId.Text, txtYear.Text, txtMonth.Text, strHeadOfficeId, strBranchOfficeId, dtpFromDate.Text);
 
             if (objTiffinDTO.TiffinDay == string.Empty)
             {
@@ -186,7 +186,7 @@ namespace SINHA.MEDLAR.ERP.UI
             TiffinDTO objTiffinDTO = new TiffinDTO();
             TiffinBLL objTiffinBLL = new TiffinBLL();
 
-            objTiffinDTO = objTiffinBLL.getTiffinAmount(txtEmployeeId.Text, txtYear.Text, txtMonth.Text, strHeadOfficeId, strBranchOfficeId);
+            objTiffinDTO = objTiffinBLL.getNightBillAmount(txtEmployeeId.Text, txtYear.Text, txtMonth.Text, strHeadOfficeId, strBranchOfficeId, dtpFromDate.Text);
 
             if (objTiffinDTO.TiffinAmount == string.Empty)
             {
@@ -902,7 +902,8 @@ namespace SINHA.MEDLAR.ERP.UI
             objTiffinDTO.TiffinDay = txtTiffinDay.Text;
             objTiffinDTO.TiffinAmount = txtTiffinAmount.Text;
             objTiffinDTO.T_Day = txtTDay.Text;
-            objTiffinDTO.I_Day = txtIftarDay.Text; 
+            objTiffinDTO.I_Day = txtIftarDay.Text;
+            objTiffinDTO.FromDate = dtpFromDate.Text;
 
             //objTiffinDTO.TiffinDayAdditional = txtTiffinDayAdditional.Text;
 
@@ -928,10 +929,10 @@ namespace SINHA.MEDLAR.ERP.UI
             objTiffinDTO.HeadOfficeId = strHeadOfficeId;
             objTiffinDTO.BranchOfficeId = strBranchOfficeId;
             
-            string strMsg = objTiffinBLL.saveTiffinInfo(objTiffinDTO);
+            string strMsg = objTiffinBLL.saveNightInfo(objTiffinDTO);
             lblMsg.Text = strMsg;
 
-            if (strMsg == "PLEASE CHECK TIFFIN DAY!!!" ||  strMsg == "TIFFIN ENTRY HAS BEEN LOCKED!!!")
+            if (strMsg == "PLEASE CHECK NIGHT DAY!!!" ||  strMsg == "NIGHT ENTRY HAS BEEN LOCKED!!!")
             {
                 MessageBox(strMsg);
                 clearMessage();
@@ -977,6 +978,7 @@ namespace SINHA.MEDLAR.ERP.UI
                       
             objTiffinDTO.Year = txtYear.Text;
             objTiffinDTO.Month = txtMonth.Text;
+            objTiffinDTO.FromDate = dtpFromDate.Text;
 
             objTiffinDTO.UnitGroupId = ddlUnitGroupId.SelectedItem.Value;
 
@@ -1017,6 +1019,7 @@ namespace SINHA.MEDLAR.ERP.UI
 
             objTiffinDTO.Year = txtYear.Text;
             objTiffinDTO.Month = txtMonth.Text;
+            objTiffinDTO.FromDate = dtpFromDate.Text;
 
             objTiffinDTO.UnitGroupId = ddlUnitGroupId.SelectedItem.Value;
 
@@ -1644,6 +1647,13 @@ namespace SINHA.MEDLAR.ERP.UI
                     string strMsg = "Please Select Section Name!!!";
                     MessageBox(strMsg);
                     ddlSectionId.Focus();
+                    return;
+                }
+                else if(dtpFromDate.Text == string.Empty)
+                {
+                    string strMsg = "Please Enter Date!!";
+                    dtpFromDate.Focus();
+                    MessageBox(strMsg);
                     return;
                 }
                 else
@@ -2508,6 +2518,14 @@ namespace SINHA.MEDLAR.ERP.UI
                         return;
                     }
                 }
+            }
+
+            if (dtpFromDate.Text == string.Empty)
+            {
+                string strMsg = "Please Enter Date!!";
+                dtpFromDate.Focus();
+                MessageBox(strMsg);
+                return;
             }
 
             if (ddlEmployeeTypeId.SelectedValue=="2")

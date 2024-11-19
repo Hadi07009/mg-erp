@@ -206,6 +206,135 @@ namespace SINHA.MEDLAR.ERP.DAL
 
 
         }
+
+        public string saveNightInfo(TiffinDTO objTiffinDTO)
+        {
+            string strMsg = "";
+
+            OracleCommand objOracleCommand = new OracleCommand("PRO_TIFFIN_BASIC_INFO_WORKER");
+            objOracleCommand.CommandType = CommandType.StoredProcedure;
+
+
+            objOracleCommand.Parameters.Add("p_employee_id", OracleDbType.Varchar2, ParameterDirection.Input).Value = objTiffinDTO.EmployeeId;
+
+            if (objTiffinDTO.UnitId != "")
+            {
+
+                objOracleCommand.Parameters.Add("p_unit_id", OracleDbType.Varchar2, ParameterDirection.Input).Value = objTiffinDTO.UnitId;
+
+            }
+            else
+            {
+                objOracleCommand.Parameters.Add("p_unit_id", OracleDbType.Varchar2, ParameterDirection.Input).Value = null;
+
+            }
+
+            if (objTiffinDTO.SectionId != "")
+            {
+                objOracleCommand.Parameters.Add("p_section_id", OracleDbType.Varchar2, ParameterDirection.Input).Value = objTiffinDTO.SectionId;
+            }
+            else
+            {
+
+                objOracleCommand.Parameters.Add("p_section_id", OracleDbType.Varchar2, ParameterDirection.Input).Value = null;
+            }
+
+
+
+            objOracleCommand.Parameters.Add("P_TIFFIN_YEAR", OracleDbType.Varchar2, ParameterDirection.Input).Value = objTiffinDTO.Year;
+            objOracleCommand.Parameters.Add("P_TIFFIN_MONTH", OracleDbType.Varchar2, ParameterDirection.Input).Value = objTiffinDTO.Month;
+            if (objTiffinDTO.FromDate.Length > 6)
+            {
+                objOracleCommand.Parameters.Add("p_from_date", OracleDbType.Varchar2, ParameterDirection.Input).Value = objTiffinDTO.FromDate;
+            }
+            else
+            {
+
+                objOracleCommand.Parameters.Add("p_from_date", OracleDbType.Varchar2, ParameterDirection.Input).Value = null;
+            }
+
+            if (objTiffinDTO.TiffinDay != "")
+            {
+                objOracleCommand.Parameters.Add("P_TIFFIN_DAY", OracleDbType.Varchar2, ParameterDirection.Input).Value = objTiffinDTO.TiffinDay;
+            }
+            else
+            {
+                objOracleCommand.Parameters.Add("P_TIFFIN_DAY", OracleDbType.Varchar2, ParameterDirection.Input).Value = null;
+            }
+
+            if (objTiffinDTO.TiffinAmount != "")
+            {
+                objOracleCommand.Parameters.Add("P_TIFFIN_AMOUNT", OracleDbType.Varchar2, ParameterDirection.Input).Value = objTiffinDTO.TiffinAmount;
+            }
+            else
+            {
+                objOracleCommand.Parameters.Add("P_TIFFIN_AMOUNT", OracleDbType.Varchar2, ParameterDirection.Input).Value = null;
+            }
+
+            if (objTiffinDTO.T_Day != "")
+            {
+                objOracleCommand.Parameters.Add("P_T_TIFFIN_DAY", OracleDbType.Varchar2, ParameterDirection.Input).Value = objTiffinDTO.T_Day;
+            }
+            else
+            {
+                objOracleCommand.Parameters.Add("P_T_TIFFIN_DAY", OracleDbType.Varchar2, ParameterDirection.Input).Value = null;
+            }
+
+            if (objTiffinDTO.I_Day != "")
+            {
+                objOracleCommand.Parameters.Add("P_I_TIFFIN_DAY", OracleDbType.Varchar2, ParameterDirection.Input).Value = objTiffinDTO.I_Day;
+            }
+            else
+            {
+                objOracleCommand.Parameters.Add("P_I_TIFFIN_DAY", OracleDbType.Varchar2, ParameterDirection.Input).Value = null;
+            }
+
+            //if (objTiffinDTO.TiffinDayAdditional != "")
+            //{
+            //    objOracleCommand.Parameters.Add("p_tiffin_day_additional", OracleDbType.Varchar2, ParameterDirection.Input).Value = objTiffinDTO.TiffinDayAdditional;
+            //}
+            //else
+            //{
+            //    objOracleCommand.Parameters.Add("p_tiffin_day_additional", OracleDbType.Varchar2, ParameterDirection.Input).Value = null;
+            //}
+
+            objOracleCommand.Parameters.Add("p_update_by", OracleDbType.Varchar2, ParameterDirection.Input).Value = objTiffinDTO.UpdateBy;
+            objOracleCommand.Parameters.Add("p_head_office_id", OracleDbType.Varchar2, ParameterDirection.Input).Value = objTiffinDTO.HeadOfficeId;
+            objOracleCommand.Parameters.Add("p_branch_office_id", OracleDbType.Varchar2, ParameterDirection.Input).Value = objTiffinDTO.BranchOfficeId;
+
+
+            objOracleCommand.Parameters.Add("P_MESSAGE", OracleDbType.Varchar2, 500).Direction = ParameterDirection.Output;
+
+            using (OracleConnection strConn = GetConnection())
+            {
+                try
+                {
+                    objOracleCommand.Connection = strConn;
+                    strConn.Open();
+                    trans = strConn.BeginTransaction();
+                    objOracleCommand.ExecuteNonQuery();
+                    trans.Commit();
+                    strConn.Close();
+                    strMsg = objOracleCommand.Parameters["P_MESSAGE"].Value.ToString();
+                }
+
+                catch (Exception ex)
+                {
+                    trans.Rollback();
+                    throw new Exception("Error : " + ex.Message);
+                }
+
+                finally
+                {
+
+                    strConn.Close();
+                }
+
+            }
+            return strMsg;
+
+
+        }
         public string monthlyDayForTiffin(TiffinDTO objTiffinDTO)
         {
             string strMsg = "";
@@ -326,7 +455,15 @@ namespace SINHA.MEDLAR.ERP.DAL
 
             objOracleCommand.Parameters.Add("p_salary_year", OracleDbType.Varchar2, ParameterDirection.Input).Value = objTiffinDTO.Year;
             objOracleCommand.Parameters.Add("p_salary_month", OracleDbType.Varchar2, ParameterDirection.Input).Value = objTiffinDTO.Month;
+            if (objTiffinDTO.FromDate.Length > 6)
+            {
+                objOracleCommand.Parameters.Add("p_from_date", OracleDbType.Varchar2, ParameterDirection.Input).Value = objTiffinDTO.FromDate;
+            }
+            else
+            {
 
+                objOracleCommand.Parameters.Add("p_from_date", OracleDbType.Varchar2, ParameterDirection.Input).Value = null;
+            }
 
             objOracleCommand.Parameters.Add("p_update_by", OracleDbType.Varchar2, ParameterDirection.Input).Value = objTiffinDTO.UpdateBy;
             objOracleCommand.Parameters.Add("p_head_office_id", OracleDbType.Varchar2, ParameterDirection.Input).Value = objTiffinDTO.HeadOfficeId;
@@ -486,6 +623,15 @@ namespace SINHA.MEDLAR.ERP.DAL
 
             objOracleCommand.Parameters.Add("p_salary_year", OracleDbType.Varchar2, ParameterDirection.Input).Value = objTiffinDTO.Year;
             objOracleCommand.Parameters.Add("p_salary_month", OracleDbType.Varchar2, ParameterDirection.Input).Value = objTiffinDTO.Month;
+            if (objTiffinDTO.FromDate.Length > 6)
+            {
+                objOracleCommand.Parameters.Add("p_from_date", OracleDbType.Varchar2, ParameterDirection.Input).Value = objTiffinDTO.FromDate;
+            }
+            else
+            {
+
+                objOracleCommand.Parameters.Add("p_from_date", OracleDbType.Varchar2, ParameterDirection.Input).Value = null;
+            }
 
 
             objOracleCommand.Parameters.Add("p_update_by", OracleDbType.Varchar2, ParameterDirection.Input).Value = objTiffinDTO.UpdateBy;
@@ -2920,6 +3066,62 @@ namespace SINHA.MEDLAR.ERP.DAL
 
         }
 
+        public TiffinDTO getNightDay(string strEmployeeId, string strYear, string strMonth, string strHeadOfficeId, string strBranchOfficeId, string nightDate)
+        {
+
+            TiffinDTO objTiffinDTO = new TiffinDTO();
+            string sql = "";
+            sql = "SELECT " +
+
+                  "to_char(nvl(TIFFIN_DAY, '')) " +
+
+
+                  "FROM VEW_SEARCH_NIGHT_BILL_ENTRY WHERE HEAD_OFFICE_ID = '" + strHeadOfficeId + "' AND BRANCH_OFFICE_ID ='" + strBranchOfficeId + "' AND employee_id = '" + strEmployeeId + "' " +
+                  " AND tiffin_year = '" + strYear + "' AND tiffin_month = '" + strMonth + "' " + " AND LOG_DATE = TO_DATE("+ nightDate + ", 'DD/MM/YYYY')";
+
+
+
+
+            OracleCommand objCommand = new OracleCommand(sql);
+            OracleDataReader objDataReader;
+
+            using (OracleConnection strConn = GetConnection())
+            {
+
+                objCommand.Connection = strConn;
+                strConn.Open();
+                objDataReader = objCommand.ExecuteReader();
+                try
+                {
+                    while (objDataReader.Read())
+                    {
+
+                        objTiffinDTO.TiffinDay = objDataReader.GetString(0);
+
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Error : " + ex.Message);
+
+                }
+
+                finally
+                {
+
+                    strConn.Close();
+                }
+
+            }
+
+
+
+
+            return objTiffinDTO;
+
+        }
+
         public TiffinDTO getTiffinAmount(string strEmployeeId, string strYear, string strMonth, string strHeadOfficeId, string strBranchOfficeId)
         {
 
@@ -2932,6 +3134,62 @@ namespace SINHA.MEDLAR.ERP.DAL
 
                   "FROM vew_search_tiffin_entry WHERE HEAD_OFFICE_ID = '" + strHeadOfficeId + "' AND BRANCH_OFFICE_ID ='" + strBranchOfficeId + "' AND employee_id = '" + strEmployeeId + "' " +
                   " AND tiffin_year = '" + strYear + "' AND tiffin_month = '" + strMonth + "' ";
+
+
+
+
+            OracleCommand objCommand = new OracleCommand(sql);
+            OracleDataReader objDataReader;
+
+            using (OracleConnection strConn = GetConnection())
+            {
+
+                objCommand.Connection = strConn;
+                strConn.Open();
+                objDataReader = objCommand.ExecuteReader();
+                try
+                {
+                    while (objDataReader.Read())
+                    {
+
+                        objTiffinDTO.TiffinAmount = objDataReader.GetString(0);
+
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Error : " + ex.Message);
+
+                }
+
+                finally
+                {
+
+                    strConn.Close();
+                }
+
+            }
+
+
+
+
+            return objTiffinDTO;
+
+        }
+
+        public TiffinDTO getNightBillAmount(string strEmployeeId, string strYear, string strMonth, string strHeadOfficeId, string strBranchOfficeId, string nightDate)
+        {
+
+            TiffinDTO objTiffinDTO = new TiffinDTO();
+            string sql = "";
+            sql = "SELECT " +
+
+                  "to_char(nvl(PAYMENT_AMOUNT, '')) " +
+
+
+                  "FROM VEW_SEARCH_NIGHT_BILL_ENTRY WHERE HEAD_OFFICE_ID = '" + strHeadOfficeId + "' AND BRANCH_OFFICE_ID ='" + strBranchOfficeId + "' AND employee_id = '" + strEmployeeId + "' " +
+                  " AND tiffin_year = '" + strYear + "' AND tiffin_month = '" + strMonth + "' "+ " AND LOG_DATE = TO_DATE("+nightDate+", 'DD/MM/YYYY')";
 
 
 

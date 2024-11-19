@@ -30,6 +30,15 @@ namespace SINHA.MEDLAR.ERP.BLL
 
         }
 
+        public string saveNightInfo(TiffinDTO objTiffinDTO)
+        {
+
+            TiffinDAL objTiffinDAL = new TiffinDAL();
+            string strMsg = objTiffinDAL.saveNightInfo(objTiffinDTO);
+            return strMsg;
+
+        }
+
 
         public string monthlyDayForTiffin(TiffinDTO objTiffinDTO)
         {
@@ -298,6 +307,18 @@ namespace SINHA.MEDLAR.ERP.BLL
 
         }
 
+        public TiffinDTO getNightDay(string strEmployeeId, string strYear, string strMonth, string strHeadOfficeId, string strBranchOfficeId, string nightDate)
+        {
+
+            TiffinDTO objTiffinDTO = new TiffinDTO();
+            TiffinDAL objTiffinDAL = new TiffinDAL();
+
+
+            objTiffinDTO = objTiffinDAL.getNightDay(strEmployeeId, strYear, strMonth, strHeadOfficeId, strBranchOfficeId, nightDate);
+            return objTiffinDTO;
+
+        }
+
         public TiffinDTO getTiffinAmount(string strEmployeeId, string strYear, string strMonth, string strHeadOfficeId, string strBranchOfficeId)
         {
 
@@ -306,6 +327,18 @@ namespace SINHA.MEDLAR.ERP.BLL
 
 
             objTiffinDTO = objTiffinDAL.getTiffinAmount(strEmployeeId, strYear, strMonth, strHeadOfficeId, strBranchOfficeId);
+            return objTiffinDTO;
+
+        }
+
+        public TiffinDTO getNightBillAmount(string strEmployeeId, string strYear, string strMonth, string strHeadOfficeId, string strBranchOfficeId, string nightDate)
+        {
+
+            TiffinDTO objTiffinDTO = new TiffinDTO();
+            TiffinDAL objTiffinDAL = new TiffinDAL();
+
+
+            objTiffinDTO = objTiffinDAL.getNightBillAmount(strEmployeeId, strYear, strMonth, strHeadOfficeId, strBranchOfficeId, nightDate);
             return objTiffinDTO;
 
         }
