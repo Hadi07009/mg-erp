@@ -60,7 +60,7 @@ namespace SINHA.MEDLAR.ERP.UI
             {
                 //btnTiffinRequsitionSummery.Visible = true;
                 //btnTiffinRequsition.Visible = true;
-                //btnTiffinSheet.Visible = true;
+                btnTiffinSheet.Visible = true;
             }
 
             if (!IsPostBack)
@@ -1130,8 +1130,9 @@ namespace SINHA.MEDLAR.ERP.UI
 
                 objReportDTO.Year = txtYear.Text;
                 objReportDTO.Month = txtMonth.Text;
+                objReportDTO.FromDate = dtpFromDate.Text;
 
-                
+
                 objReportDTO.UnitGroupId = ddlUnitGroupId.SelectedItem.Value;
                 objReportDTO.EmployeeTypeId = ddlEmployeeTypeId.SelectedItem.Value;
 
@@ -1168,7 +1169,7 @@ namespace SINHA.MEDLAR.ERP.UI
                 }
                 else
                 {
-                     strPath = Path.Combine(Server.MapPath("~/Reports/rptTiffinSheet.rpt"));
+                     strPath = Path.Combine(Server.MapPath("~/Reports/rptNightSheet.rpt"));
                 }
                 
 
@@ -1178,7 +1179,7 @@ namespace SINHA.MEDLAR.ERP.UI
                 //DataSet ds = new DataSet();
                 DataTable ds = new DataTable();
 
-                ds = (objReportBLL.GetWorkerTiffinSheetByUnitGroup(objReportDTO));
+                ds = (objReportBLL.GetWorkerNightSheetByUnitGroup(objReportDTO));
                 rd.SetDataSource(ds);
                 rd.SetDatabaseLogon("erp", "erp");
                 CrystalReportViewer1.ReportSource = rd;
@@ -1892,6 +1893,15 @@ namespace SINHA.MEDLAR.ERP.UI
                     ddlEmployeeTypeId.Focus();
                     return;
                 }
+
+                if (dtpFromDate.Text == string.Empty)
+                {
+                    string strMsg = "Please Enter Date!!";
+                    dtpFromDate.Focus();
+                    MessageBox(strMsg);
+                    return;
+                }
+
                 GetWorkerTiffinSheetByUnitGroup();
                 
             }

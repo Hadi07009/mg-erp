@@ -235,7 +235,7 @@
                                         OnClick="btnShow_Click" CssClass = "styled-button-4" Visible="False"/>
                                     <asp:Button ID="btnTiffinSheet" runat="server" Height="31px" 
                                         Text="Master Sheet" Width="88px" CssClass = "styled-button-4"
-                                        OnClick="btnTiffinSheet_Click" Visible="False" />
+                                        OnClick="btnTiffinSheet_Click" />
                                     <asp:Button ID="btnBkashSheet" runat="server" Height="31px" Text="Bkash Sheet" 
                                         Width="79px" CssClass = "styled-button-4"
                                         OnClick="btnBkashSheet_Click" Visible="False" />
