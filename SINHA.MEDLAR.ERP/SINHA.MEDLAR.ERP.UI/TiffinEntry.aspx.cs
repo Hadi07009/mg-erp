@@ -2720,7 +2720,7 @@ namespace SINHA.MEDLAR.ERP.UI
                     string strPath = Path.Combine(Server.MapPath("~/Reports/rptPaySlipStaffTiffin.rpt"));
                     this.Context.Session["strReportPath"] = strPath;
                     rd.Load(strPath);
-                    rd.SetDataSource(objReportBLL.GetStaffPaySlip(objReportDTO));
+                    rd.SetDataSource(objReportBLL.GetStaffPaySlipTiffin(objReportDTO));
                 }
 
                 if (objReportDTO.EmployeeTypeId == "2")
@@ -2730,7 +2730,7 @@ namespace SINHA.MEDLAR.ERP.UI
 
                     this.Context.Session["strReportPath"] = strPath;
                     rd.Load(strPath);                    
-                    rd.SetDataSource(objReportBLL.GetWorkerPaySlipByUnitGroup(objReportDTO));
+                    rd.SetDataSource(objReportBLL.GetWorkerPaySlipTiffin(objReportDTO));
                 }
 
                 rd.SetDatabaseLogon("erp", "erp");

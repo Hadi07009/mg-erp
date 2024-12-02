@@ -6189,6 +6189,30 @@ namespace SINHA.MEDLAR.ERP.BLL
                 throw ex;
             }
         }
+
+        public DataTable GetStaffPaySlipTiffin(ReportDTO objReportDTO)
+        {
+            try
+            {
+                DataSet ds = new DataSet();
+                DataTable dt = new DataTable();
+                try
+                {
+                    ReportDAL objReportDAL = new ReportDAL();
+                    dt = objReportDAL.GetStaffPaySlipTiffin(objReportDTO);
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public DataTable GetWorkerPaySlipByUnitGroup(ReportDTO objReportDTO)
         {
             try
@@ -6199,6 +6223,29 @@ namespace SINHA.MEDLAR.ERP.BLL
                 {
                     ReportDAL objReportDAL = new ReportDAL();
                     dt = objReportDAL.GetWorkerPaySlipByUnitGroup(objReportDTO);
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public DataTable GetWorkerPaySlipTiffin(ReportDTO objReportDTO)
+        {
+            try
+            {
+                DataSet ds = new DataSet();
+                DataTable dt = new DataTable();
+                try
+                {
+                    ReportDAL objReportDAL = new ReportDAL();
+                    dt = objReportDAL.GetWorkerPaySlipTiffin(objReportDTO);
                 }
                 catch (Exception ex)
                 {
