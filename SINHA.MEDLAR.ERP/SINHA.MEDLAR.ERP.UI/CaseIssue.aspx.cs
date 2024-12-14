@@ -354,6 +354,11 @@ namespace SINHA.MEDLAR.ERP.UI
             {
                 objEmployeeDTO.SectionId = "";
             }
+
+            objEmployeeDTO.FromCreateDate = "";
+            objEmployeeDTO.ToCreateDate = "";
+
+
             dt = objEmployeeBLL.searchActiveEmployeeList(objEmployeeDTO);
 
 

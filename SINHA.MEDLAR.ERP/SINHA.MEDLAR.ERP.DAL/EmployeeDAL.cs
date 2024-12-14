@@ -8258,11 +8258,13 @@ namespace SINHA.MEDLAR.ERP.DAL
 
                  sql = sql + "and unit_id = '" + objEmployeeDTO.UnitId + "'";
              }
+
             if (objEmployeeDTO.FromCreateDate.Length > 6 && objEmployeeDTO.ToCreateDate.Length > 6)
             {
 
                 sql = sql + "and create_date between to_date ( '" + objEmployeeDTO.FromCreateDate + "', 'dd/mm/yyyy') and to_date ( '" + objEmployeeDTO.ToCreateDate + "', 'dd/mm/yyyy')   ";
             }
+
             sql = sql + "order by SL ";
 
              OracleCommand objCommand = new OracleCommand(sql);
