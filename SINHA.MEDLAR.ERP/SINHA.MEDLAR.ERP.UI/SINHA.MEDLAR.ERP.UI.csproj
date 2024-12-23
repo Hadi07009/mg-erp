@@ -1567,6 +1567,36 @@
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="Reports\RptIncrementProposalReqSummaryLOne.cs">
+      <DependentUpon>RptIncrementProposalReqSummaryLOne.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\rptIncrementProposalStaffLessOneYear.cs">
+      <DependentUpon>rptIncrementProposalStaffLessOneYear.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\rptIncrementProposalStaffSuEnLessOne.cs">
+      <DependentUpon>rptIncrementProposalStaffSuEnLessOne.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\rptIncrementProposalWorkerLessOneYear.cs">
+      <DependentUpon>rptIncrementProposalWorkerLessOneYear.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\rptIncrementProposalWorkerSummeryEnglishLOne.cs">
+      <DependentUpon>rptIncrementProposalWorkerSummeryEnglishLOne.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Reports\rptPaySlipStaffTiffin.cs">
       <DependentUpon>rptPaySlipStaffTiffin.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -8680,6 +8710,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptIncrementProposalPower.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RptIncrementProposalReqSummaryLOne.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptIncrementProposalReqSummaryLOne.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\RptIncrementProposalReqSummary.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RptIncrementProposalReqSummary.cs</LastGenOutput>
@@ -8687,6 +8721,10 @@
     <EmbeddedResource Include="Reports\rptIncrementProposalStaff.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptIncrementProposalStaff.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptIncrementProposalStaffLessOneYear.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptIncrementProposalStaffLessOneYear.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\rptIncrementProposalStaffAboveOneYear.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -8712,6 +8750,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptIncrementProposalStaffSummery.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptIncrementProposalStaffSuEnLessOne.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptIncrementProposalStaffSuEnLessOne.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\rptIncrementProposalStaffSummeryEnglish.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptIncrementProposalStaffSummeryEnglish.cs</LastGenOutput>
@@ -8719,6 +8761,10 @@
     <EmbeddedResource Include="Reports\rptIncrementProposalSummery.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptIncrementProposalSummery.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptIncrementProposalWorkerLessOneYear.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptIncrementProposalWorkerLessOneYear.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\rptIncrementProposalWorkerAboveOneYear.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -8743,6 +8789,10 @@
     <EmbeddedResource Include="Reports\rptIncrementProposalWorkerSummery.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptIncrementProposalWorkerSummery.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptIncrementProposalWorkerSummeryEnglishLOne.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptIncrementProposalWorkerSummeryEnglishLOne.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\rptIncrementProposalWorkerSummeryEnglish.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

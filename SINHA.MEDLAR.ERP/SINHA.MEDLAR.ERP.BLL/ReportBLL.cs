@@ -11257,6 +11257,33 @@ namespace SINHA.MEDLAR.ERP.BLL
             }
 
         }
+
+        public DataSet incrementProposalSheetWorkerSELOne(ReportDTO objReportDTO)
+        {
+            try
+            {
+                DataSet ds = new DataSet();
+                DataTable dt = new DataTable();
+                try
+                {
+
+                    ReportDAL objReportDAL = new ReportDAL();
+                    ds = objReportDAL.incrementProposalSheetWorkerSELOne(objReportDTO);
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
         public DataSet incrementProposalSheetStaffSummery(ReportDTO objReportDTO)
         {
             try
@@ -11334,6 +11361,33 @@ namespace SINHA.MEDLAR.ERP.BLL
             }
 
         }
+
+        public DataSet incrementProposalSheetStaffSELessOne(ReportDTO objReportDTO)
+        {
+            try
+            {
+                DataSet ds = new DataSet();
+                DataTable dt = new DataTable();
+                try
+                {
+
+                    ReportDAL objReportDAL = new ReportDAL();
+                    ds = objReportDAL.incrementProposalSheetStaffSELessOne(objReportDTO);
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
         public DataSet incrementProposalWorkerBellowOneYear(ReportDTO objReportDTO)
         {
             try
@@ -13512,6 +13566,31 @@ namespace SINHA.MEDLAR.ERP.BLL
             }
         }
 
+        public DataSet incrementSheetStaffOnlyQualityLessOne(ReportDTO objReportDTO)
+        {
+            try
+            {
+                DataSet ds = new DataSet();
+                DataTable dt = new DataTable();
+                try
+                {
+
+                    ReportDAL objReportDAL = new ReportDAL();
+                    ds = objReportDAL.incrementSheetStaffOnlyQualityLessOne(objReportDTO);
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public DataTable GetStaffGrossSalarySheet(ReportDTO objReportDTO)
         {
             try
@@ -13627,6 +13706,30 @@ namespace SINHA.MEDLAR.ERP.BLL
                 throw ex;
             }
         }
+
+        public DataTable GetIncrementProposalWorkerLessOne(ReportDTO objReportDTO)
+        {
+            try
+            {
+                DataSet ds = new DataSet();
+                DataTable dt = new DataTable();
+                try
+                {
+                    ReportDAL objReportDAL = new ReportDAL();
+                    dt = objReportDAL.GetIncrementProposalWorkerLessOne(objReportDTO);
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public DataTable GetIncrementWorkerByUnitGroup(ReportDTO objReportDTO)
         {
             try
@@ -13671,6 +13774,30 @@ namespace SINHA.MEDLAR.ERP.BLL
                 throw ex;
             }
         }
+
+        public DataTable GetIncrementProposalStaffByUnitGroupLessOne(ReportDTO objReportDTO)
+        {
+            try
+            {
+                DataSet ds = new DataSet();
+                DataTable dt = new DataTable();
+                try
+                {
+                    ReportDAL objReportDAL = new ReportDAL();
+                    dt = objReportDAL.GetIncrementProposalStaffUGLessOne(objReportDTO);
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public DataTable GetWorkerIncrementProposalSheetByUnitGroup(ReportDTO objReportDTO)
         {
             try
@@ -16424,6 +16551,30 @@ namespace SINHA.MEDLAR.ERP.BLL
                 throw ex;
             }
         }
+
+        public DataSet IncrementProposalReqSLessOne(ReportDTO objReportDTO)
+        {
+            try
+            {
+                DataSet ds = new DataSet();
+                DataTable dt = new DataTable();
+                try
+                {
+                    ReportDAL objReportDAL = new ReportDAL();
+                    ds = objReportDAL.IncrementProposalReqSLessOne(objReportDTO);
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public MfsTemplate GetHoldBkashTemplate(EmployeeDTO objEmployeeDTO)
         {
             try

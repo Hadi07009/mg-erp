@@ -976,6 +976,90 @@ namespace SINHA.MEDLAR.ERP.DAL
 
 
         }
+
+        public string processIncrementProposalStaffLessOne(TiffinDTO objTiffinDTO)
+        {
+            string strMsg = "";
+
+            OracleCommand objOracleCommand = new OracleCommand("pro_increment_pro_staff_l_one");
+            objOracleCommand.CommandType = CommandType.StoredProcedure;
+
+
+
+            if (objTiffinDTO.UnitId != "")
+            {
+
+                objOracleCommand.Parameters.Add("p_unit_id", OracleDbType.Varchar2, ParameterDirection.Input).Value = objTiffinDTO.UnitId;
+
+            }
+            else
+            {
+                objOracleCommand.Parameters.Add("p_unit_id", OracleDbType.Varchar2, ParameterDirection.Input).Value = null;
+
+            }
+
+            if (objTiffinDTO.SectionId != "")
+            {
+                objOracleCommand.Parameters.Add("p_section_id", OracleDbType.Varchar2, ParameterDirection.Input).Value = objTiffinDTO.SectionId;
+            }
+            else
+            {
+
+                objOracleCommand.Parameters.Add("p_section_id", OracleDbType.Varchar2, ParameterDirection.Input).Value = null;
+            }
+
+            if (objTiffinDTO.UnitGroupId != "")
+            {
+                objOracleCommand.Parameters.Add("p_unit_group_id", OracleDbType.Varchar2, ParameterDirection.Input).Value = objTiffinDTO.UnitGroupId;
+            }
+            else
+            {
+                objOracleCommand.Parameters.Add("p_unit_group_id", OracleDbType.Varchar2, ParameterDirection.Input).Value = null;
+            }
+
+            objOracleCommand.Parameters.Add("P_INCREMENT_YEAR", OracleDbType.Varchar2, ParameterDirection.Input).Value = objTiffinDTO.Year;
+            objOracleCommand.Parameters.Add("P_INCREMENT_MONTH", OracleDbType.Varchar2, ParameterDirection.Input).Value = objTiffinDTO.Month;
+            objOracleCommand.Parameters.Add("p_allow_general_incr", OracleDbType.Varchar2, ParameterDirection.Input).Value = objTiffinDTO.AllowGeneralIncrement;
+
+
+            objOracleCommand.Parameters.Add("p_update_by", OracleDbType.Varchar2, ParameterDirection.Input).Value = objTiffinDTO.UpdateBy;
+            objOracleCommand.Parameters.Add("p_head_office_id", OracleDbType.Varchar2, ParameterDirection.Input).Value = objTiffinDTO.HeadOfficeId;
+            objOracleCommand.Parameters.Add("p_branch_office_id", OracleDbType.Varchar2, ParameterDirection.Input).Value = objTiffinDTO.BranchOfficeId;
+
+
+            objOracleCommand.Parameters.Add("P_MESSAGE", OracleDbType.Varchar2, 500).Direction = ParameterDirection.Output;
+
+            using (OracleConnection strConn = GetConnection())
+            {
+                try
+                {
+                    objOracleCommand.Connection = strConn;
+                    strConn.Open();
+                    trans = strConn.BeginTransaction();
+                    objOracleCommand.ExecuteNonQuery();
+                    trans.Commit();
+                    strConn.Close();
+                    strMsg = objOracleCommand.Parameters["P_MESSAGE"].Value.ToString();
+                }
+
+                catch (Exception ex)
+                {
+                    trans.Rollback();
+                    throw new Exception("Error : " + ex.Message);
+                }
+
+                finally
+                {
+
+                    strConn.Close();
+                }
+
+            }
+            return strMsg;
+
+
+        }
+
         public string processIncrementProposalSummery(TiffinDTO objTiffinDTO)
         {
             string strMsg = "";
@@ -1049,6 +1133,81 @@ namespace SINHA.MEDLAR.ERP.DAL
 
 
         }
+
+        public string processIncrementProposalSummeryLOne(TiffinDTO objTiffinDTO)
+        {
+            string strMsg = "";
+
+            OracleCommand objOracleCommand = new OracleCommand("pro_inc_proposal_summery_l_one");
+            objOracleCommand.CommandType = CommandType.StoredProcedure;
+
+
+            if (objTiffinDTO.UnitId != "")
+            {
+
+                objOracleCommand.Parameters.Add("p_unit_id", OracleDbType.Varchar2, ParameterDirection.Input).Value = objTiffinDTO.UnitId;
+
+            }
+            else
+            {
+                objOracleCommand.Parameters.Add("p_unit_id", OracleDbType.Varchar2, ParameterDirection.Input).Value = null;
+
+            }
+
+            if (objTiffinDTO.SectionId != "")
+            {
+                objOracleCommand.Parameters.Add("p_section_id", OracleDbType.Varchar2, ParameterDirection.Input).Value = objTiffinDTO.SectionId;
+            }
+            else
+            {
+
+                objOracleCommand.Parameters.Add("p_section_id", OracleDbType.Varchar2, ParameterDirection.Input).Value = null;
+            }
+
+
+
+            objOracleCommand.Parameters.Add("P_INCREMENT_YEAR", OracleDbType.Varchar2, ParameterDirection.Input).Value = objTiffinDTO.Year;
+
+
+
+            objOracleCommand.Parameters.Add("p_update_by", OracleDbType.Varchar2, ParameterDirection.Input).Value = objTiffinDTO.UpdateBy;
+            objOracleCommand.Parameters.Add("p_head_office_id", OracleDbType.Varchar2, ParameterDirection.Input).Value = objTiffinDTO.HeadOfficeId;
+            objOracleCommand.Parameters.Add("p_branch_office_id", OracleDbType.Varchar2, ParameterDirection.Input).Value = objTiffinDTO.BranchOfficeId;
+
+
+            objOracleCommand.Parameters.Add("P_MESSAGE", OracleDbType.Varchar2, 500).Direction = ParameterDirection.Output;
+
+            using (OracleConnection strConn = GetConnection())
+            {
+                try
+                {
+                    objOracleCommand.Connection = strConn;
+                    strConn.Open();
+                    trans = strConn.BeginTransaction();
+                    objOracleCommand.ExecuteNonQuery();
+                    trans.Commit();
+                    strConn.Close();
+                    strMsg = objOracleCommand.Parameters["P_MESSAGE"].Value.ToString();
+                }
+
+                catch (Exception ex)
+                {
+                    trans.Rollback();
+                    throw new Exception("Error : " + ex.Message);
+                }
+
+                finally
+                {
+
+                    strConn.Close();
+                }
+
+            }
+            return strMsg;
+
+
+        }
+
         public string processMonthlyIncrementProposalWorkerSummery(TiffinDTO objTiffinDTO)
         {
             string strMsg = "";
@@ -3351,6 +3510,74 @@ namespace SINHA.MEDLAR.ERP.DAL
             string strMsg = "";
 
             OracleCommand objOracleCommand = new OracleCommand("sp_yearly_inc_proposal_req");
+            objOracleCommand.CommandType = CommandType.StoredProcedure;
+
+            if (objTiffinDTO.UnitGroupId != "")
+            {
+                objOracleCommand.Parameters.Add("p_unit_group__id", OracleDbType.Varchar2, ParameterDirection.Input).Value = objTiffinDTO.UnitGroupId;
+            }
+            else
+            {
+                objOracleCommand.Parameters.Add("p_unit_group__id", OracleDbType.Varchar2, ParameterDirection.Input).Value = null;
+            }
+            if (objTiffinDTO.UnitId != "")
+            {
+                objOracleCommand.Parameters.Add("p_unit_id", OracleDbType.Varchar2, ParameterDirection.Input).Value = objTiffinDTO.UnitId;
+            }
+            else
+            {
+                objOracleCommand.Parameters.Add("p_unit_id", OracleDbType.Varchar2, ParameterDirection.Input).Value = null;
+            }
+
+            if (objTiffinDTO.SectionId != "")
+            {
+                objOracleCommand.Parameters.Add("p_section_id", OracleDbType.Varchar2, ParameterDirection.Input).Value = objTiffinDTO.SectionId;
+            }
+            else
+            {
+
+                objOracleCommand.Parameters.Add("p_section_id", OracleDbType.Varchar2, ParameterDirection.Input).Value = null;
+            }
+            objOracleCommand.Parameters.Add("P_INCREMENT_YEAR", OracleDbType.Varchar2, ParameterDirection.Input).Value = objTiffinDTO.Year;
+            objOracleCommand.Parameters.Add("p_head_office_id", OracleDbType.Varchar2, ParameterDirection.Input).Value = objTiffinDTO.HeadOfficeId;
+            objOracleCommand.Parameters.Add("p_branch_office_id", OracleDbType.Varchar2, ParameterDirection.Input).Value = objTiffinDTO.BranchOfficeId;
+            objOracleCommand.Parameters.Add("p_update_by", OracleDbType.Varchar2, ParameterDirection.Input).Value = objTiffinDTO.UpdateBy;
+            objOracleCommand.Parameters.Add("P_MESSAGE", OracleDbType.Varchar2, 500).Direction = ParameterDirection.Output;
+
+            using (OracleConnection strConn = GetConnection())
+            {
+                try
+                {
+                    objOracleCommand.Connection = strConn;
+                    strConn.Open();
+                    trans = strConn.BeginTransaction();
+                    objOracleCommand.ExecuteNonQuery();
+                    trans.Commit();
+                    strConn.Close();
+                    strMsg = objOracleCommand.Parameters["P_MESSAGE"].Value.ToString();
+                }
+
+                catch (Exception ex)
+                {
+                    trans.Rollback();
+                    throw new Exception("Error : " + ex.Message);
+                }
+
+                finally
+                {
+
+                    strConn.Close();
+                }
+
+            }
+            return strMsg;
+        }
+
+        public string ProcessIncrementProposalReqSLOne(TiffinDTO objTiffinDTO)
+        {
+            string strMsg = "";
+
+            OracleCommand objOracleCommand = new OracleCommand("sp_yearly_inc_p_req_l_one");
             objOracleCommand.CommandType = CommandType.StoredProcedure;
 
             if (objTiffinDTO.UnitGroupId != "")

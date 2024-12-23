@@ -113,11 +113,29 @@ namespace SINHA.MEDLAR.ERP.BLL
 
         }
 
+        public string processIncrementProposalStaffLessOne(TiffinDTO objTiffinDTO)
+        {
+
+            TiffinDAL objTiffinDAL = new TiffinDAL();
+            string strMsg = objTiffinDAL.processIncrementProposalStaffLessOne(objTiffinDTO);
+            return strMsg;
+
+        }
+
         public string processIncrementProposalSummery(TiffinDTO objTiffinDTO)
         {
 
             TiffinDAL objTiffinDAL = new TiffinDAL();
             string strMsg = objTiffinDAL.processIncrementProposalSummery(objTiffinDTO);
+            return strMsg;
+
+        }
+
+        public string processIncrementProposalSummeryLOne(TiffinDTO objTiffinDTO)
+        {
+
+            TiffinDAL objTiffinDAL = new TiffinDAL();
+            string strMsg = objTiffinDAL.processIncrementProposalSummeryLOne(objTiffinDTO);
             return strMsg;
 
         }
@@ -376,5 +394,15 @@ namespace SINHA.MEDLAR.ERP.BLL
             return strMsg;
 
         }
+
+        public string ProcessIncrementProposalReqSLOne(TiffinDTO objTiffinDTO)
+        {
+
+            TiffinDAL objTiffinDAL = new TiffinDAL();
+            string strMsg = objTiffinDAL.ProcessIncrementProposalReqSLOne(objTiffinDTO);
+            return strMsg;
+
+        }
+
     }
 }

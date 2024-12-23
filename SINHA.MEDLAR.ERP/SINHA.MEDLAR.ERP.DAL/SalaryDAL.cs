@@ -12205,6 +12205,75 @@ namespace SINHA.MEDLAR.ERP.DAL
             return strMsg;
         }
 
+        public string addWorkerIncrementProposalLessOne(SalaryDTO objSalaryDTO)
+        {
+            string strMsg = "";
+            OracleTransaction objOracleTransaction = null;
+            OracleCommand objOracleCommand = new OracleCommand("pro_inc_proposal_worker_L_ONE");
+            objOracleCommand.CommandType = CommandType.StoredProcedure;
+
+            if (objSalaryDTO.UnitId != "")
+            {
+                objOracleCommand.Parameters.Add("p_unit_id", OracleDbType.Varchar2, ParameterDirection.Input).Value = objSalaryDTO.UnitId;
+            }
+            else
+            {
+                objOracleCommand.Parameters.Add("p_unit_id", OracleDbType.Varchar2, ParameterDirection.Input).Value = null;
+            }
+
+            if (objSalaryDTO.SectionId != "")
+            {
+                objOracleCommand.Parameters.Add("p_section_id", OracleDbType.Varchar2, ParameterDirection.Input).Value = objSalaryDTO.SectionId;
+            }
+            else
+            {
+                objOracleCommand.Parameters.Add("p_section_id", OracleDbType.Varchar2, ParameterDirection.Input).Value = null;
+            }
+
+            if (objSalaryDTO.UnitGroupId != "")
+            {
+                objOracleCommand.Parameters.Add("p_unit_group_id", OracleDbType.Varchar2, ParameterDirection.Input).Value = objSalaryDTO.UnitGroupId;
+            }
+            else
+            {
+                objOracleCommand.Parameters.Add("p_unit_group_id", OracleDbType.Varchar2, ParameterDirection.Input).Value = null;
+            }
+
+
+            objOracleCommand.Parameters.Add("P_INCREMENT_YEAR", OracleDbType.Varchar2, ParameterDirection.Input).Value = objSalaryDTO.Year;
+            objOracleCommand.Parameters.Add("P_INCREMENT_MONTH", OracleDbType.Varchar2, ParameterDirection.Input).Value = objSalaryDTO.Month;
+            objOracleCommand.Parameters.Add("p_allow_general_incr", OracleDbType.Varchar2, ParameterDirection.Input).Value = objSalaryDTO.AllowGeneralIncrement;
+
+            objOracleCommand.Parameters.Add("p_update_by", OracleDbType.Varchar2, ParameterDirection.Input).Value = objSalaryDTO.UpdateBy;
+            objOracleCommand.Parameters.Add("p_head_office_id", OracleDbType.Varchar2, ParameterDirection.Input).Value = objSalaryDTO.HeadOfficeId;
+            objOracleCommand.Parameters.Add("p_branch_office_id", OracleDbType.Varchar2, ParameterDirection.Input).Value = objSalaryDTO.BranchOfficeId;
+            objOracleCommand.Parameters.Add("P_MESSAGE", OracleDbType.Varchar2, 500).Direction = ParameterDirection.Output;
+
+            using (OracleConnection strConn = GetConnection())
+            {
+                try
+                {
+                    objOracleCommand.Connection = strConn;
+                    strConn.Open();
+                    trans = strConn.BeginTransaction();
+                    objOracleCommand.ExecuteNonQuery();
+                    trans.Commit();
+                    strConn.Close();
+                    strMsg = objOracleCommand.Parameters["P_MESSAGE"].Value.ToString();
+                }
+                catch (Exception ex)
+                {
+                    trans.Rollback();
+                    throw new Exception("Error : " + ex.Message);
+                }
+                finally
+                {
+                    strConn.Close();
+                }
+            }
+            return strMsg;
+        }
+
         public string ApplyIndividualWorkerAutoIncr(SalaryDTO objSalaryDTO)
         {
             string strMsg = "";
@@ -12403,6 +12472,87 @@ namespace SINHA.MEDLAR.ERP.DAL
             return strMsg;
 
         }
+
+        public string addWorkerIncrementProposalStaffLessOne(SalaryDTO objSalaryDTO)
+        {
+            string strMsg = "";
+            OracleTransaction objOracleTransaction = null;
+            OracleCommand objOracleCommand = new OracleCommand("pro_inc_pro_staff_add_l_one");
+            objOracleCommand.CommandType = CommandType.StoredProcedure;
+
+
+
+            //objOracleCommand.Parameters.Add("p_employee_id", OracleDbType.Varchar2, ParameterDirection.Input).Value = objSalaryDTO.EmployeeId;
+
+            if (objSalaryDTO.UnitId != "")
+            {
+                objOracleCommand.Parameters.Add("p_unit_id", OracleDbType.Varchar2, ParameterDirection.Input).Value = objSalaryDTO.UnitId;
+            }
+            else
+            {
+                objOracleCommand.Parameters.Add("p_unit_id", OracleDbType.Varchar2, ParameterDirection.Input).Value = null;
+            }
+
+            if (objSalaryDTO.SectionId != "")
+            {
+                objOracleCommand.Parameters.Add("p_section_id", OracleDbType.Varchar2, ParameterDirection.Input).Value = objSalaryDTO.SectionId;
+            }
+            else
+            {
+                objOracleCommand.Parameters.Add("p_section_id", OracleDbType.Varchar2, ParameterDirection.Input).Value = null;
+            }
+
+            if (objSalaryDTO.UnitGroupId != "")
+            {
+                objOracleCommand.Parameters.Add("p_unit_group_id", OracleDbType.Varchar2, ParameterDirection.Input).Value = objSalaryDTO.UnitGroupId;
+            }
+            else
+            {
+                objOracleCommand.Parameters.Add("p_unit_group_id", OracleDbType.Varchar2, ParameterDirection.Input).Value = null;
+            }
+
+
+            objOracleCommand.Parameters.Add("P_INCREMENT_YEAR", OracleDbType.Varchar2, ParameterDirection.Input).Value = objSalaryDTO.Year;
+            objOracleCommand.Parameters.Add("P_INCREMENT_MONTH", OracleDbType.Varchar2, ParameterDirection.Input).Value = objSalaryDTO.Month;
+
+
+            objOracleCommand.Parameters.Add("p_update_by", OracleDbType.Varchar2, ParameterDirection.Input).Value = objSalaryDTO.UpdateBy;
+            objOracleCommand.Parameters.Add("p_head_office_id", OracleDbType.Varchar2, ParameterDirection.Input).Value = objSalaryDTO.HeadOfficeId;
+            objOracleCommand.Parameters.Add("p_branch_office_id", OracleDbType.Varchar2, ParameterDirection.Input).Value = objSalaryDTO.BranchOfficeId;
+
+
+            objOracleCommand.Parameters.Add("P_MESSAGE", OracleDbType.Varchar2, 500).Direction = ParameterDirection.Output;
+
+            using (OracleConnection strConn = GetConnection())
+            {
+                try
+                {
+                    objOracleCommand.Connection = strConn;
+                    strConn.Open();
+                    trans = strConn.BeginTransaction();
+                    objOracleCommand.ExecuteNonQuery();
+                    trans.Commit();
+                    strConn.Close();
+                    strMsg = objOracleCommand.Parameters["P_MESSAGE"].Value.ToString();
+                }
+
+                catch (Exception ex)
+                {
+                    trans.Rollback();
+                    throw new Exception("Error : " + ex.Message);
+                }
+
+                finally
+                {
+
+                    strConn.Close();
+                }
+
+            }
+            return strMsg;
+
+        }
+
         public string addEmployeePromotion(SalaryDTO objSalaryDTO)
         {
             string strMsg = "";

@@ -357,6 +357,86 @@ namespace SINHA.MEDLAR.ERP.UI
                 GC.WaitForPendingFinalizers();
             }
         }
+
+        public void GetIncrementProposalStaffByUnitGroupLessOne()
+        {
+
+            try
+            {
+                ReportDTO objReportDTO = new ReportDTO();
+                ReportBLL objReportBLL = new ReportBLL();
+
+                if (ddlUnitId.SelectedValue.ToString() != " ")
+                {
+                    objReportDTO.UnitId = ddlUnitId.SelectedValue.ToString();
+                }
+                else
+                {
+                    objReportDTO.UnitId = "";
+                }
+
+                if (ddlSectionId.SelectedValue.ToString() != " ")
+                {
+                    objReportDTO.SectionId = ddlSectionId.SelectedValue.ToString();
+                }
+                else
+                {
+                    objReportDTO.SectionId = "";
+                }
+
+                objReportDTO.HeadOfficeId = strHeadOfficeId;
+                objReportDTO.BranchOfficeId = strBranchOfficeId;
+
+                objReportDTO.Year = txtIncrementYear.Text;
+                objReportDTO.Month = txtMonth.Text;
+                objReportDTO.UpdateBy = strEmployeeId;
+                objReportDTO.UnitGroupId = ddlUnitGroupId.SelectedItem.Value.Trim();
+
+                //string strPath = Path.Combine(Server.MapPath("~/Reports/rptIncrementProposalStaffAboveOneYear.rpt"));
+                //this.Context.Session["strReportPath"] = strPath;
+                //rd.Load(strPath);
+
+                string strPath;
+
+                //XXXXXXXXXX:21.12.2021
+                //if (strBranchOfficeId == "110")
+                //{
+                //    strPath = Path.Combine(Server.MapPath("~/Reports/rptIncrementProposalStaffAboveOneYearForBP.rpt"));
+                //}
+                //else
+                //strPath = Path.Combine(Server.MapPath("~/Reports/rptIncrementProposalStaffAboveOneYear.rpt"));
+
+                //YYYYYYYYYY:21.12.2021
+                strPath = Path.Combine(Server.MapPath("~/Reports/rptIncrementProposalStaffLessOneYear.rpt"));
+
+                this.Context.Session["strReportPath"] = strPath;
+                rd.Load(strPath);
+                rd.SetDataSource(objReportBLL.GetIncrementProposalStaffByUnitGroupLessOne(objReportDTO));
+
+                rd.SetDatabaseLogon("erp", "erp");
+                CrystalReportViewer1.ReportSource = rd;
+
+                CrystalReportViewer1.DataBind();
+                reportMaster();
+
+                this.CrystalReportViewer1.Dispose();
+                this.CrystalReportViewer1 = null;
+                rd.Dispose();
+                rd.Close();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+            }
+            catch (Exception ex)
+            {
+                this.CrystalReportViewer1.Dispose();
+                this.CrystalReportViewer1 = null;
+                rd.Dispose();
+                rd.Close();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+            }
+        }
+
         public void searchIncrementProposalEntryStaff()
         {
 
@@ -755,6 +835,60 @@ namespace SINHA.MEDLAR.ERP.UI
             lblMsg.Text = strMsg;
             return strMsg;
         }
+
+        public string processIncrementProposalStaffLessOne()
+        {
+
+            TiffinDTO objTiffinDTO = new TiffinDTO();
+            TiffinBLL objTiffinBLL = new TiffinBLL();
+
+
+            objTiffinDTO.Year = txtIncrementYear.Text;
+            objTiffinDTO.Month = txtMonth.Text;
+
+            if (ChkAllowGeneralIncrement.Checked)
+                objTiffinDTO.AllowGeneralIncrement = "Y";
+            else
+                objTiffinDTO.AllowGeneralIncrement = "N";
+
+            if (ddlUnitId.SelectedValue.ToString() != " ")
+            {
+                objTiffinDTO.UnitId = ddlUnitId.SelectedValue.ToString();
+            }
+            else
+            {
+                objTiffinDTO.UnitId = "";
+
+            }
+
+
+            if (ddlSectionId.SelectedValue.ToString() != " ")
+            {
+                objTiffinDTO.SectionId = ddlSectionId.SelectedValue.ToString();
+            }
+            else
+            {
+                objTiffinDTO.SectionId = "";
+            }
+
+            if (ddlUnitGroupId.SelectedValue.ToString() != "")
+            {
+                objTiffinDTO.UnitGroupId = ddlUnitGroupId.SelectedValue.ToString();
+            }
+            else
+            {
+                objTiffinDTO.UnitGroupId = "";
+            }
+
+            objTiffinDTO.UpdateBy = strEmployeeId;
+            objTiffinDTO.HeadOfficeId = strHeadOfficeId;
+            objTiffinDTO.BranchOfficeId = strBranchOfficeId;
+
+            string strMsg = objTiffinBLL.processIncrementProposalStaffLessOne(objTiffinDTO);
+            lblMsg.Text = strMsg;
+            return strMsg;
+        }
+
         public void processIncrementProposalSummeryStaff()
         {
             
@@ -913,7 +1047,55 @@ namespace SINHA.MEDLAR.ERP.UI
             
             return strMsg;
         }
-        
+
+        public string addWorkerIncrementProposalStaffLessOne()
+        {
+
+            SalaryDTO objSalaryDTO = new SalaryDTO();
+            SalaryBLL objSalaryBLL = new SalaryBLL();
+            string strMsg = "";
+            string strCount = gvEmployeeList.Rows.Count.ToString();
+
+            objSalaryDTO.BranchOfficeId = strBranchOfficeId;
+
+            if (ddlUnitId.SelectedValue.ToString() != " ")
+            {
+                objSalaryDTO.UnitId = ddlUnitId.SelectedValue.ToString();
+            }
+            else
+            {
+                objSalaryDTO.UnitId = "";
+            }
+
+            if (ddlSectionId.SelectedValue.ToString() != " ")
+            {
+                objSalaryDTO.SectionId = ddlSectionId.SelectedValue.ToString();
+            }
+            else
+            {
+                objSalaryDTO.SectionId = "";
+            }
+
+            if (ddlUnitGroupId.SelectedValue.ToString() != "")
+            {
+                objSalaryDTO.UnitGroupId = ddlUnitGroupId.SelectedValue.ToString();
+            }
+            else
+            {
+                objSalaryDTO.UnitGroupId = "";
+            }
+
+            objSalaryDTO.Year = txtIncrementYear.Text;
+            objSalaryDTO.Month = txtMonth.Text;
+
+            objSalaryDTO.UpdateBy = strEmployeeId;
+            objSalaryDTO.HeadOfficeId = strHeadOfficeId;
+
+            strMsg = objSalaryBLL.addWorkerIncrementProposalStaffLessOne(objSalaryDTO);
+
+            return strMsg;
+        }
+
 
         protected void btnAdd_Click(object sender, EventArgs e)
         {
@@ -1323,6 +1505,72 @@ namespace SINHA.MEDLAR.ERP.UI
 
 
         }
+
+        public void incrementProposalSheetStaffSELessOne()
+        {
+            try
+            {
+                ReportDTO objReportDTO = new ReportDTO();
+                ReportBLL objReportBLL = new ReportBLL();
+
+                processIncrementProposalSummeryStaff();
+
+                objReportDTO.HeadOfficeId = strHeadOfficeId;
+                objReportDTO.BranchOfficeId = strBranchOfficeId;
+                objReportDTO.UpdateBy = strEmployeeId;
+
+                if (ddlSectionId.SelectedValue.ToString() != " ")
+                {
+                    objReportDTO.SectionId = ddlSectionId.SelectedValue.ToString();
+                }
+                else
+                {
+                    objReportDTO.SectionId = "";
+                }
+
+                if (ddlUnitId.SelectedValue.ToString() != " ")
+                {
+                    objReportDTO.UnitId = ddlUnitId.SelectedValue.ToString();
+                }
+                else
+                {
+                    objReportDTO.UnitId = "";
+                }
+
+                objReportDTO.Year = txtIncrementYear.Text;
+
+                string strPath = Path.Combine(Server.MapPath("~/Reports/rptIncrementProposalStaffSuEnLessOne.rpt"));
+                this.Context.Session["strReportPath"] = strPath;
+                rd.Load(strPath);
+                rd.SetDataSource(objReportBLL.incrementProposalSheetStaffSELessOne(objReportDTO));
+
+                rd.SetDatabaseLogon("erp", "erp");
+                CrystalReportViewer1.ReportSource = rd;
+                CrystalReportViewer1.DataBind();
+
+                reportMaster();
+
+                this.CrystalReportViewer1.Dispose();
+                this.CrystalReportViewer1 = null;
+                rd.Dispose();
+                rd.Close();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+            }
+            catch (Exception ex)
+            {
+                this.CrystalReportViewer1.Dispose();
+                this.CrystalReportViewer1 = null;
+                rd.Dispose();
+                rd.Close();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+
+            }
+
+
+        }
+
         #endregion
 
         protected void chkPDF_CheckedChanged(object sender, EventArgs e)
@@ -1902,6 +2150,68 @@ namespace SINHA.MEDLAR.ERP.UI
             }
         }
 
+        public void incrementSheetStaffOnlyQualityLessOne()
+        {
+
+            try
+            {
+                ReportDTO objReportDTO = new ReportDTO();
+                ReportBLL objReportBLL = new ReportBLL();
+
+                objReportDTO.HeadOfficeId = strHeadOfficeId;
+                objReportDTO.BranchOfficeId = strBranchOfficeId;
+                objReportDTO.UpdateBy = strEmployeeId;
+
+                if (ddlSectionId.SelectedValue.ToString() != " ")
+                {
+                    objReportDTO.SectionId = ddlSectionId.SelectedValue.ToString();
+                }
+                else
+                {
+                    objReportDTO.SectionId = "";
+                }
+
+                if (ddlUnitId.SelectedValue.ToString() != " ")
+                {
+                    objReportDTO.UnitId = ddlUnitId.SelectedValue.ToString();
+                }
+                else
+                {
+                    objReportDTO.UnitId = "";
+                }
+                objReportDTO.Year = txtIncrementYear.Text;
+
+                objReportDTO.EmployeeTypeId = "1";
+                objReportDTO.PreIncrementYear = objReportBLL.GetPreIncrementYear(objReportDTO);
+
+                string strPath = Path.Combine(Server.MapPath("~/Reports/rptIncrementProposalStaffLessOneYear.rpt"));
+                this.Context.Session["strReportPath"] = strPath;
+                rd.Load(strPath);
+                rd.SetDataSource(objReportBLL.incrementSheetStaffOnlyQualityLessOne(objReportDTO));
+                rd.SetDatabaseLogon("erp", "erp");
+                CrystalReportViewer1.ReportSource = rd;
+                CrystalReportViewer1.DataBind();
+                reportMaster();
+                this.CrystalReportViewer1.Dispose();
+                this.CrystalReportViewer1 = null;
+                rd.Dispose();
+                rd.Close();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+
+            }
+            catch (Exception ex)
+            {
+                this.CrystalReportViewer1.Dispose();
+                this.CrystalReportViewer1 = null;
+                rd.Dispose();
+                rd.Close();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+
+            }
+        }
+
         protected void btnSheetAboveOneYearAll_Click(object sender, EventArgs e)
         {
             try
@@ -2197,6 +2507,95 @@ namespace SINHA.MEDLAR.ERP.UI
                 GC.Collect();
                 GC.WaitForPendingFinalizers();
             }
+        }
+
+        protected void btnProcessLessOne_Click(object sender, EventArgs e)
+        {
+            string msg = string.Empty;
+
+            msg = addWorkerIncrementProposalStaffLessOne();
+            msg = processIncrementProposalStaffLessOne();
+            MessageBox(msg);
+            //commented on 02.01.2021
+            //searchIncrementProposalEntryStaff();
+        }
+
+        protected void btnSheetLessOne_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ddlUnitGroupId.SelectedItem.Value == "")
+                {
+                    if (ddlUnitId.Text == " ")
+                    {
+                        string strMsg = "Please Select Unit Name!!!";
+                        MessageBox(strMsg);
+                        ddlUnitId.Focus();
+                        return;
+                    }
+                    if (ddlSectionId.Text == " ")
+                    {
+                        string strMsg = "Please Select Section Name!!!";
+                        MessageBox(strMsg);
+                        ddlUnitId.Focus();
+                        return;
+                    }
+                    //new: added on 21/12/2021
+                    GetIncrementProposalStaffByUnitGroupLessOne();
+                    //old: commented on 21/12/2021
+                    //incrementSheetAboveOneYearStaff();
+
+                }
+                else
+                {
+                    if (ddlUnitId.Text != " ")
+                    {
+                        if (ddlSectionId.Text == " ")
+                        {
+                            string strMsg = "Please Select Section Name!!!";
+                            MessageBox(strMsg);
+                            ddlUnitId.Focus();
+                            return;
+                        }
+                    }
+
+                    GetIncrementProposalStaffByUnitGroupLessOne();
+                }
+            }
+
+            catch (Exception ex)
+            {
+
+                this.CrystalReportViewer1.Dispose();
+                this.CrystalReportViewer1 = null;
+                rd.Dispose();
+                rd.Close();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+            }
+        }
+
+        protected void btnSheetQLessOne_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                incrementSheetStaffOnlyQualityLessOne();
+            }
+            catch (Exception ex)
+            {
+                this.CrystalReportViewer1.Dispose();
+                this.CrystalReportViewer1 = null;
+                rd.Dispose();
+                rd.Close();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+            }
+        }
+
+        protected void btnSummeryEngLessOne_Click(object sender, EventArgs e)
+        {
+            incrementProposalSheetStaffSELessOne();
         }
     }
     }

@@ -754,6 +754,14 @@ namespace SINHA.MEDLAR.ERP.BLL
             string strMsg = objSalaryDAL.addWorkerIncrementProposal(objSalaryDTO);
             return strMsg;
         }
+
+        public string addWorkerIncrementProposalLessOne(SalaryDTO objSalaryDTO)
+        {
+            SalaryDAL objSalaryDAL = new SalaryDAL();
+            string strMsg = objSalaryDAL.addWorkerIncrementProposalLessOne(objSalaryDTO);
+            return strMsg;
+        }
+
         //
         public string ApplyIndividualWorkerAutoIncr(SalaryDTO objSalaryDTO)
         {
@@ -869,6 +877,14 @@ namespace SINHA.MEDLAR.ERP.BLL
 
             SalaryDAL objSalaryDAL = new SalaryDAL();
             string strMsg = objSalaryDAL.addWorkerIncrementProposalStaff(objSalaryDTO);
+            return strMsg;
+        }
+
+        public string addWorkerIncrementProposalStaffLessOne(SalaryDTO objSalaryDTO)
+        {
+
+            SalaryDAL objSalaryDAL = new SalaryDAL();
+            string strMsg = objSalaryDAL.addWorkerIncrementProposalStaffLessOne(objSalaryDTO);
             return strMsg;
         }
 

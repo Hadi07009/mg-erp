@@ -118,7 +118,7 @@
 
                             <tr>
                                 <td style="text-align: right; height: 22px; width: 283px;">
-                                    <asp:Label ID="LblAllowGeneralIncrement" runat="server" Text="Allow (5%) Increment(General) :"></asp:Label>        
+                                    <asp:Label ID="LblAllowGeneralIncrement" runat="server" Text="Allow (9%) Increment(General) :"></asp:Label>        
                                 </td>
                                 <td style="width: 277px; text-align: left; height: 22px;">
                                     <asp:CheckBox ID="ChkAllowGeneralIncrement" runat="server" Text="" Visible="true" Checked="true" Enabled="false" ></asp:CheckBox>
@@ -192,6 +192,23 @@
                                     <asp:Button ID="btnSheetAboveOneYearExcelSheet" runat="server" 
                                         CssClass="styled-button-4" Height="31px" 
                                         OnClick="btnAboveOneYearExcelSheet_Click" Text="Sheet(Excel)" Width="81px" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center" colspan="4">
+                                    <asp:Label ID="Label3" runat="server" Height="25px" Text="Under 1 year"></asp:Label>
+                                <asp:Button ID="btnProcessLessOne" runat="server" Height="31px" Text="Process"
+                                        Width="66px" CssClass="styled-button-4"  Enabled="true" 
+                                        OnClick="btnProcessLessOne_Click"/> 
+                                    <asp:Button ID="btnSheetLessOne" runat="server" Height="31px" Text="Sheet"
+                                        Width="66px" CssClass="styled-button-4" OnClick="btnSheetLessOne_Click"
+                                         /> 
+                                    <asp:Button ID="btnRSummaryLessOne" runat="server" Height="31px"
+                                        Text="Req Summary." CssClass="styled-button-4"
+                                        Width="100px" OnClick="btnRSummaryLessOne_Click"  />
+                                    <asp:Button ID="btnSummaryEngLOne" runat="server" Height="31px"
+                                        Text="Summary Eng." CssClass="styled-button-4"
+                                        Width="100px" OnClick="btnSummaryEngLOne_Click"  />  
                                 </td>
                             </tr>
                             <tr>

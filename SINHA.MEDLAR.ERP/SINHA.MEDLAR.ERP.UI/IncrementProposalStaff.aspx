@@ -121,7 +121,7 @@
                                     &nbsp;</td>--%>
 
                                 <td style="text-align: right; height: 22px; width: 283px;">
-                                    <asp:Label ID="LblAllowGeneralIncrement" runat="server" Text="Allow Increment (5%) :" Visible="true"></asp:Label>
+                                    <asp:Label ID="LblAllowGeneralIncrement" runat="server" Text="Allow Increment (9%) :" Visible="true"></asp:Label>
                                     
                                 </td>
                                 <td style="width: 277px; text-align: left; height: 22px;">
@@ -182,6 +182,23 @@
                                         CssClass="styled-button-4" Height="31px" 
                                         OnClick="btnSheetAboveOneYearForExcel_Click" Text="Sheet(Excel) " 
                                         Width="79px" />
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td style="text-align: center" colspan="4">
+                                <asp:Label ID="Label3" runat="server" Height="25px" Text="Under 1 year"></asp:Label>
+                                 <asp:Button ID="btnProcessLessOne" runat="server" Height="31px" Text="Process"
+                                        Width="66px" CssClass="styled-button-4" OnClick="btnProcessLessOne_Click"  
+                                       />
+                                    <asp:Button ID="btnSheetLessOne" runat="server" Height="31px" Text="Sheet "
+                                        Width="66px" CssClass="styled-button-4" OnClick="btnSheetLessOne_Click"  /> 
+                                    <asp:Button ID="btnSheetQLessOne" runat="server" Height="31px" Text="Sheet Quality"
+                                        Width="84px" CssClass="styled-button-4" 
+                                        OnClick="btnSheetQLessOne_Click"  /> 
+                                    <asp:Button ID="btnSummeryEngLessOne" runat="server" Height="31px" 
+                                        Text="Summery Eng." Width="100px"
+                                        CssClass="styled-button-4" OnClick="btnSummeryEngLessOne_Click"   />     
                                 </td>
                             </tr>
                             <tr>
