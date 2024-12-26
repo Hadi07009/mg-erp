@@ -2610,7 +2610,7 @@ namespace SINHA.MEDLAR.ERP.UI
                 }
                 objReportDTO.Year = txtIncrementYear.Text;
 
-                string strPath = Path.Combine(Server.MapPath("~/Reports/RptIncrementProposalReqSummaryLOne.rpt"));
+                string strPath = Path.Combine(Server.MapPath("~/Reports/RptIncrPropoReqSummLOne.rpt"));
                 this.Context.Session["strReportPath"] = strPath;
                 rd.Load(strPath);
                 rd.SetDataSource(objReportBLL.IncrementProposalReqSLessOne(objReportDTO));

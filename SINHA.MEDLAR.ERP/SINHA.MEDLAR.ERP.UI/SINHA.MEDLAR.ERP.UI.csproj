@@ -1567,8 +1567,8 @@
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Reports\RptIncrementProposalReqSummaryLOne.cs">
-      <DependentUpon>RptIncrementProposalReqSummaryLOne.rpt</DependentUpon>
+    <Compile Include="Reports\RptIncrPropoReqSummLOne.cs">
+      <DependentUpon>RptIncrPropoReqSummLOne.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
@@ -8710,9 +8710,9 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptIncrementProposalPower.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\RptIncrementProposalReqSummaryLOne.rpt">
+    <EmbeddedResource Include="Reports\RptIncrPropoReqSummLOne.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>RptIncrementProposalReqSummaryLOne.cs</LastGenOutput>
+      <LastGenOutput>RptIncrPropoReqSummLOne.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\RptIncrementProposalReqSummary.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
