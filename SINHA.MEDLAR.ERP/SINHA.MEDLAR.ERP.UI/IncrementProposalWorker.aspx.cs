@@ -2609,8 +2609,8 @@ namespace SINHA.MEDLAR.ERP.UI
                     objReportDTO.UnitGroupId = "";
                 }
                 objReportDTO.Year = txtIncrementYear.Text;
-
-                string strPath = Path.Combine(Server.MapPath("~/Reports/RptIncrPropoReqSummLOne.rpt"));
+                //RptIncrPropoReqSummLOne.rpt
+                string strPath = Path.Combine(Server.MapPath("~/Reports/Reports/RptIncrementProposalReqSummary.rpt"));
                 this.Context.Session["strReportPath"] = strPath;
                 rd.Load(strPath);
                 rd.SetDataSource(objReportBLL.IncrementProposalReqSLessOne(objReportDTO));

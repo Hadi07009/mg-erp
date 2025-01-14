@@ -5,7 +5,7 @@
     <table class="style1">
         <tr>
             <td style="width: 342px; height: 15px">
-                <asp:Label ID="lblHeadOfficeName" runat="server" Text="Office Name" Font-Bold="True"
+                <a href="AddDesignation.aspx">AddDesignation.aspx</a>   <asp:Label ID="lblHeadOfficeName" runat="server" Text="Office Name" Font-Bold="True"
                     Font-Size="Small" Font-Names="Tahoma" Style="color: #0000FF"></asp:Label>
             </td>
             <td style="height: 15px">

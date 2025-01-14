@@ -1384,29 +1384,30 @@ namespace SINHA.MEDLAR.ERP.UI
 
         protected void ddlDesignationIdTo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //LookUpDTO objLookUpDTO = new LookUpDTO();
-            //LookUpBLL objLookUpBLL = new LookUpBLL();
+            LookUpDTO objLookUpDTO = new LookUpDTO();
+            LookUpBLL objLookUpBLL = new LookUpBLL();
 
-            //string designationId = ddlDesignationIdTo.SelectedValue;
-            //string grade_id = " ";
+            string designationId = ddlDesignationIdTo.SelectedValue;
+            string grade_id = " ";
 
-            //if (designationId == " ")
-            //{
-            //    grade_id = " ";
-            //}
-            //else
-            //{
-            //    DataTable Grades = objLookUpBLL.GetGradeByDesignationId(designationId, strHeadOfficeId, strBranchOfficeId);
-            //    foreach (DataRow row in Grades.Rows)
-            //    {
-            //        grade_id = row["grade_id"].ToString();
-            //        if(grade_id == "")
-            //        {
-            //            grade_id = " ";
-            //        }
-            //    }
-            //}
-            //ddlGradeNoTo.SelectedValue = grade_id;
+            if (designationId == " ")
+            {
+                grade_id = " ";
+            }
+            else
+            {
+                DataTable Grades = objLookUpBLL.GetGradeByDesignationId(designationId, strHeadOfficeId, strBranchOfficeId);
+                foreach (DataRow row in Grades.Rows)
+                {
+                    grade_id = row["grade_id"].ToString();
+                    if (grade_id == "")
+                    {
+                        grade_id = " ";
+                    }
+                }
+            }
+
+            ddlGradeNoTo.SelectedValue = grade_id;
 
         }
 
