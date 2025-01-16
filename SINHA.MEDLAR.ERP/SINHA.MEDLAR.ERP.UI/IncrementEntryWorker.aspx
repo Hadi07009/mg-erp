@@ -279,7 +279,7 @@
                                 <td style="text-align: right; width: 237px;">&nbsp;
                                 </td>
                                 <td style="text-align: left;">
-                                    <asp:CheckBox ID="chkFivePercent" runat="server" Text="Allow 5% Increment?" 
+                                    <asp:CheckBox ID="chkFivePercent" runat="server" Text="Allow 9% Increment?" 
                                         Enabled="true" />
                                 </td>
                                 <td style="text-align: right;">&nbsp;
