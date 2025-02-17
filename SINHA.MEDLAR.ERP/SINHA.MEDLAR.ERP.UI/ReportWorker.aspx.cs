@@ -5012,6 +5012,78 @@ namespace SINHA.MEDLAR.ERP.UI.Reports
 
                 }
 
+                if (rbtGenderSalary.Checked == true)
+                {
+
+
+                    ReportDTO objReportDTO = new ReportDTO();
+                    ReportBLL objReportBLL = new ReportBLL();
+
+                    objReportDTO.HeadOfficeId = strHeadOfficeId;
+                    objReportDTO.BranchOfficeId = strBranchOfficeId;
+                    objReportDTO.UpdateBy = strEmployeeId;
+
+
+
+
+
+                    if (ddlSectionId.SelectedValue.ToString() != " ")
+                    {
+                        objReportDTO.SectionId = ddlSectionId.SelectedValue.ToString();
+                    }
+                    else
+                    {
+
+                        objReportDTO.SectionId = "";
+                    }
+
+
+
+                    if (ddlUnitId.SelectedValue.ToString() != " ")
+                    {
+                        objReportDTO.UnitId = ddlUnitId.SelectedValue.ToString();
+                    }
+                    else
+                    {
+                        objReportDTO.UnitId = "";
+
+                    }
+
+                    string strPath = Path.Combine(Server.MapPath("~/Reports/rptEmployeeServiceLength.rpt"));
+                    this.Context.Session["strReportPath"] = strPath;
+                    rd.Load(strPath);
+                    rd.SetDataSource(objReportBLL.EmployeeServiceLengthInfo(objReportDTO));
+
+
+                    rd.SetDatabaseLogon("erp", "erp");
+                    CrystalReportViewer1.ReportSource = rd;
+                    CrystalReportViewer1.DataBind();
+
+
+                    //Queue reportQueue = new Queue();
+                    ////75 is my print job limit.
+                    //if (reportQueue.Count > 75)
+                    //{
+                    //    ((ReportClass)reportQueue.Dequeue()).Dispose();
+                    //    //reportView.ReportSource = null;
+
+
+                    //}
+
+                    ReportFormatMaster();
+
+
+                    this.CrystalReportViewer1.Dispose();
+                    this.CrystalReportViewer1 = null;
+                    rd.Dispose();
+                    rd.Close();
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();
+
+
+
+                }
+
 
 
                 if (rdoMonthlySalaryApproveSheet.Checked == true)
@@ -10180,6 +10252,8 @@ namespace SINHA.MEDLAR.ERP.UI.Reports
             if (rdoEmployeeInsurenceInfo.Checked == true) //30
                 counter = counter + 1;
             if (rdoEmployeeMaleFemaleInfo.Checked == true)
+                counter = counter + 1;
+            if (rbtGenderSalary.Checked == true)
                 counter = counter + 1;
             if (rdoMonthlySalaryApproveSheet.Checked == true)
                 counter = counter + 1;

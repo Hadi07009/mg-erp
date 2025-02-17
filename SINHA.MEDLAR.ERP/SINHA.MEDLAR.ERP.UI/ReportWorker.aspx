@@ -736,6 +736,25 @@
             &nbsp;
         </td>
     </tr>
+            <tr>
+        <td style="width: 309px; font-weight: 700;">
+            <asp:RadioButton ID="rbtGenderSalary" runat="server" AutoPostBack="true"
+                Text="Employee Gender, Salary Information" Font-Bold="False" 
+                GroupName="Controls" />
+        </td>
+        <td style="width: 75px; text-align: right;">
+            &nbsp;
+        </td>
+        <td style="width: 147px">
+            &nbsp;
+        </td>
+        <td style="width: 81px; text-align: right;">
+            &nbsp;
+        </td>
+        <td>
+            &nbsp;
+        </td>
+    </tr>
     <tr>
         <td style="width: 309px; font-weight: 700;">
             <asp:RadioButton ID="rdoMonthlySalaryApproveSheet" runat="server" AutoPostBack="true"

@@ -1543,6 +1543,12 @@
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="Reports\rptEmployeeServiceLength.cs">
+      <DependentUpon>rptEmployeeServiceLength.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Reports\rptEmployeeIdCardJK.cs">
       <DependentUpon>rptEmployeeIdCardJK.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -8289,6 +8295,10 @@
     <EmbeddedResource Include="Reports\rptEmployeeEducationHistory.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptEmployeeEducationHistory.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptEmployeeServiceLength.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptEmployeeServiceLength.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\rptEmployeeGenderInfo.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
