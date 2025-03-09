@@ -1603,6 +1603,12 @@
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="Reports\rptMonthlyLunchSheetSummeryBackup.cs">
+      <DependentUpon>rptMonthlyLunchSheetSummeryBackup.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Reports\rptPaySlipStaffTiffin.cs">
       <DependentUpon>rptPaySlipStaffTiffin.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -9131,6 +9137,10 @@
     <EmbeddedResource Include="Reports\rptMonthlyLunchSheet.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptMonthlyLunchSheet.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptMonthlyLunchSheetSummeryBackup.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptMonthlyLunchSheetSummeryBackup.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\rptMonthlyLunchSheetSummery.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
