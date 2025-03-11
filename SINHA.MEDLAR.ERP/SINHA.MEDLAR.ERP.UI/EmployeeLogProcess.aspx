@@ -282,7 +282,10 @@
                                         OnClick="BtnEmpListWithoutOutPunch_Click" />
                                        <asp:Button ID="BtnHOEmpListWithoutOutPunch" runat="server" Height="31px" Text="No Out Punch(HO)"
                                         Width="111px" CssClass="styled-button-4" 
-                                        OnClick="BtnHOEmpListWithoutOutPunch_Click" />                                 
+                                        OnClick="BtnHOEmpListWithoutOutPunch_Click" />
+                                    <asp:Button ID="btnNoInPunch" runat="server" Height="31px" Text="No In Punch"
+                                        Width="84px" CssClass="styled-button-4" OnClick="btnNoInPunch_Click" 
+                                         />                                 
                                     <asp:Button ID="BtnLogDetail" runat="server" Height="31px" Text="Punch Detail" Width="100px"
                                         CssClass="styled-button-4" OnClick="BtnLogDetail_Click" />
 

@@ -3133,6 +3133,51 @@ namespace SINHA.MEDLAR.ERP.UI
             }
         }
 
+        public void GetEmployListWithoutInPunch()
+        {
+            try
+            {
+
+                ReportDTO objReportDTO = new ReportDTO();
+                ReportBLL objReportBLL = new ReportBLL();
+
+                objReportDTO.HeadOfficeId = strHeadOfficeId;
+                objReportDTO.BranchOfficeId = strBranchOfficeId;
+                objReportDTO.UpdateBy = strEmployeeId;
+                objReportDTO.FromDate = dtpFromDate.Text;
+                objReportDTO.ToDate = dtpToDate.Text;
+                objReportDTO.CardNo = txtCardNo.Text;
+
+                string strPath = Path.Combine(Server.MapPath("~/Reports/RptEmpListWithoutPunch.rpt"));
+                this.Context.Session["strReportPath"] = strPath;
+                rd.Load(strPath);
+                rd.SetDataSource(objReportBLL.GetEmployListWithoutInPunch(objReportDTO));
+
+
+                rd.SetDatabaseLogon("erp", "erp");
+                CrystalReportViewer1.ReportSource = rd;
+                CrystalReportViewer1.DataBind();
+                reportMaster();
+                this.CrystalReportViewer1.Dispose();
+                this.CrystalReportViewer1 = null;
+                rd.Dispose();
+                rd.Close();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+
+            }
+            catch (Exception ex)
+            {
+                this.CrystalReportViewer1.Dispose();
+                this.CrystalReportViewer1 = null;
+                rd.Dispose();
+                rd.Close();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+
+            }
+        }
+
         #endregion
 
         protected void BtnLogDetail_Click(object sender, EventArgs e)
@@ -3434,6 +3479,41 @@ namespace SINHA.MEDLAR.ERP.UI
                 GC.WaitForPendingFinalizers();
 
             }
+        }
+
+        protected void btnNoInPunch_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dtpFromDate.Text == string.Empty)
+                {
+                    string strMsg = "Please Enter From Date!!";
+                    dtpFromDate.Focus();
+                    MessageBox(strMsg);
+                    return;
+                }
+                else if (dtpToDate.Text == string.Empty)
+                {
+                    string strMsg = "Please Enter To Date!!";
+                    dtpToDate.Focus();
+                    MessageBox(strMsg);
+                    return;
+                }
+                else
+                {
+                    GetEmployListWithoutInPunch();
+                }
+            }
+            catch (Exception ex)
+            {
+                this.CrystalReportViewer1.Dispose();
+                this.CrystalReportViewer1 = null;
+                rd.Dispose();
+                rd.Close();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+            }
+
         }
     }
 }
