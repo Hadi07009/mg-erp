@@ -1,4 +1,3 @@
-D:\TFS Projects\SINHA.MEDLAR.ERP\SINHA.MEDLAR.ERP.UI\obj\Debug\SINHA.MEDLAR.ERP.UI.csprojResolveAssemblyReference.cache
 D:\TFS Projects\SINHA.MEDLAR.ERP\SINHA.MEDLAR.ERP.UI\bin\ReportOthers.aspx
 D:\TFS Projects\SINHA.MEDLAR.ERP\SINHA.MEDLAR.ERP.UI\bin\ReportOthers.aspx.cs
 D:\TFS Projects\SINHA.MEDLAR.ERP\SINHA.MEDLAR.ERP.UI\bin\SINHA.MEDLAR.ERP.UI.dll.config
@@ -43,5 +42,6 @@ D:\TFS Projects\SINHA.MEDLAR.ERP\SINHA.MEDLAR.ERP.UI\bin\Syncfusion.Pdf.Base.xml
 D:\TFS Projects\SINHA.MEDLAR.ERP\SINHA.MEDLAR.ERP.UI\bin\EPPlus.xml
 D:\TFS Projects\SINHA.MEDLAR.ERP\SINHA.MEDLAR.ERP.UI\bin\Syncfusion.Compression.Base.xml
 D:\TFS Projects\SINHA.MEDLAR.ERP\SINHA.MEDLAR.ERP.UI\bin\Microsoft.IO.RecyclableMemoryStream.xml
+D:\TFS Projects\SINHA.MEDLAR.ERP\SINHA.MEDLAR.ERP.UI\obj\Debug\SINHA.MEDLAR.ERP.UI.csprojResolveAssemblyReference.cache
 D:\TFS Projects\SINHA.MEDLAR.ERP\SINHA.MEDLAR.ERP.UI\obj\Debug\SINHA.MEDLAR.ERP.UI.dll
 D:\TFS Projects\SINHA.MEDLAR.ERP\SINHA.MEDLAR.ERP.UI\obj\Debug\SINHA.MEDLAR.ERP.UI.pdb

@@ -313,7 +313,7 @@ namespace SINHA.MEDLAR.ERP.UI
                 objReportDTO.UpdateBy = strEmployeeId;
                 objReportDTO.UnitGroupId = ddlUnitGroupId.SelectedItem.Value.Trim();
 
-                //string strPath = Path.Combine(Server.MapPath("~/Reports/rptIncrementProposalStaffAboveOneYear.rpt"));
+                //string strPath = Path.Combine(Server.MapPath("~/Reports/rptIncrementProposalStaffAboveOneY_F.rpt"));
                 //this.Context.Session["strReportPath"] = strPath;
                 //rd.Load(strPath);
 
@@ -325,10 +325,10 @@ namespace SINHA.MEDLAR.ERP.UI
                 //    strPath = Path.Combine(Server.MapPath("~/Reports/rptIncrementProposalStaffAboveOneYearForBP.rpt"));
                 //}
                 //else
-                //strPath = Path.Combine(Server.MapPath("~/Reports/rptIncrementProposalStaffAboveOneYear.rpt"));
+                //strPath = Path.Combine(Server.MapPath("~/Reports/rptIncrementProposalStaffAboveOneY_F.rpt"));
 
                 //YYYYYYYYYY:21.12.2021
-                strPath = Path.Combine(Server.MapPath("~/Reports/rptIncrementProposalStaffAboveOneYear.rpt"));
+                strPath = Path.Combine(Server.MapPath("~/Reports/rptIncrementProposalStaffAboveOneY_F.rpt"));
 
                 this.Context.Session["strReportPath"] = strPath;
                 rd.Load(strPath);
@@ -392,7 +392,7 @@ namespace SINHA.MEDLAR.ERP.UI
                 objReportDTO.UpdateBy = strEmployeeId;
                 objReportDTO.UnitGroupId = ddlUnitGroupId.SelectedItem.Value.Trim();
 
-                //string strPath = Path.Combine(Server.MapPath("~/Reports/rptIncrementProposalStaffAboveOneYear.rpt"));
+                //string strPath = Path.Combine(Server.MapPath("~/Reports/rptIncrementProposalStaffAboveOneY_F.rpt"));
                 //this.Context.Session["strReportPath"] = strPath;
                 //rd.Load(strPath);
 
@@ -404,7 +404,7 @@ namespace SINHA.MEDLAR.ERP.UI
                 //    strPath = Path.Combine(Server.MapPath("~/Reports/rptIncrementProposalStaffAboveOneYearForBP.rpt"));
                 //}
                 //else
-                //strPath = Path.Combine(Server.MapPath("~/Reports/rptIncrementProposalStaffAboveOneYear.rpt"));
+                //strPath = Path.Combine(Server.MapPath("~/Reports/rptIncrementProposalStaffAboveOneY_F.rpt"));
 
                 //YYYYYYYYYY:21.12.2021
                 strPath = Path.Combine(Server.MapPath("~/Reports/rptIncrementProposalStaffLessOneYear.rpt"));
@@ -1204,7 +1204,7 @@ namespace SINHA.MEDLAR.ERP.UI
                     strPath = Path.Combine(Server.MapPath("~/Reports/rptIncrementProposalStaffAboveOneYearForBP.rpt"));                 
                 }
                 else
-                strPath = Path.Combine(Server.MapPath("~/Reports/rptIncrementProposalStaffAboveOneYear.rpt"));
+                strPath = Path.Combine(Server.MapPath("~/Reports/rptIncrementProposalStaffAboveOneY_F.rpt"));
                 this.Context.Session["strReportPath"] = strPath;
                 rd.Load(strPath);
                 rd.SetDataSource(objReportBLL.incrementSheetAboveOneYearStaff(objReportDTO));
@@ -2122,7 +2122,7 @@ namespace SINHA.MEDLAR.ERP.UI
                 objReportDTO.EmployeeTypeId = "1";
                 objReportDTO.PreIncrementYear = objReportBLL.GetPreIncrementYear(objReportDTO);
 
-                string strPath = Path.Combine(Server.MapPath("~/Reports/rptIncrementProposalStaffAboveOneYear.rpt"));
+                string strPath = Path.Combine(Server.MapPath("~/Reports/rptIncrementProposalStaffAboveOneY_F.rpt"));
                 this.Context.Session["strReportPath"] = strPath;
                 rd.Load(strPath);
                 rd.SetDataSource(objReportBLL.incrementSheetAboveOneYearStaffOnlyQuality(objReportDTO));
