@@ -21,7 +21,7 @@ namespace SINHA.MEDLAR.ERP.UI.FluentSchedulers
                 EmailBLL email = new EmailBLL();
 
                 string toAddress = "shahidulh@sinha-medlar.com";
-                string ccAddress = "chitta@sinha-medlar.com;babul@sinha-medlar.com;debasish@sinha-medlar.com;bp.sayeed@sinha-medlar.com;rashedc@sinha-medlar.com;kaisar@sinha-medlar.com;hrsultana@sinha-medlar.com;sharif@sinha-medlar.com;taslim@sinha-medlar.com;saiful@sinha-medlar.com;ali.rizvi@sinha-medlar.com;admin-mal@sinha-medlar.com;hadi@sinha-medlar.com;harun@sinha-medlar.com;shahin.alam@sinha-medlar.com;jelani@sinha-medlar.com;shako-asa@sinha-medlar.com";
+                string ccAddress = "babul@sinha-medlar.com;debasish@sinha-medlar.com;rashedc@sinha-medlar.com;kaisar@sinha-medlar.com;hrsultana@sinha-medlar.com;sharif@sinha-medlar.com;taslim@sinha-medlar.com;saiful@sinha-medlar.com;ali.rizvi@sinha-medlar.com;admin-mal@sinha-medlar.com;hadi@sinha-medlar.com;harun@sinha-medlar.com;shako-asa@sinha-medlar.com";
                                 
                 string fromDisplayName = "ERP- SINHA MEDLAR GROUP";
                 string subject = string.Empty;
