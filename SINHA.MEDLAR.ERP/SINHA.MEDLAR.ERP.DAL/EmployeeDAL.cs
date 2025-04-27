@@ -23862,7 +23862,7 @@ namespace SINHA.MEDLAR.ERP.DAL
 
             string strMsg = "";
 
-            OracleCommand objOracleCommand = new OracleCommand("sp_process_incr_arrear_staff");
+            OracleCommand objOracleCommand = new OracleCommand("sp_process_arrear_staff");
             OracleTransaction trans = null;
 
             objOracleCommand.CommandType = CommandType.StoredProcedure;

@@ -554,6 +554,99 @@ namespace SINHA.MEDLAR.ERP.UI
 
         protected void btnArrearSheetStaff_Click(object sender, EventArgs e)
         {
+            rptArrearSheetStaff();
+        }
+
+        public void rptArrearSheetStaff()
+        {
+
+            try
+            {
+
+                ReportDTO objReportDTO = new ReportDTO();
+                ReportBLL objReportBLL = new ReportBLL();
+
+                objReportDTO.HeadOfficeId = strHeadOfficeId;
+                objReportDTO.BranchOfficeId = strBranchOfficeId;
+                objReportDTO.UpdateBy = strEmployeeId;
+
+
+                //objReportDTO.EmployeeId = txtEmpId.Text;
+                //objReportDTO.CardNo = txtEmpCardNo.Text;
+
+
+                if (ddlSectionId.SelectedValue.ToString() != " ")
+                {
+                    objReportDTO.SectionId = ddlSectionId.SelectedValue.ToString();
+                }
+                else
+                {
+
+                    objReportDTO.SectionId = "";
+                }
+
+
+
+                if (ddlUnitId.SelectedValue.ToString() != " ")
+                {
+                    objReportDTO.UnitId = ddlUnitId.SelectedValue.ToString();
+                }
+                else
+                {
+                    objReportDTO.UnitId = "";
+
+                }
+
+
+                if (ddlMonthId.SelectedValue.ToString() != " ")
+                {
+                    objReportDTO.Month = ddlMonthId.SelectedValue.ToString();
+                }
+                else
+                {
+                    objReportDTO.Month = "";
+
+                }
+
+
+                objReportDTO.Year = txtIncrementYear.Text;
+
+
+
+                string strPath = Path.Combine(Server.MapPath("~/Reports/rptArrearSheetStaff.rpt"));
+                this.Context.Session["strReportPath"] = strPath;
+                rd.Load(strPath);
+                rd.SetDataSource(objReportBLL.rptArrearSheetStaff(objReportDTO));
+
+
+                rd.SetDatabaseLogon("erp", "erp");
+                CrystalReportViewer1.ReportSource = rd;
+                CrystalReportViewer1.DataBind();
+
+                reportMaster();
+
+
+                this.CrystalReportViewer1.Dispose();
+                this.CrystalReportViewer1 = null;
+                rd.Dispose();
+                rd.Close();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+
+            }
+            catch (Exception ex)
+            {
+
+                this.CrystalReportViewer1.Dispose();
+                this.CrystalReportViewer1 = null;
+                rd.Dispose();
+                rd.Close();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+
+
+            }
+
 
         }
     }

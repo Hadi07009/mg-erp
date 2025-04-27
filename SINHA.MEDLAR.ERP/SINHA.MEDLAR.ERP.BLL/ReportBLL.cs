@@ -3792,6 +3792,32 @@ namespace SINHA.MEDLAR.ERP.BLL
 
         }
 
+        public DataSet rptArrearSheetStaff(ReportDTO objReportDTO)
+        {
+            try
+            {
+                DataSet ds = new DataSet();
+                DataTable dt = new DataTable();
+                try
+                {
+
+                    ReportDAL objReportDAL = new ReportDAL();
+                    ds = objReportDAL.rptArrearSheetStaff(objReportDTO);
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
         public DataSet rptArrearSheetWorkerRequisition(ReportDTO objReportDTO)
         {
             try

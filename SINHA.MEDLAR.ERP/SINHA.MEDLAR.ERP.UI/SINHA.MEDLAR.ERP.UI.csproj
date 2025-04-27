@@ -1537,6 +1537,12 @@
     <Compile Include="GradeChange.aspx.designer.cs">
       <DependentUpon>GradeChange.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Reports\rptArrearSheetStaff.cs">
+      <DependentUpon>rptArrearSheetStaff.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Reports\rptDailyAttendenceWithLateSheet.cs">
       <DependentUpon>rptDailyAttendenceWithLateSheet.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -7827,6 +7833,10 @@
     <EmbeddedResource Include="Reports\rptArrearSheetPower.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptArrearSheetPower.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptArrearSheetStaff.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptArrearSheetStaff.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\rptArrearSheetWorker.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
