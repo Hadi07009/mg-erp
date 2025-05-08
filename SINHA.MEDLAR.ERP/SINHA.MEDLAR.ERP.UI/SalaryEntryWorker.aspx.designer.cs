@@ -544,6 +544,15 @@ namespace SINHA.MEDLAR.ERP.UI {
         protected global::System.Web.UI.WebControls.Button btnMonthlyRequisitionSummery;
         
         /// <summary>
+        /// btnSummeryws control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSummeryws;
+        
+        /// <summary>
         /// btnRequisitionSummaryBkash control.
         /// </summary>
         /// <remarks>

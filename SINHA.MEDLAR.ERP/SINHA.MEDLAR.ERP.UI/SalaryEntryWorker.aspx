@@ -362,6 +362,9 @@
                                     <asp:Button ID="btnMonthlyRequisitionSummery" runat="server" Height="31px"
                                         Text="Summary" CssClass="styled-button-4"
                                         Width="70px" OnClick="btnMonthlyRequisitionSummery_Click" />
+                                    <asp:Button ID="btnSummeryws" runat="server" Height="31px"
+                                        Text="Summary(W/S)" CssClass="styled-button-4"
+                                        Width="100px" OnClick="btnSummeryws_Click"  />
                                     <asp:Button ID="btnRequisitionSummaryBkash" runat="server" Height="31px" Text="BKash Summary" Width="100px"
                                         CssClass="styled-button-4" OnClick="btnRequisitionSummaryBKash_Click" />
                                     <asp:Button ID="btnRequisitionSummaryCash" runat="server" Height="31px" Text="Cash Summary" Width="97px"

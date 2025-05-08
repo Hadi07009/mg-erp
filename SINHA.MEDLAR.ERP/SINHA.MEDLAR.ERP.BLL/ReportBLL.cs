@@ -8256,6 +8256,32 @@ namespace SINHA.MEDLAR.ERP.BLL
 
         }
 
+        public DataSet monthlySalRequSummeryWS(ReportDTO objReportDTO)
+        {
+            try
+            {
+                DataSet ds = new DataSet();
+                DataTable dt = new DataTable();
+                try
+                {
+
+                    ReportDAL objReportDAL = new ReportDAL();
+                    ds = objReportDAL.monthlySalRequiSummeryWS(objReportDTO);
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
         //public DataSet monthlySalaryRequisitionSummeryTest(ReportDTO objReportDTO)
         //{
         //    try
@@ -10603,6 +10629,14 @@ namespace SINHA.MEDLAR.ERP.BLL
             ReportDAL objReportDAL = new ReportDAL();
             string strMsg = "";
             strMsg = objReportDAL.processSalaryRequisitionAll(objReportDTO);
+            return strMsg;
+        }
+
+        public string processSalaryRequisitionWS(ReportDTO objReportDTO)
+        {
+            ReportDAL objReportDAL = new ReportDAL();
+            string strMsg = "";
+            strMsg = objReportDAL.processSalaryRequisitionWS(objReportDTO);
             return strMsg;
         }
 
