@@ -2688,7 +2688,7 @@ namespace SINHA.MEDLAR.ERP.UI
                 objReportDTO.Year = txtSalaryYear.Text;
                 objReportDTO.Month = txtsalaryMonth.Text;
 
-                string strPath = Path.Combine(Server.MapPath("~/Reports/rptSalaryRequisitionSummery.rpt"));
+                string strPath = Path.Combine(Server.MapPath("~/Reports/rptSalRequiSumWS.rpt"));
                 this.Context.Session["strReportPath"] = strPath;
                 rd.Load(strPath);
                 rd.SetDataSource(objReportBLL.monthlySalRequSummeryWS(objReportDTO));
@@ -6767,7 +6767,7 @@ namespace SINHA.MEDLAR.ERP.UI
             try
             {
                 processSalaryRequisitionWS(); 
-                //monthlySalaryRequiSummeryWS();
+                monthlySalaryRequiSummeryWS();
             }
             catch (Exception ex)
             {
