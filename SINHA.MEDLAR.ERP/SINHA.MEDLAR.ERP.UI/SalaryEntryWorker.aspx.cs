@@ -2721,6 +2721,76 @@ namespace SINHA.MEDLAR.ERP.UI
 
         }
 
+        public void monthlySalaryRequiSummeryS()
+        {
+
+            try
+            {
+
+                string strDefaultName = "Report";
+                ExportFormatType formatType = ExportFormatType.NoFormat;
+
+                ReportDTO objReportDTO = new ReportDTO();
+                ReportBLL objReportBLL = new ReportBLL();
+
+                objReportDTO.HeadOfficeId = strHeadOfficeId;
+                objReportDTO.BranchOfficeId = strBranchOfficeId;
+                objReportDTO.UpdateBy = strEmployeeId;
+
+                if (ddlSectionId.SelectedValue.ToString() != " ")
+                {
+                    objReportDTO.SectionId = ddlSectionId.SelectedValue.ToString();
+                }
+                else
+                {
+                    objReportDTO.SectionId = "";
+                }
+
+                if (ddlUnitId.SelectedValue.ToString() != " ")
+                {
+                    objReportDTO.UnitId = ddlUnitId.SelectedValue.ToString();
+                }
+                else
+                {
+                    objReportDTO.UnitId = "";
+                }
+
+                objReportDTO.Year = txtSalaryYear.Text;
+                objReportDTO.Month = txtsalaryMonth.Text;
+
+                string strPath = Path.Combine(Server.MapPath("~/Reports/rptSalRequiSumS.rpt"));
+                this.Context.Session["strReportPath"] = strPath;
+                rd.Load(strPath);
+                rd.SetDataSource(objReportBLL.monthlySalRequSummeryS(objReportDTO));
+
+                rd.SetDatabaseLogon("erp", "erp");
+                CrystalReportViewer1.ReportSource = rd;
+                CrystalReportViewer1.DataBind();
+
+                reportMaster();
+
+                this.CrystalReportViewer1.Dispose();
+                this.CrystalReportViewer1 = null;
+                rd.Dispose();
+                rd.Close();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+
+            }
+            catch (Exception ex)
+            {
+                this.CrystalReportViewer1.Dispose();
+                this.CrystalReportViewer1 = null;
+                rd.Dispose();
+                rd.Close();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+
+            }
+
+
+        }
+
         public void monthlySalaryRequisition()
         {
             try
@@ -3181,8 +3251,9 @@ namespace SINHA.MEDLAR.ERP.UI
             string strMsg = objReportBLL.processSalaryRequisitionAll(objReportDTO);
         }
 
-        public void processSalaryRequisitionWS()
+        public string processSalaryRequisitionWS()
         {
+            string strMsg = "";
 
             ReportDTO objReportDTO = new ReportDTO();
             ReportBLL objReportBLL = new ReportBLL();
@@ -3215,7 +3286,45 @@ namespace SINHA.MEDLAR.ERP.UI
             objReportDTO.HeadOfficeId = strHeadOfficeId;
             objReportDTO.BranchOfficeId = strBranchOfficeId;
             objReportDTO.UpdateBy = strEmployeeId;
-            string strMsg = objReportBLL.processSalaryRequisitionWS(objReportDTO);
+            return strMsg = objReportBLL.processSalaryRequisitionWS(objReportDTO);
+        }
+
+        public string processSalaryRequisitionS()
+        {
+            string strMsg = "";
+
+            ReportDTO objReportDTO = new ReportDTO();
+            ReportBLL objReportBLL = new ReportBLL();
+
+            objReportDTO.HeadOfficeId = strHeadOfficeId;
+            objReportDTO.BranchOfficeId = strBranchOfficeId;
+            objReportDTO.EmployeeId = txtEmpId.Text;
+
+            objReportDTO.Year = txtSalaryYear.Text;
+            objReportDTO.Month = txtsalaryMonth.Text;
+
+            if (ddlSectionId.SelectedValue.ToString() != " ")
+            {
+                objReportDTO.SectionId = ddlSectionId.SelectedValue.ToString();
+            }
+            else
+            {
+                objReportDTO.SectionId = "";
+            }
+
+            if (ddlUnitId.SelectedValue.ToString() != " ")
+            {
+                objReportDTO.UnitId = ddlUnitId.SelectedValue.ToString();
+            }
+            else
+            {
+                objReportDTO.UnitId = "";
+            }
+
+            objReportDTO.HeadOfficeId = strHeadOfficeId;
+            objReportDTO.BranchOfficeId = strBranchOfficeId;
+            objReportDTO.UpdateBy = strEmployeeId;
+            return strMsg = objReportBLL.processSalaryRequisitionS(objReportDTO);
         }
 
         public void processMonthlyOTRequisition()
@@ -6766,8 +6875,24 @@ namespace SINHA.MEDLAR.ERP.UI
         {
             try
             {
-                processSalaryRequisitionWS(); 
-                monthlySalaryRequiSummeryWS();
+                if (ddlEmployeeTypeId.SelectedItem.Value == "")
+                {
+                    string strMsg = "Please Select Employee Type!!!";
+                    MessageBox(strMsg);
+                    ddlEmployeeTypeId.Focus();
+                    return;
+                }
+
+                if (ddlEmployeeTypeId.SelectedItem.Value.Trim() == "1") //staff
+                {
+                    monthlySalaryRequiSummeryS();
+                }
+                if (ddlEmployeeTypeId.SelectedItem.Value.Trim() == "2") //worker
+                {
+                    monthlySalaryRequiSummeryWS();
+
+                }
+                    
             }
             catch (Exception ex)
             {
@@ -6778,6 +6903,49 @@ namespace SINHA.MEDLAR.ERP.UI
                 GC.Collect();
                 GC.WaitForPendingFinalizers();
             }
+        }
+
+        protected void btnProcessSWS_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string strMsg = "";
+
+                if (ddlEmployeeTypeId.SelectedItem.Value == "")
+                {
+                    strMsg = "Please Select Employee Type!!!";
+                    MessageBox(strMsg);
+                    ddlEmployeeTypeId.Focus();
+                    return;
+                }
+
+                if (ddlEmployeeTypeId.SelectedItem.Value.Trim() == "1") //staff
+                {
+                    strMsg = processSalaryRequisitionS();
+                    MessageBox(strMsg);
+                    
+                }
+                if (ddlEmployeeTypeId.SelectedItem.Value.Trim() == "2") //worker
+                {
+                    strMsg = processSalaryRequisitionWS();
+                    MessageBox(strMsg);
+
+                }
+
+                
+
+                
+            }
+            catch (Exception ex)
+            {
+                this.CrystalReportViewer1.Dispose();
+                this.CrystalReportViewer1 = null;
+                rd.Dispose();
+                rd.Close();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+            }
+
         }
 
 

@@ -1639,6 +1639,12 @@
       <DependentUpon>rptSalaryRequisitionAllInOne.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reports\rptSalRequiSumS.cs">
+      <DependentUpon>rptSalRequiSumS.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Reports\rptSalRequiSumWS.cs">
       <DependentUpon>rptSalRequiSumWS.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -9611,6 +9617,10 @@
     <EmbeddedResource Include="Reports\rptSalaryRequisitionHOStaff.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptSalaryRequisitionHOStaff.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptSalRequiSumS.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptSalRequiSumS.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\rptSalRequiSumWS.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
