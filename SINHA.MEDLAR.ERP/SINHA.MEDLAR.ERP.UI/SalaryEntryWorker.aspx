@@ -365,13 +365,16 @@
                                                                         <asp:Button ID="btnProcessSWS" 
                                         runat="server" Height="31px"
                                         Text="Process Summary(W/S)" CssClass="styled-button-4"
-                                        Width="150px" OnClick="btnProcessSWS_Click"   />
+                                        Width="150px" OnClick="btnProcessSWS_Click" Visible="False"   />
                                     
                                     <asp:Button ID="btnSummeryws" runat="server" Height="31px"
                                         Text="Summary(W/S)" CssClass="styled-button-4"
-                                        Width="100px" OnClick="btnSummeryws_Click"  />
+                                        Width="100px" OnClick="btnSummeryws_Click" Visible="False"  />
                                     <asp:Button ID="btnRequisitionSummaryBkash" runat="server" Height="31px" Text="BKash Summary" Width="100px"
                                         CssClass="styled-button-4" OnClick="btnRequisitionSummaryBKash_Click" />
+                                    <asp:Button ID="btnBkashSW" runat="server" Height="31px" 
+                                        Text="BKash Summary(W/S)" Width="150px"
+                                        CssClass="styled-button-4" OnClick="btnBkashSW_Click"  />
                                     <asp:Button ID="btnRequisitionSummaryCash" runat="server" Height="31px" Text="Cash Summary" Width="97px"
                                         CssClass="styled-button-4" OnClick="btnRequisitionSummaryCash_Click" />
 

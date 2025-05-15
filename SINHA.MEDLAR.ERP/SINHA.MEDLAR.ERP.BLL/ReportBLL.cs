@@ -14445,6 +14445,54 @@ namespace SINHA.MEDLAR.ERP.BLL
             }
         }
 
+        public DataTable GetWorkerStaffReqSummaryBKW(ReportDTO objReportDTO)
+        {
+            try
+            {
+                DataSet ds = new DataSet();
+                DataTable dt = new DataTable();
+                try
+                {
+                    ReportDAL objReportDAL = new ReportDAL();
+                    dt = objReportDAL.GetWorkerStaffReqSummaryBKW(objReportDTO);
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public DataTable GetWorkerStaffReqSummaryBKS(ReportDTO objReportDTO)
+        {
+            try
+            {
+                DataSet ds = new DataSet();
+                DataTable dt = new DataTable();
+                try
+                {
+                    ReportDAL objReportDAL = new ReportDAL();
+                    dt = objReportDAL.GetWorkerStaffReqSummaryBKS(objReportDTO);
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+
         public DataTable GetStaffSalaryRequisitionMisc(ReportDTO objReportDTO)
         {
             try
