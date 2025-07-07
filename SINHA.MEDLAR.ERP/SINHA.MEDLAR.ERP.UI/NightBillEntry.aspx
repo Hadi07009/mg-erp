@@ -253,7 +253,7 @@
                                         OnClick="btnCashReq_Click" Visible="False" />
                                     <asp:Button ID="btnTiffinRequsition" runat="server" Height="31px" 
                                         Text="Requsition" CssClass = "styled-button-4"
-                                        Width="75px" OnClick="btnTiffinRequsition_Click" Visible="False" />
+                                        Width="75px" OnClick="btnTiffinRequsition_Click" />
                                     <asp:Button ID="btnTiffinRequsitionSummery" runat="server" Height="31px" 
                                         Text="Summary" CssClass = "styled-button-4"
                                         Width="75px" onclick="btnTiffinRequsitionSummery_Click" Visible="False"  />

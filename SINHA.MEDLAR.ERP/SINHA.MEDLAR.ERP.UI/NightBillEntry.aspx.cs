@@ -54,7 +54,7 @@ namespace SINHA.MEDLAR.ERP.UI
             {
                 btnTiffinRequsitionSummery.Visible = false;
                 btnTiffinRequsition.Visible = false;
-                btnTiffinSheet.Visible = false;
+                //btnTiffinSheet.Visible = false;
             }
             else
             {
@@ -1271,8 +1271,6 @@ namespace SINHA.MEDLAR.ERP.UI
             try
             {
 
-
-
                 ReportDTO objReportDTO = new ReportDTO();
                 ReportBLL objReportBLL = new ReportBLL();
 
@@ -1288,6 +1286,7 @@ namespace SINHA.MEDLAR.ERP.UI
 
                 objReportDTO.Year = txtYear.Text;
                 objReportDTO.Month = txtMonth.Text;
+                objReportDTO.FromDate = dtpFromDate.Text;
 
 
 
@@ -1325,14 +1324,14 @@ namespace SINHA.MEDLAR.ERP.UI
                 }
                 else
                 {
-                     strPath = Path.Combine(Server.MapPath("~/Reports/rptTiffinRequisition.rpt"));
+                     strPath = Path.Combine(Server.MapPath("~/Reports/rptNightRequisition.rpt"));
                 }
 
 
                 
                 this.Context.Session["strReportPath"] = strPath;
                 rd.Load(strPath);
-                rd.SetDataSource(objReportBLL.monthlyTiffinRequisition(objReportDTO));
+                rd.SetDataSource(objReportBLL.monthlyNightRequisition(objReportDTO));
 
 
                 rd.SetDatabaseLogon("erp", "erp");
@@ -1418,6 +1417,7 @@ namespace SINHA.MEDLAR.ERP.UI
 
         public void processTiffinRequisition()
         {
+            
 
             ReportDTO objReportDTO = new ReportDTO();
             ReportBLL objReportBLL = new ReportBLL();
@@ -1428,6 +1428,7 @@ namespace SINHA.MEDLAR.ERP.UI
 
             objReportDTO.Year = txtYear.Text;
             objReportDTO.Month = txtMonth.Text;
+            objReportDTO.FromDate = dtpFromDate.Text;
 
 
             if (ddlSectionId.SelectedValue.ToString() != " ")
@@ -1458,7 +1459,7 @@ namespace SINHA.MEDLAR.ERP.UI
             objReportDTO.BranchOfficeId = strBranchOfficeId;
             objReportDTO.UpdateBy = strEmployeeId;
 
-            string strMsg = objReportBLL.processTiffinRequisition(objReportDTO);
+            string strMsg = objReportBLL.processNightRequisition(objReportDTO);
 
 
 
@@ -2397,6 +2398,13 @@ namespace SINHA.MEDLAR.ERP.UI
         {
             try
             {
+                if (dtpFromDate.Text == string.Empty)
+                {
+                    string strMsgi = "Please Enter Date!!";
+                    dtpFromDate.Focus();
+                    MessageBox(strMsgi);
+                    return;
+                }
 
                 tiffinRequisition();
 

@@ -121,7 +121,8 @@
                                     <asp:Label ID="LblAllowGeneralIncrement" runat="server" Text="Allow (9%) Increment(General) :"></asp:Label>        
                                 </td>
                                 <td style="width: 277px; text-align: left; height: 22px;">
-                                    <asp:CheckBox ID="ChkAllowGeneralIncrement" runat="server" Text="" Visible="true" Checked="true" Enabled="false" ></asp:CheckBox>
+                                    <asp:CheckBox ID="ChkAllowGeneralIncrement" runat="server" Text="" 
+                                        Visible="true" Checked="true" ></asp:CheckBox>
                                 </td>
                                 <td style="text-align: right; width: 40px;">
                                     <asp:Label ID="Label42" runat="server" Text="ID :"></asp:Label>&nbsp;
