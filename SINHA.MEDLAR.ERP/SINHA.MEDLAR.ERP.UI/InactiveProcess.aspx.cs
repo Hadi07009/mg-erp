@@ -214,8 +214,9 @@ namespace SINHA.MEDLAR.ERP.UI
        public void Clear()
         {
             dtpResignDate.Text = string.Empty;
-            ddlStatusId.SelectedIndex = 0;
+            //ddlStatusId.SelectedIndex = 0;
             txtInactiveReason.Text = string.Empty;
+            
         }
         public void loadSesscion()
         {
