@@ -472,6 +472,22 @@
             </tr>
             <tr>
                 <td style="text-align: right; width: 247px; height: 19px">
+                <asp:Label ID="Label16" runat="server" Text="No of Child at Joining :"></asp:Label>    
+                </td>
+                <td style="height: 19px; width: 247px;">
+                <asp:TextBox ID="txtNoChildJoin" runat="server" Width="211px" BackColor="White" 
+                        TextMode="Number" ></asp:TextBox>    
+                </td>
+                <td style="height: 19px; text-align: right; width: 108px;">
+                <asp:Label ID="Label18" runat="server" Text="Child at Present :"></asp:Label>        
+                </td>
+                <td style="height: 19px">
+                <asp:TextBox ID="txtNoChildPresent" runat="server" Width="211px" BackColor="White" 
+                        TextMode="Number" ></asp:TextBox>    
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right; width: 247px; height: 19px">
                     <asp:Label ID="lblMaritalStatus2" runat="server" Text="Spouse Name :"></asp:Label>
                 </td>
                 <td style="height: 19px; width: 247px;">

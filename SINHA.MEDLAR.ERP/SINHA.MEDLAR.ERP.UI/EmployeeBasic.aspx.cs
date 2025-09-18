@@ -1685,6 +1685,12 @@ namespace SINHA.MEDLAR.ERP.UI
 
             objEmployeeDTO.AccountNo = txtAccountNo.Text;
             objEmployeeDTO.AccountNoAlter = txtAlterAccountNo.Text;
+            objEmployeeDTO.NoChildJoin = txtNoChildJoin.Text;
+            objEmployeeDTO.NoChildPresent = txtNoChildPresent.Text;
+            if (objEmployeeDTO.NoChildPresent == null )
+            {
+                objEmployeeDTO.NoChildPresent = objEmployeeDTO.NoChildJoin;
+            }
 
             bool IsNumberGrossSalary = Regex.IsMatch(txtJoiningSalary.Text, @"^\d+$");
             if (IsNumberGrossSalary == true)
@@ -1812,6 +1818,8 @@ namespace SINHA.MEDLAR.ERP.UI
             txtAlterAccountNo.Text = string.Empty;
             txtJoiningSalary.Text = string.Empty;
             txtPhoneNo.Text = string.Empty;
+            txtNoChildJoin.Text = string.Empty;
+            txtNoChildPresent.Text = string.Empty;
            // txtVoterIdCardNo.Text = string.Empty;
 
 
@@ -1977,6 +1985,8 @@ namespace SINHA.MEDLAR.ERP.UI
             txtTinNo.Text = objEmployeeDTO.TinNo;
 
             txtJoiningSalary.Text = objEmployeeDTO.JoiningSalary;
+            txtNoChildJoin.Text = objEmployeeDTO.NoChildJoin;
+            txtNoChildPresent.Text = objEmployeeDTO.NoChildPresent;
 
 
             if (objEmployeeDTO.GenderId == "0")
@@ -2953,6 +2963,8 @@ namespace SINHA.MEDLAR.ERP.UI
             txtGrossSalary.ReadOnly = false;
             txtJoiningSalary.ReadOnly = false;
             txtIdCardNo.Text = string.Empty;
+            txtNoChildJoin.Text = string.Empty;
+            txtNoChildPresent.Text = string.Empty;
 
         }
 

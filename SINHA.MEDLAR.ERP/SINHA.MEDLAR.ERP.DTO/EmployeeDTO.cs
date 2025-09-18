@@ -1300,5 +1300,7 @@ namespace SINHA.MEDLAR.ERP.DTO
         public string ScheduleID { get; set; }
         public string BankIdAlternet { get; set; }
         public string AccountNoAlter { get; set; }
+        public string NoChildPresent { get; set; }
+        public string NoChildJoin { get; set; }
     }
 }

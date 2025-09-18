@@ -1502,6 +1502,25 @@ namespace SINHA.MEDLAR.ERP.DAL
             {
                 objOracleCommand.Parameters.Add("P_JOINING_SALARY", OracleDbType.Varchar2, ParameterDirection.Input).Value = null;
             }
+
+            if (objEmployeeDTO.NoChildJoin != "")
+            {
+                objOracleCommand.Parameters.Add("P_JOINING_CHILD", OracleDbType.Varchar2, ParameterDirection.Input).Value = objEmployeeDTO.NoChildJoin;
+            }
+            else
+            {
+                objOracleCommand.Parameters.Add("P_JOINING_CHILD", OracleDbType.Varchar2, ParameterDirection.Input).Value = null;
+            }
+
+            if (objEmployeeDTO.NoChildPresent != "")
+            {
+                objOracleCommand.Parameters.Add("P_PRESENT_CHILD", OracleDbType.Varchar2, ParameterDirection.Input).Value = objEmployeeDTO.NoChildPresent;
+            }
+            else
+            {
+                objOracleCommand.Parameters.Add("P_PRESENT_CHILD", OracleDbType.Varchar2, ParameterDirection.Input).Value = null;
+            }
+
             if (objEmployeeDTO.JoiningDesignationId != "")
             {
                 objOracleCommand.Parameters.Add("P_JOINING_DESIGNATION_ID", OracleDbType.Varchar2, ParameterDirection.Input).Value = objEmployeeDTO.JoiningDesignationId;
@@ -5094,6 +5113,8 @@ namespace SINHA.MEDLAR.ERP.DAL
                     "TO_CHAR (NVL (hidden_salary, '0')), " +
                     "TO_CHAR (NVL (BANK_ID_ALTERNATE, '0')), " +
                     "TO_CHAR (NVL (ACCOUNT_NO_ALTERNATE, '0')) " +
+                    "TO_CHAR (NVL (JOINING_CHILD, '0')) " +
+                    "TO_CHAR (NVL (PRESENT_CHILD, '0')) " +
                     //bank_id
                     "from vew_search_employee_detail where employee_id = '" + strEmployeeId + "' and head_office_id = '" + strHeadOfficeId + "' AND branch_office_id = '" + strBranchOfficeId + "' ";
 
@@ -5191,6 +5212,8 @@ namespace SINHA.MEDLAR.ERP.DAL
                         objEmployeeDTO.HiddenSalary = objDataReader.GetString(75);                        
                         objEmployeeDTO.BankIdAlternet = objDataReader.GetString(76);
                         objEmployeeDTO.AccountNoAlter = objDataReader.GetString(77);
+                        objEmployeeDTO.NoChildJoin = objDataReader.GetString(78);
+                        objEmployeeDTO.NoChildPresent = objDataReader.GetString(79);
                     }
                 }
                 catch (Exception ex)
