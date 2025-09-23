@@ -1299,8 +1299,26 @@ namespace SINHA.MEDLAR.ERP.DAL
             {
                 objOracleCommand.Parameters.Add("P_NID_NO", OracleDbType.Varchar2, ParameterDirection.Input).Value = null;
             }
-           
-            
+
+            if (objEmployeeDTO.NoChildJoin != "")
+            {
+                objOracleCommand.Parameters.Add("P_JOINING_CHILD", OracleDbType.Varchar2, ParameterDirection.Input).Value = objEmployeeDTO.NoChildJoin;
+            }
+            else
+            {
+                objOracleCommand.Parameters.Add("P_JOINING_CHILD", OracleDbType.Varchar2, ParameterDirection.Input).Value = null;
+            }
+
+            if (objEmployeeDTO.NoChildPresent != "")
+            {
+                objOracleCommand.Parameters.Add("P_PRESENT_CHILD", OracleDbType.Varchar2, ParameterDirection.Input).Value = objEmployeeDTO.NoChildPresent;
+            }
+            else
+            {
+                objOracleCommand.Parameters.Add("P_PRESENT_CHILD", OracleDbType.Varchar2, ParameterDirection.Input).Value = null;
+            }
+
+
             if (objEmployeeDTO.JobTypeId.Length > 0)
             {
                 objOracleCommand.Parameters.Add("P_JOB_TYPE_ID", OracleDbType.Varchar2, ParameterDirection.Input).Value = objEmployeeDTO.JobTypeId;
@@ -1503,23 +1521,6 @@ namespace SINHA.MEDLAR.ERP.DAL
                 objOracleCommand.Parameters.Add("P_JOINING_SALARY", OracleDbType.Varchar2, ParameterDirection.Input).Value = null;
             }
 
-            if (objEmployeeDTO.NoChildJoin != "")
-            {
-                objOracleCommand.Parameters.Add("P_JOINING_CHILD", OracleDbType.Varchar2, ParameterDirection.Input).Value = objEmployeeDTO.NoChildJoin;
-            }
-            else
-            {
-                objOracleCommand.Parameters.Add("P_JOINING_CHILD", OracleDbType.Varchar2, ParameterDirection.Input).Value = null;
-            }
-
-            if (objEmployeeDTO.NoChildPresent != "")
-            {
-                objOracleCommand.Parameters.Add("P_PRESENT_CHILD", OracleDbType.Varchar2, ParameterDirection.Input).Value = objEmployeeDTO.NoChildPresent;
-            }
-            else
-            {
-                objOracleCommand.Parameters.Add("P_PRESENT_CHILD", OracleDbType.Varchar2, ParameterDirection.Input).Value = null;
-            }
 
             if (objEmployeeDTO.JoiningDesignationId != "")
             {
@@ -5112,9 +5113,9 @@ namespace SINHA.MEDLAR.ERP.DAL
                     "TO_CHAR (NVL (company_id, '0')), " +
                     "TO_CHAR (NVL (hidden_salary, '0')), " +
                     "TO_CHAR (NVL (BANK_ID_ALTERNATE, '0')), " +
-                    "TO_CHAR (NVL (ACCOUNT_NO_ALTERNATE, '0')) " +
-                    "TO_CHAR (NVL (JOINING_CHILD, '0')) " +
-                    "TO_CHAR (NVL (PRESENT_CHILD, '0')) " +
+                    "TO_CHAR (NVL (ACCOUNT_NO_ALTERNATE, '0')), " +
+                    "TO_CHAR (NVL (CHILD_JOINING, '0')), " +
+                    "TO_CHAR (NVL (CHILD_PRESENT, '0')) " +
                     //bank_id
                     "from vew_search_employee_detail where employee_id = '" + strEmployeeId + "' and head_office_id = '" + strHeadOfficeId + "' AND branch_office_id = '" + strBranchOfficeId + "' ";
 

@@ -144,7 +144,12 @@
 
             }
         }
-      //-->
+        //-->
+
+        function isNumberKeyh(evt) {
+            var charCode = (evt.which) ? evt.which : event.keyCode;
+            return !(charCode > 31 && (charCode < 48 || charCode > 57));
+        }
     </script>
     <script type="text/javascript" language="javascript">
 
@@ -475,15 +480,13 @@
                 <asp:Label ID="Label16" runat="server" Text="No of Child at Joining :"></asp:Label>    
                 </td>
                 <td style="height: 19px; width: 247px;">
-                <asp:TextBox ID="txtNoChildJoin" runat="server" Width="211px" BackColor="White" 
-                        TextMode="Number" ></asp:TextBox>    
+                <asp:TextBox ID="txtNoChildJoin" runat="server" Width="211px" BackColor="White" onkeypress="return isNumberKeyh(event);" ></asp:TextBox>    
                 </td>
                 <td style="height: 19px; text-align: right; width: 108px;">
                 <asp:Label ID="Label18" runat="server" Text="Child at Present :"></asp:Label>        
                 </td>
                 <td style="height: 19px">
-                <asp:TextBox ID="txtNoChildPresent" runat="server" Width="211px" BackColor="White" 
-                        TextMode="Number" ></asp:TextBox>    
+                <asp:TextBox ID="txtNoChildPresent" runat="server" Width="211px" BackColor="White" onkeypress="return isNumberKeyh(event);" ></asp:TextBox>    
                 </td>
             </tr>
             <tr>
