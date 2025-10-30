@@ -7,7 +7,7 @@
     <br />
     <style type="text/css">
         .tooltip {
-            display: none;
+            D: \TFS Projects\SINHA.MEDLAR.ERP\SINHA.MEDLAR.ERP.UI\SalaryEntryWorker.aspx display: none;
             border: solid 1px #708069;
             background-color: #289642;
             color: #fff;

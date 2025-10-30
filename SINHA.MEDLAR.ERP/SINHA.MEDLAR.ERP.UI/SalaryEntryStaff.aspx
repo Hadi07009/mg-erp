@@ -175,7 +175,7 @@
                                     &nbsp;
                                 </td>
                             </tr>
-                            <tr style="display:none;">
+                            <tr style="display:normal;">
                                 <td style="width: 255px; text-align: right; height: 15px;">
                                     <asp:Label ID="Label44" runat="server" Text="Food Deduction :"></asp:Label>
                                 </td>

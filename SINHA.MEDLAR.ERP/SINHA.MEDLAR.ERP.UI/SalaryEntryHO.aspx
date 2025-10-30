@@ -171,10 +171,12 @@
                                 <td style="width: 270px; text-align: right; height: 15px;">
                                     <asp:Label ID="Label43" runat="server" Text="Food Allowance :"></asp:Label>
                                 </td>
+                                <%--onkeydown="javascript:TextName_OnKeyDown(event)"--%>
                                 <td style="width: 290px; text-align: left; height: 15px;">
                                     <asp:TextBox ID="txtFoodAllowance" runat="server" Width="130px" Height="20px" Font-Bold="True"
-                                        onkeydown="javascript:TextName_OnKeyDown(event)" BackColor="Yellow" 
-                                        ReadOnly="True"></asp:TextBox>
+                                        onkeydown="javascript:TextName_OnKeyDown(event)"
+                                         BackColor="Yellow" 
+                                        ></asp:TextBox>
                                 </td>
                                 <td style="width: 90px; text-align: right; height: 15px;">
                                     &nbsp;
