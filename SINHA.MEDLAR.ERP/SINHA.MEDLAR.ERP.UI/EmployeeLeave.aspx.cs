@@ -1986,7 +1986,7 @@ namespace SINHA.MEDLAR.ERP.UI
                 DateTime endDate = DateTime.Now;
 
                 //new code: added on 18.10.2021
-                endDate = DateTime.ParseExact(dtpStartDate.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture).AddDays(55);
+                endDate = DateTime.ParseExact(dtpStartDate.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture).AddDays(59);
                 
                 //old code: commented on 18.10.2021
                 //if (strBranchOfficeId == "110")

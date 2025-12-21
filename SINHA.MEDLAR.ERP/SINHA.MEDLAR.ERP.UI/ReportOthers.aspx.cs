@@ -724,6 +724,74 @@ namespace SINHA.MEDLAR.ERP.UI
                         lblMessage.Text = ex.Message;
                     }
         }
+                if (rdoIEmMDuration.Checked == true)
+                {
+                    try
+                    {
+
+                        EmployeeDTO objEmployeeDTO = new EmployeeDTO();
+                        EmployeeBLL objEmployeeBLL = new EmployeeBLL();
+
+                        DataTable dt = new DataTable();
+
+                        objEmployeeDTO.CardNo = txtCardNo.Text;
+                        if (ddlUnitId.SelectedValue.ToString() != " ")
+                        {
+                            objEmployeeDTO.UnitId = ddlUnitId.SelectedValue.ToString();
+                        }
+                        else
+                        {
+                            objEmployeeDTO.UnitId = "";
+                        }
+
+                        if (ddlSectionId.SelectedValue.ToString() != " ")
+                        {
+                            objEmployeeDTO.SectionId = ddlSectionId.SelectedValue.ToString();
+                        }
+                        else
+                        {
+                            objEmployeeDTO.SectionId = "";
+                        }
+                        objEmployeeDTO.Year = txtYear.Text;
+                        objEmployeeDTO.Month = txtMonth.Text;
+                        objEmployeeDTO.StatusId = null;
+
+
+                        objEmployeeDTO.CreateBy = strEmployeeId;
+                        objEmployeeDTO.HeadOfficeId = strHeadOfficeId;
+                        objEmployeeDTO.BranchOfficeId = strBranchOfficeId;
+                        string message;
+                        if (objEmployeeDTO.CardNo != "")
+                        {
+                            message = objEmployeeBLL.chkEmployeeActivation(objEmployeeDTO);
+                            if (message != "OK")
+                            {
+                                MessageBox(message);
+                                return;
+                            }
+                        }
+                        string strPath = Path.Combine(Server.MapPath("~/Reports/RptResignEmployeeSheet.rpt"));
+                        this.Context.Session["strReportPath"] = strPath;
+                        rd.Load(strPath);
+                        rd.SetDataSource(objEmployeeBLL.GetMonthlyInactiveSheet(objEmployeeDTO));
+
+                        rd.SetDatabaseLogon("erp", "erp");
+                        CrystalReportViewer1.ReportSource = rd;
+                        CrystalReportViewer1.DataBind();
+                        ReportFormatMaster();
+                        this.CrystalReportViewer1.Dispose();
+                        this.CrystalReportViewer1 = null;
+                        rd.Dispose();
+                        rd.Close();
+                        GC.Collect();
+                        GC.WaitForPendingFinalizers();
+
+                    }
+                    catch (Exception ex)
+                    {
+                        lblMessage.Text = ex.Message;
+                    }
+                }
 
 
                 if (rdoInactiveEmployeeList.Checked == true)

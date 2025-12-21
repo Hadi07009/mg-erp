@@ -121,7 +121,8 @@
                     <asp:Label ID="lblProductCataroy" runat="server" Text="Year/Month :"></asp:Label>
                 </td>
                 <td style="width: 350px; height: 27px;">
-                    <asp:TextBox ID="txtYear" runat="server" Width="211px" Height="25px" BackColor="Yellow" ReadOnly="true"></asp:TextBox>
+                    <asp:TextBox ID="txtYear" runat="server" Width="211px" Height="25px" 
+                        BackColor="Yellow"></asp:TextBox>
                     <asp:TextBox ID="txtMonth" runat="server" Width="46px" Height="25px" BackColor="Yellow" ReadOnly="false"></asp:TextBox>
                 </td>
                  <td style="text-align: right; width: 100px; height: 27px;"> Inactive Reason :</td>

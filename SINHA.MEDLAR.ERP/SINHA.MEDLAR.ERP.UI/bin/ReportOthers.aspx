@@ -281,6 +281,20 @@
             &nbsp;
         </td>
     </tr>
+      <tr>
+        <td style="width: 256px">
+        <asp:RadioButton ID="rdoIEmMDuration" runat="server" AutoPostBack="true"
+                Text="Inactive Sheet(Monthly, Duration)" GroupName="Controls" />    
+        </td>
+        <td style="width: 81px; text-align: right;">
+            &nbsp;</td>
+        <td style="width: 147px">
+            &nbsp;</td>
+        <td style="width: 79px; text-align: right;">
+            &nbsp;</td>
+        <td>
+            &nbsp;</td>
+    </tr>
               <tr>
         <td style="width: 256px">
             <asp:RadioButton ID="rdoInactiveEmpProposalSheet" runat="server" AutoPostBack="true"
