@@ -306,6 +306,7 @@
     <Content Include="SalaryEntryStaffTiffin.aspx" />
     <Content Include="SalaryEntryWorkerTiffin.aspx" />
     <Content Include="NightBillEntry.aspx" />
+    <Content Include="TiffinEntryDaily.aspx" />
     <Content Include="Timing.aspx" />
     <Content Include="Login\css\style.css" />
     <Content Include="Login\images\devider.jpg" />
@@ -1770,6 +1771,13 @@
     </Compile>
     <Compile Include="NightBillEntry.aspx.designer.cs">
       <DependentUpon>NightBillEntry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TiffinEntryDaily.aspx.cs">
+      <DependentUpon>TiffinEntryDaily.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TiffinEntryDaily.aspx.designer.cs">
+      <DependentUpon>TiffinEntryDaily.aspx</DependentUpon>
     </Compile>
     <Compile Include="Timing.aspx.cs">
       <DependentUpon>Timing.aspx</DependentUpon>
