@@ -789,6 +789,8 @@ namespace SINHA.MEDLAR.ERP.DTO
             set { strUpdateBy = value; }
 
         }
-      
+
+        public string IncrementSalaryFirst { get; set; }
+        public string IncrementSalarySecond { get; set; }
     }
 }

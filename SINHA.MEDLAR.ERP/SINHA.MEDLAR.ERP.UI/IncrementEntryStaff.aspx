@@ -247,6 +247,28 @@
                             </tr>
                             <tr>
                                 <td style="width: 303px; text-align: right">
+                                    <asp:Label ID="Label2" runat="server" Text="Increment Amount 1st :"></asp:Label></td>
+                                <td style="width: 293px; text-align: left;">
+                                    <asp:TextBox ID="txtIncrementFirst" runat="server" Width="80px" Height="20px" defaultfocus="txtWorkingDay"
+                                        onkeydown="javascript:TextName_OnKeyDown(event)" Font-Bold="True"></asp:TextBox></td>
+                                <td style="text-align: right; width: 47px;">
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td style="width: 303px; text-align: right">
+                                    <asp:Label ID="Label3" runat="server" Text="Increment Amount Miscellaneous :"></asp:Label></td></td>
+                                <td style="width: 293px; text-align: left;">
+                                    <asp:TextBox ID="txtIncrementMiselious" runat="server" Width="80px" Height="20px" defaultfocus="txtWorkingDay"
+                                        onkeydown="javascript:TextName_OnKeyDown(event)" Font-Bold="True"></asp:TextBox></td>
+                                <td style="text-align: right; width: 47px;">
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td style="width: 303px; text-align: right">
                                     <asp:Label ID="Label27" runat="server" Text="Increment Amount :"></asp:Label>
                                 </td>
                                 <td style="width: 293px; text-align: left;">

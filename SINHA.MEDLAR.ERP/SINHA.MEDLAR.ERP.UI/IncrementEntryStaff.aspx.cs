@@ -119,6 +119,8 @@ namespace SINHA.MEDLAR.ERP.UI
 
          
             txtManuaIncrement.Text = "";
+            txtIncrementMiselious.Text = string.Empty;
+            txtIncrementFirst.Text = string.Empty;
         }
 
         public void clearMsg()
@@ -669,6 +671,9 @@ namespace SINHA.MEDLAR.ERP.UI
             objSalaryDTO.Year = txtIncrementYear.Text;
             objSalaryDTO.Month = txtMonth.Text;
             objSalaryDTO.BatchNo = hfBatchNo.Value;
+
+            objSalaryDTO.IncrementSalaryFirst = txtIncrementFirst.Text;
+            objSalaryDTO.IncrementSalarySecond = txtIncrementMiselious.Text;
 
             objSalaryDTO.IncrementAmount = txtManuaIncrement.Text;
 
@@ -1451,6 +1456,24 @@ namespace SINHA.MEDLAR.ERP.UI
                 txtManuaIncrement.Text = objSalaryDTO.ManualIncrement;
             }
             txtManuaIncrement.Focus();
+
+            if (objSalaryDTO.IncrementSalaryFirst == null || objSalaryDTO.IncrementSalaryFirst == "0")
+            {
+                txtIncrementFirst.Text = "";
+            }
+            else
+            {
+                txtIncrementFirst.Text = objSalaryDTO.IncrementSalaryFirst;
+            }
+
+            if (objSalaryDTO.IncrementSalarySecond == null || objSalaryDTO.IncrementSalarySecond == "0")
+            {
+                txtIncrementMiselious.Text = "";
+            }
+            else
+            {
+                txtIncrementMiselious.Text = objSalaryDTO.IncrementSalarySecond;
+            }
         }
 
         #region "Grid View Functionality2"

@@ -3115,6 +3115,25 @@ namespace SINHA.MEDLAR.ERP.DAL
             objOracleCommand.Parameters.Add("p_update_by", OracleDbType.Varchar2, ParameterDirection.Input).Value = objSalaryDTO.UpdateBy;
             objOracleCommand.Parameters.Add("p_head_office_id", OracleDbType.Varchar2, ParameterDirection.Input).Value = objSalaryDTO.HeadOfficeId;
             objOracleCommand.Parameters.Add("p_branch_office_id", OracleDbType.Varchar2, ParameterDirection.Input).Value = objSalaryDTO.BranchOfficeId;
+
+            if (objSalaryDTO.IncrementSalaryFirst != "")
+            {
+                objOracleCommand.Parameters.Add("P_INCREMENT_SALARY_FIRST", OracleDbType.Varchar2, ParameterDirection.Input).Value = objSalaryDTO.IncrementSalaryFirst;
+            }
+            else
+            {
+                objOracleCommand.Parameters.Add("P_INCREMENT_SALARY_FIRST", OracleDbType.Varchar2, ParameterDirection.Input).Value = null;
+            }
+
+            if (objSalaryDTO.IncrementSalarySecond != "")
+            {
+                objOracleCommand.Parameters.Add("P_INCREMENT_SALARY_SECOND", OracleDbType.Varchar2, ParameterDirection.Input).Value = objSalaryDTO.IncrementSalarySecond;
+            }
+            else
+            {
+                objOracleCommand.Parameters.Add("P_INCREMENT_SALARY_SECOND", OracleDbType.Varchar2, ParameterDirection.Input).Value = null;
+            }
+
             objOracleCommand.Parameters.Add("P_MESSAGE", OracleDbType.Varchar2, 500).Direction = ParameterDirection.Output;
 
             using (OracleConnection strConn = GetConnection())
@@ -14245,8 +14264,10 @@ namespace SINHA.MEDLAR.ERP.DAL
             sql = "SELECT " +
                   "to_char(NVL(INCREMENT_AMOUNT, '0' )), " +
                   "to_char(NVL(GROSS_SALARY, '0' )), " +
-                  "NVL (TO_CHAR (JOINING_DATE, 'dd/mm/yyyy'), ' ') " +
-                  "FROM VEW_INCREMENT_SHEET_STAFF WHERE employee_id = '" + strEmployeeId + "' AND increment_year = '" + strIncrementYear + "' AND increment_month = '" + incrementMonth + "' AND batch_no = '" + batchNo + "' AND HEAD_OFFICE_ID = '" + strHeadOfficeId + "' AND BRANCH_OFFICE_ID = '" + strBranchOfficeId + "'";
+                  "NVL (TO_CHAR (JOINING_DATE, 'dd/mm/yyyy'), ' '), " +
+                  "to_char(NVL(INCREMENT_SALARY_FIRST, '0' )), " +
+                  "to_char(NVL(INCREMENT_SALARY_SECOND, '0' )) " +
+                  " FROM VEW_INCREMENT_SHEET_STAFF WHERE employee_id = '" + strEmployeeId + "' AND increment_year = '" + strIncrementYear + "' AND increment_month = '" + incrementMonth + "' AND batch_no = '" + batchNo + "' AND HEAD_OFFICE_ID = '" + strHeadOfficeId + "' AND BRANCH_OFFICE_ID = '" + strBranchOfficeId + "'";
 
             if (strUnitId.Length > 0)
             {
@@ -14271,6 +14292,8 @@ namespace SINHA.MEDLAR.ERP.DAL
                     objSalaryDTO.ManualIncrement = objDataReader.GetString(0);
                     objSalaryDTO.GrossSalary = objDataReader.GetString(1);
                     objSalaryDTO.JoiningDate = objDataReader.GetString(2);
+                    objSalaryDTO.IncrementSalaryFirst = objDataReader.GetString(3);
+                    objSalaryDTO.IncrementSalarySecond = objDataReader.GetString(4);
 
                 }
             }

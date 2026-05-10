@@ -191,7 +191,7 @@
                                 <td style="width: 264px; text-align: right">
                                     <asp:Label ID="Label41" runat="server" Text="Card No/Name :"></asp:Label>
                                 </td>
-                                <td style="width: 191px; text-align: left;">
+                                <td style="width: 342px; text-align: left;">
                                     <asp:TextBox ID="txtCardNo" runat="server" Width="54px" Height="20px" BackColor="Yellow"
                                         ReadOnly="True" Font-Bold="True" ForeColor="Red"></asp:TextBox>
                                     <asp:TextBox ID="txtEmployeeName" runat="server" Width="170px" Height="20px" BackColor="Yellow"
@@ -211,7 +211,7 @@
                                 <td style="width: 264px; text-align: right">
                                     <asp:Label ID="Label32" runat="server" Text="Designation :"></asp:Label>
                                 </td>
-                                <td style="width: 191px; text-align: left;">
+                                <td style="width: 342px; text-align: left;">
                                     <asp:TextBox ID="txtDesignationName" runat="server" Width="269px" Height="20px" BackColor="Yellow"
                                         ReadOnly="True" Font-Bold="True" ForeColor="Red"></asp:TextBox>
                                 </td>
@@ -227,7 +227,7 @@
                                 <td style="width: 264px; text-align: right">
                                     <asp:Label ID="Label27" runat="server" Text="Increment Amount :"></asp:Label>
                                 </td>
-                                <td style="width: 191px; text-align: left;">
+                                <td style="width: 342px; text-align: left;">
 
                                     <asp:TextBox ID="txtAutoIncrement" runat="server" Width="80px" Height="20px" Font-Bold="True" Enabled="false" ></asp:TextBox>
 
@@ -254,7 +254,7 @@
                                 <td style="width: 264px; text-align: right">
                                     <asp:Label ID="Label43" runat="server" Text="Joining Date/Gross :"></asp:Label>
                                 </td>
-                                <td style="width: 269px; text-align: left;">
+                                <td style="width: 342px; text-align: left;">
                                     <asp:TextBox ID="dtpJoiningDate" runat="server" Width="80px" Height="20px" defaultfocus="txtWorkingDay"
                                         Font-Bold="True" BackColor="Yellow" ReadOnly="True"></asp:TextBox>
                                     <asp:TextBox ID="txtGrossSalary" runat="server" Width="80px" Height="20px" defaultfocus="txtWorkingDay"
@@ -276,7 +276,7 @@
                                     <asp:Label ID="LblAllowGeneralIncrement" runat="server" Text="Allow Increment (5%) :"></asp:Label>
                                     
                                 </td>
-                                <td style="width: 191px; text-align: left; height: 22px;">
+                                <td style="width: 342px; text-align: left; height: 22px;">
                                     <asp:CheckBox ID="ChkAllowGeneralIncrement" runat="server" Text="" Visible="true"  Enabled="false" Checked="true"></asp:CheckBox>
                                 </td>
 
@@ -293,7 +293,7 @@
                                 <td style=" text-align: right; width: 264px;">
                                     &nbsp;
                                 </td>
-                                <td style="width: 191px; text-align: left;">
+                                <td style="width: 342px; text-align: left;">
                                     &nbsp;
                                 </td>
                                 <td style="text-align: right; width: 100px;">
@@ -338,7 +338,7 @@
                                      <asp:Label ID="Label1" runat="server" Text="Unit Group :"></asp:Label>
                                      &nbsp;
                                  </td>
-                                 <td style="width: 191px">
+                                 <td style="width: 342px">
                                      <asp:DropDownList ID="ddlUnitGroupId" runat="server" Width="274px" Height="22px">
                                          <asp:ListItem Value="" Text="Please Select"></asp:ListItem>
                                          <asp:ListItem Value="1" Text="Unit Group- 1"></asp:ListItem>
@@ -359,7 +359,7 @@
                                                     <asp:Label ID="Label34" runat="server" Text="Unit :"></asp:Label>
                                                     &nbsp;
                                                 </td>
-                                                <td style="width: 191px; height: 22px;">
+                                                <td style="width: 342px; height: 22px;">
                                                     <asp:DropDownList ID="ddlUnitId" runat="server" Width="271px" Height="20px">
                                                     </asp:DropDownList>
                                                 </td>
@@ -377,7 +377,7 @@
                                                     <asp:Label ID="Label35" runat="server" Text="Section :"></asp:Label>
                                                     &nbsp;
                                                 </td>
-                                                <td style="width: 191px">
+                                                <td style="width: 342px">
                                                     <asp:DropDownList ID="ddlSectionId" runat="server" Width="272px" Height="22px">
                                                     </asp:DropDownList>
                                                 </td>
