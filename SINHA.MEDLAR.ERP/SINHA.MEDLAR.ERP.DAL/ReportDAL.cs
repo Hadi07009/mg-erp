@@ -67856,6 +67856,71 @@ namespace SINHA.MEDLAR.ERP.DAL
             return myTable;
         }
 
+        public DataTable GetWorkerTiffinSheetByDaily(ReportDTO objReportDTO)
+        {
+
+            DataSet ds = null;
+            DataTable myTable = new DataTable();
+            try
+            {
+                string strMsg = "";
+                OracleTransaction objOracleTransaction;
+                OracleCommand objOracleCommand = new OracleCommand("SP_GET_TIFFIN_SHT_BY_DAILY");
+                objOracleCommand.CommandType = CommandType.StoredProcedure;
+
+                objOracleCommand.Parameters.Add("p_salary_year", OracleDbType.Varchar2, ParameterDirection.Input).Value = objReportDTO.Year;
+                objOracleCommand.Parameters.Add("p_salary_month", OracleDbType.Varchar2, ParameterDirection.Input).Value = objReportDTO.Month;
+                if (objReportDTO.FromDate.Length > 6)
+                {
+                    objOracleCommand.Parameters.Add("p_from_date", OracleDbType.Varchar2, ParameterDirection.Input).Value = objReportDTO.FromDate;
+                }
+                else
+                {
+
+                    objOracleCommand.Parameters.Add("p_from_date", OracleDbType.Varchar2, ParameterDirection.Input).Value = null;
+                }
+
+                objOracleCommand.Parameters.Add("p_head_office_id", OracleDbType.Varchar2, ParameterDirection.Input).Value = objReportDTO.HeadOfficeId;
+                objOracleCommand.Parameters.Add("p_branch_office_id", OracleDbType.Varchar2, ParameterDirection.Input).Value = objReportDTO.BranchOfficeId;
+
+                objOracleCommand.Parameters.Add("p_unit_id", OracleDbType.Varchar2, ParameterDirection.Input).Value = objReportDTO.UnitId;
+                objOracleCommand.Parameters.Add("p_section_id", OracleDbType.Varchar2, ParameterDirection.Input).Value = objReportDTO.SectionId;
+
+                objOracleCommand.Parameters.Add("p_unit_group_id", OracleDbType.Varchar2, ParameterDirection.Input).Value = objReportDTO.UnitGroupId;
+                objOracleCommand.Parameters.Add("p_employee_type_id", OracleDbType.Varchar2, ParameterDirection.Input).Value = objReportDTO.EmployeeTypeId;
+                objOracleCommand.Parameters.Add("p_logged_in_employee_id", OracleDbType.Varchar2, ParameterDirection.Input).Value = Convert.ToInt32(objReportDTO.UpdateBy);
+                objOracleCommand.Parameters.Add("p_dbcursor", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
+
+                string VALUE = string.Empty;
+
+                using (OracleConnection strConn = GetConnection())
+                {
+                    try
+                    {
+                        objOracleCommand.Connection = strConn;
+                        strConn.Open();
+                        trans = strConn.BeginTransaction();
+                        myTable.Load(objOracleCommand.ExecuteReader());
+                        trans.Commit();
+                        strConn.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception("Error : " + ex.Message);
+                    }
+                    finally
+                    {
+                        strConn.Close();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return myTable;
+        }
+
         public DataTable GetWorkerNightSheetByUnitGroup(ReportDTO objReportDTO)
         {
 

@@ -6334,6 +6334,29 @@ namespace SINHA.MEDLAR.ERP.BLL
             }
         }
 
+        public DataTable GetWorkerTiffinSheetByDaily(ReportDTO objReportDTO)
+        {
+            try
+            {
+                DataSet ds = new DataSet();
+                DataTable dt = new DataTable();
+                try
+                {
+                    ReportDAL objReportDAL = new ReportDAL();
+                    dt = objReportDAL.GetWorkerTiffinSheetByDaily(objReportDTO);
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public DataTable GetWorkerNightSheetByUnitGroup(ReportDTO objReportDTO)
         {
             try

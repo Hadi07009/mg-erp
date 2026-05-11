@@ -235,6 +235,18 @@ namespace SINHA.MEDLAR.ERP.BLL
 
         }
 
+        public DataTable searchTiffinEntryDaily(TiffinDTO objTiffinDTO)
+        {
+
+            DataTable dt = new DataTable();
+            TiffinDAL objTiffinDAL = new TiffinDAL();
+
+
+            dt = objTiffinDAL.searchTiffinEntryDaily(objTiffinDTO);
+            return dt;
+
+        }
+
         public DataTable searchNightBillEntry(TiffinDTO objTiffinDTO)
         {
 

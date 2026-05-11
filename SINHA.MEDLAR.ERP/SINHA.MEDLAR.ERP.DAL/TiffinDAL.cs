@@ -1885,6 +1885,74 @@ namespace SINHA.MEDLAR.ERP.DAL
 
         }
 
+        public DataTable searchTiffinEntryDaily(TiffinDTO objTiffinDTO)
+        {
+
+            DataTable dt = new DataTable();
+            string sql = "";
+
+            sql = "SELECT " +
+                   "rownum sl, " +
+                   "CARD_NO, " +
+                   "EMPLOYEE_ID, " +
+                   "EMPLOYEE_NAME, " +
+                   "DESIGNATION_NAME, " +
+                   "TIFFIN_DAY " +
+                  //'"tiffin_day_additional " +
+
+                  "FROM VEW_SEARCH_TIFFIN_E_DAILY WHERE head_office_id = '" + objTiffinDTO.HeadOfficeId + "' AND branch_office_id = '" + objTiffinDTO.BranchOfficeId + "' AND tiffin_year = '" + objTiffinDTO.Year + "'  AND tiffin_month = '" + objTiffinDTO.Month + "' " + " AND LOG_DATE = TO_DATE('" + objTiffinDTO.FromDate + "', 'DD/MM/YYYY')";
+
+            if (objTiffinDTO.UnitGroupId.Length > 0)
+            {
+
+                sql = sql + " and unit_group_id = '" + objTiffinDTO.UnitGroupId + "'";
+            }
+
+            if (objTiffinDTO.SectionId.Length > 0)
+            {
+
+                sql = sql + " and section_id = '" + objTiffinDTO.SectionId + "'";
+            }
+
+            if (objTiffinDTO.UnitId.Length > 0)
+            {
+
+                sql = sql + " and unit_id = '" + objTiffinDTO.UnitId + "'";
+            }
+
+            sql = sql + "order by SL ";
+
+            OracleCommand objCommand = new OracleCommand(sql);
+            OracleDataAdapter objDataAdapter = new OracleDataAdapter(objCommand);
+            using (OracleConnection strConn = GetConnection())
+            {
+                try
+                {
+                    objCommand.Connection = strConn;
+                    strConn.Open();
+                    objDataAdapter.Fill(dt);
+
+                }
+                catch (Exception ex)
+                {
+
+                    throw new Exception("Error : " + ex.Message);
+                }
+
+                finally
+                {
+
+                    strConn.Close();
+                }
+
+            }
+
+
+
+            return dt;
+
+        }
+
         public DataTable searchNightBillEntry(TiffinDTO objTiffinDTO)
         {
 

@@ -415,6 +415,7 @@ namespace SINHA.MEDLAR.ERP.UI
             objTiffinDTO.CardNo = txtEmpCardNo.Text;
             objTiffinDTO.Year = txtYear.Text;
             objTiffinDTO.Month = txtMonth.Text;
+            objTiffinDTO.FromDate = dtpFromDate.Text;
 
             objTiffinDTO.UnitGroupId = ddlUnitGroupId.SelectedItem.Value;
 
@@ -436,7 +437,7 @@ namespace SINHA.MEDLAR.ERP.UI
                 objTiffinDTO.SectionId = "";
             }
 
-            dt = objTiffinBLL.searchTiffinEntry(objTiffinDTO);
+            dt = objTiffinBLL.searchTiffinEntryDaily(objTiffinDTO);
 
             if (dt.Rows.Count > 0)
             {
@@ -1128,8 +1129,9 @@ namespace SINHA.MEDLAR.ERP.UI
 
                 objReportDTO.Year = txtYear.Text;
                 objReportDTO.Month = txtMonth.Text;
+                objReportDTO.FromDate = dtpFromDate.Text;
 
-                
+
                 objReportDTO.UnitGroupId = ddlUnitGroupId.SelectedItem.Value;
                 objReportDTO.EmployeeTypeId = ddlEmployeeTypeId.SelectedItem.Value;
 
@@ -1184,7 +1186,7 @@ namespace SINHA.MEDLAR.ERP.UI
                 //DataSet ds = new DataSet();
                 DataTable ds = new DataTable();
 
-                ds = (objReportBLL.GetWorkerTiffinSheetByUnitGroup(objReportDTO));
+                ds = (objReportBLL.GetWorkerTiffinSheetByDaily(objReportDTO));
                 rd.SetDataSource(ds);
                 rd.SetDatabaseLogon("erp", "erp");
                 CrystalReportViewer1.ReportSource = rd;
@@ -1680,6 +1682,13 @@ namespace SINHA.MEDLAR.ERP.UI
                     ddlSectionId.Focus();
                     return;
                 }
+                else if (dtpFromDate.Text == string.Empty)
+                {
+                    string strMsg = "Please Enter Date!!";
+                    dtpFromDate.Focus();
+                    MessageBox(strMsg);
+                    return;
+                }
                 else
                 {
                     searchEmployeeRecordforTiffin();
@@ -1916,6 +1925,15 @@ namespace SINHA.MEDLAR.ERP.UI
                     ddlEmployeeTypeId.Focus();
                     return;
                 }
+
+                if (dtpFromDate.Text == string.Empty)
+                {
+                    string strMsg = "Please Enter Date!!";
+                    dtpFromDate.Focus();
+                    MessageBox(strMsg);
+                    return;
+                }
+
                 GetWorkerTiffinSheetByUnitGroup();
                 
             }
