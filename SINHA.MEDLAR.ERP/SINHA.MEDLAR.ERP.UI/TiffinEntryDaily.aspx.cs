@@ -1176,7 +1176,7 @@ namespace SINHA.MEDLAR.ERP.UI
                 }
                 else
                 {
-                     strPath = Path.Combine(Server.MapPath("~/Reports/rptTiffinSheet.rpt"));
+                     strPath = Path.Combine(Server.MapPath("~/Reports/rptTiffinSheetDaily.rpt"));
                 }
                 
 
@@ -1295,6 +1295,7 @@ namespace SINHA.MEDLAR.ERP.UI
 
                 objReportDTO.Year = txtYear.Text;
                 objReportDTO.Month = txtMonth.Text;
+                objReportDTO.FromDate = dtpFromDate.Text;
 
 
 
@@ -1347,7 +1348,7 @@ namespace SINHA.MEDLAR.ERP.UI
                 
                 this.Context.Session["strReportPath"] = strPath;
                 rd.Load(strPath);
-                rd.SetDataSource(objReportBLL.monthlyTiffinRequisition(objReportDTO));
+                rd.SetDataSource(objReportBLL.TiffinRequiDaily(objReportDTO));
 
 
                 rd.SetDatabaseLogon("erp", "erp");
@@ -1460,6 +1461,7 @@ namespace SINHA.MEDLAR.ERP.UI
 
             objReportDTO.Year = txtYear.Text;
             objReportDTO.Month = txtMonth.Text;
+            objReportDTO.FromDate = dtpFromDate.Text;
 
 
             if (ddlSectionId.SelectedValue.ToString() != " ")
@@ -1490,7 +1492,7 @@ namespace SINHA.MEDLAR.ERP.UI
             objReportDTO.BranchOfficeId = strBranchOfficeId;
             objReportDTO.UpdateBy = strEmployeeId;
 
-            string strMsg = objReportBLL.processTiffinRequisition(objReportDTO);
+            string strMsg = objReportBLL.TiffinRequisitionDaily(objReportDTO);
 
 
 
@@ -2429,6 +2431,13 @@ namespace SINHA.MEDLAR.ERP.UI
         {
             try
             {
+                if (dtpFromDate.Text == string.Empty)
+                {
+                    string strMsgi = "Please Enter Date!!";
+                    dtpFromDate.Focus();
+                    MessageBox(strMsgi);
+                    return;
+                }
 
                 tiffinRequisition();
 

@@ -17344,6 +17344,121 @@ namespace SINHA.MEDLAR.ERP.DAL
 
         }
 
+        public DataSet TiffinRequiDaily(ReportDTO objReportDTO)
+        {
+            try
+            {
+
+                DataSet ds = null;
+                DataTable dt = new DataTable();
+                try
+                {
+                    string sql = "";
+                    sql = "SELECT " +
+                           //"decode('" + objReportDTO.Month + "',1,'JANUARY ',2,'FEBRUARY ',3,'MARCH ',4,'APRIL ',5,'MAY ',6,'JUNE ',7,'JULY ',8,'AUGUST ',9,'SEPTEMBER ',10,'OCTOBER ',11,'NOVEMBER ',12,'DECEMBER ','')|| '" + objReportDTO.Year + "' Month_YEAR, " +
+                           "month_year, " +
+                           "HEAD_OFFICE_ID, " +
+                           "HEAD_OFFICE_NAME, " +
+                           "HEAD_OFFICE_ADDRESS, " +
+                           "BRANCH_OFFICE_ID, " +
+                           "BRANCH_OFFICE_NAME, " +
+                           "BRANCH_OFFICE_ADDRESS, " +
+                           "UNIT_ID, " +
+                           "UNIT_NAME, " +
+                           "SECTION_ID, " +
+                           "SECTION_NAME, " +
+                           "TIFFIN_YEAR, " +
+                           "TIFFIN_MONTH, " +
+                           "LOG_DATE, " +
+                           "TOTAL_EMPLOYEE, " +
+                           "TOTAL_AMOUNT, " +
+                           "PAYMENT_AMOUNT_BANGLA_TOTAL, " +
+                           "requisitiion_unit, " +
+                            "(select employee_full_name from login_employee where EMPLOYEE_ID = '" + objReportDTO.UpdateBy + "') UPDATE_BY, " +
+                            "TOTAL_AMOUNT_T," +
+                            " TOTAL_AMOUNT_I, " +
+                            " TOTAL_TIFFIN_DAY " +
+
+                       " from VEW_TIFFIN_REQUI_W_DAILY  where  head_office_id = '" + objReportDTO.HeadOfficeId + "' AND branch_office_id = '" + objReportDTO.BranchOfficeId + "' AND TIFFIN_YEAR = '" + objReportDTO.Year + "' AND TIFFIN_MONTH = '" + objReportDTO.Month + "'" + " AND LOG_DATE = TO_DATE( '" + objReportDTO.FromDate + "', 'DD/MM/YYYY') ";
+
+
+
+                    //if (objReportDTO.Year.Length > 0)
+                    //{
+                    //    sql = sql + "and SALARY_YEAR = '" + objReportDTO.Year + "' ";
+
+                    //}
+
+                    //if (objReportDTO.Month.Length > 0)
+                    //{
+                    //    sql = sql + "and SALARY_MONTH = '" + objReportDTO.Month + "' ";
+
+                    //}
+
+
+                    //if (objReportDTO.UnitId.Length > 0)
+                    //{
+                    //    sql = sql + "and unit_id = '" + objReportDTO.UnitId + "' ";
+
+                    //}
+
+                    //if (objReportDTO.SectionId.Length > 0)
+                    //{
+                    //    sql = sql + "and section_id = '" + objReportDTO.SectionId + "' ";
+
+                    //}
+
+                    //sql = sql + " order by EMPLOYEE_NAME";
+
+
+                    OracleCommand objOracleCommand = new OracleCommand(sql);
+                    OracleDataAdapter objDataAdapter = new OracleDataAdapter();
+                    using (OracleConnection strConn = GetConnection())
+                    {
+                        try
+                        {
+                            objOracleCommand.Connection = strConn;
+                            strConn.Open();
+                            //strConn.BeginTransaction();
+
+                            objDataAdapter = new OracleDataAdapter(objOracleCommand);
+                            dt.Clear();
+                            //objOracleCommand.ExecuteNonQuery();
+                            ds = new System.Data.DataSet();
+                            objDataAdapter.Fill(ds, "VEW_TIFFIN_REQUI_W_DAILY");
+                            objDataAdapter.Dispose();
+                            objOracleCommand.Dispose();
+                        }
+
+                        catch (Exception ex)
+                        {
+                            throw new Exception("Error : " + ex.Message);
+
+                        }
+
+                        finally
+                        {
+
+                            strConn.Close();
+                        }
+
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
         public DataSet monthlyNightRequisition(ReportDTO objReportDTO)
         {
             try
@@ -35361,6 +35476,86 @@ namespace SINHA.MEDLAR.ERP.DAL
             objOracleCommand.Parameters.Add("p_head_office_id", OracleDbType.Varchar2, ParameterDirection.Input).Value = objReportDTO.HeadOfficeId;
             objOracleCommand.Parameters.Add("p_branch_office_id", OracleDbType.Varchar2, ParameterDirection.Input).Value = objReportDTO.BranchOfficeId;
 
+
+            objOracleCommand.Parameters.Add("P_MESSAGE", OracleDbType.Varchar2, 500).Direction = ParameterDirection.Output;
+
+            using (OracleConnection strConn = GetConnection())
+            {
+                try
+                {
+                    objOracleCommand.Connection = strConn;
+                    strConn.Open();
+                    trans = strConn.BeginTransaction();
+                    objOracleCommand.ExecuteNonQuery();
+                    trans.Commit();
+                    strConn.Close();
+                    strMsg = objOracleCommand.Parameters["P_MESSAGE"].Value.ToString();
+                }
+
+                catch (Exception ex)
+                {
+                    throw new Exception("Error : " + ex.Message);
+
+                }
+
+                finally
+                {
+
+                    strConn.Close();
+                }
+
+            }
+            return strMsg;
+        }
+
+        public string TiffinRequisitionDaily(ReportDTO objReportDTO)
+        {
+
+            string strMsg = "";
+            OracleCommand objOracleCommand = new OracleCommand("pro_tiffin_requi_daily");
+            objOracleCommand.CommandType = CommandType.StoredProcedure;
+
+            if (objReportDTO.UnitId.Length > 0)
+            {
+
+                objOracleCommand.Parameters.Add("p_unit_id", OracleDbType.Varchar2, ParameterDirection.Input).Value = objReportDTO.UnitId;
+
+            }
+            else
+            {
+
+                objOracleCommand.Parameters.Add("p_unit_id", OracleDbType.Varchar2, ParameterDirection.Input).Value = null;
+            }
+
+
+            if (objReportDTO.SectionId.Length > 0)
+            {
+
+                objOracleCommand.Parameters.Add("p_section_id", OracleDbType.Varchar2, ParameterDirection.Input).Value = objReportDTO.SectionId;
+
+            }
+            else
+            {
+
+                objOracleCommand.Parameters.Add("p_section_id", OracleDbType.Varchar2, ParameterDirection.Input).Value = null;
+            }
+
+            objOracleCommand.Parameters.Add("p_salary_year", OracleDbType.Varchar2, ParameterDirection.Input).Value = objReportDTO.Year;
+            objOracleCommand.Parameters.Add("p_salary_month", OracleDbType.Varchar2, ParameterDirection.Input).Value = objReportDTO.Month;
+
+            objOracleCommand.Parameters.Add("p_update_by", OracleDbType.Varchar2, ParameterDirection.Input).Value = objReportDTO.UpdateBy;
+            objOracleCommand.Parameters.Add("p_head_office_id", OracleDbType.Varchar2, ParameterDirection.Input).Value = objReportDTO.HeadOfficeId;
+            objOracleCommand.Parameters.Add("p_branch_office_id", OracleDbType.Varchar2, ParameterDirection.Input).Value = objReportDTO.BranchOfficeId;
+
+            if (objReportDTO.FromDate.Length > 6)
+            {
+                objOracleCommand.Parameters.Add("p_from_date", OracleDbType.Varchar2, ParameterDirection.Input).Value = objReportDTO.FromDate;
+            }
+            else
+            {
+
+                objOracleCommand.Parameters.Add("p_from_date", OracleDbType.Varchar2, ParameterDirection.Input).Value = null;
+            }
 
             objOracleCommand.Parameters.Add("P_MESSAGE", OracleDbType.Varchar2, 500).Direction = ParameterDirection.Output;
 

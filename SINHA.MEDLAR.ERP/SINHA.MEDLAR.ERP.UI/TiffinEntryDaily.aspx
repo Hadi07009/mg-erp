@@ -42,6 +42,15 @@
             }
     </script>
 
+    <script type="text/javascript">
+        $(function () {
+            $(".date").datepicker({
+                changeMonth: true,
+                changeYear: true,
+                dateFormat: 'dd/mm/yy'
+            });
+        });
+    </script>
 
     <table class="style1">
         <tr>

@@ -7785,6 +7785,32 @@ namespace SINHA.MEDLAR.ERP.BLL
 
         }
 
+        public DataSet TiffinRequiDaily(ReportDTO objReportDTO)
+        {
+            try
+            {
+                DataSet ds = new DataSet();
+                DataTable dt = new DataTable();
+                try
+                {
+
+                    ReportDAL objReportDAL = new ReportDAL();
+                    ds = objReportDAL.TiffinRequiDaily(objReportDTO);
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
         public DataSet monthlyNightRequisition(ReportDTO objReportDTO)
         {
             try
@@ -10386,6 +10412,14 @@ namespace SINHA.MEDLAR.ERP.BLL
             ReportDAL objReportDAL = new ReportDAL();
             string strMsg = "";
             strMsg = objReportDAL.processTiffinRequisition(objReportDTO);
+            return strMsg;
+        }
+
+        public string TiffinRequisitionDaily(ReportDTO objReportDTO)
+        {
+            ReportDAL objReportDAL = new ReportDAL();
+            string strMsg = "";
+            strMsg = objReportDAL.TiffinRequisitionDaily(objReportDTO);
             return strMsg;
         }
 
