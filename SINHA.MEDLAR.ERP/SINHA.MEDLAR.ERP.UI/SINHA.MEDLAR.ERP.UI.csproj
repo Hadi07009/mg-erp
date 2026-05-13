@@ -1688,6 +1688,12 @@
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="Reports\rptTiffinRequiDaily.cs">
+      <DependentUpon>rptTiffinRequiDaily.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Reports\rptTiffinRequisitionIfter.cs">
       <DependentUpon>rptTiffinRequisitionIfter.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -9993,6 +9999,10 @@
     <EmbeddedResource Include="Reports\rptNightRequisition.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptNightRequisition.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptTiffinRequiDaily.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptTiffinRequiDaily.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\rptTiffinRequisitionIfter.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

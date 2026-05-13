@@ -1341,7 +1341,7 @@ namespace SINHA.MEDLAR.ERP.UI
                 }
                 else
                 {
-                     strPath = Path.Combine(Server.MapPath("~/Reports/rptTiffinRequisition.rpt"));
+                     strPath = Path.Combine(Server.MapPath("~/Reports/rptTiffinRequiDaily.rpt"));
                 }
 
 
