@@ -16225,9 +16225,9 @@ namespace SINHA.MEDLAR.ERP.DAL
 
 
                    "FROM VEW_ATTENDENCE_SHEET WHERE LOG_DATE BETWEEN TO_DATE('" + objEmployeeDTO.FromDate + "', 'DD/MM/YYYY') and TO_DATE('" + objEmployeeDTO.ToDate + "','dd/mm/yyyy') " +
-                   "AND HEAD_OFFICE_ID = '" + objEmployeeDTO .HeadOfficeId+ "' and branch_office_id = '"+objEmployeeDTO.BranchOfficeId+"' ";
+                   "AND HEAD_OFFICE_ID = '" + objEmployeeDTO.HeadOfficeId + "' and branch_office_id = '" + objEmployeeDTO.BranchOfficeId + "' ";
 
-             if (objEmployeeDTO.SectionId.Length > 0)
+            if (objEmployeeDTO.SectionId.Length > 0)
              {
 
                  sql = sql + "and section_id = '" + objEmployeeDTO.SectionId + "'";
