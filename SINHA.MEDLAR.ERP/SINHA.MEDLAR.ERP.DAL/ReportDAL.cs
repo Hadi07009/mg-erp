@@ -3863,7 +3863,8 @@ namespace SINHA.MEDLAR.ERP.DAL
                         "JOINING_DATE, " +
                         "branch_office_address, " +
                         "(select employee_full_name from login_employee where EMPLOYEE_ID = '" + objReportDTO.UpdateBy + "') UPDATE_BY, " +
-                        "resign_date " +
+                        "resign_date, " +
+                        "TOTAL_YEAR, " +
                         "INCACTIVE_YEAR, " +
                         "INACTIVE_MONTH, " +
 
